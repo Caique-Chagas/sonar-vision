@@ -1,0 +1,131 @@
+1
+00:00:00,000 --> 00:00:05,489
+O Sonar Vision é um protótipo acadêmico de apoio à
+identificação de
+
+2
+00:00:05,489 --> 00:00:10,977
+linhas de ônibus. Este vídeo apresenta o treino
+piloto e exemplos reais
+
+3
+00:00:10,977 --> 00:00:16,466
+de detector e OCR em imagens estrangeiras. A
+interface simulada será identificada.
+
+4
+00:00:16,466 --> 00:00:21,040
+O sistema não confirma destino, sentido ou condições
+de embarque.
+
+5
+00:00:23,350 --> 00:00:28,472
+O modelo YOLO onze nano foi realmente ajustado
+durante doze épocas, em
+
+6
+00:00:28,472 --> 00:00:33,595
+Apple M um com MPS. Foram usadas cento e vinte
+famílias de
+
+7
+00:00:33,595 --> 00:00:38,717
+imagens: oitenta e quatro para treino, dezoito para
+validação e dezoito para
+
+8
+00:00:38,717 --> 00:00:43,840
+teste. O teste reservado obteve mape cinquenta de
+zero vírgula seis quatro
+
+9
+00:00:43,840 --> 00:00:48,962
+quatro e recall de zero vírgula quatro sete um. O
+recall ainda
+
+10
+00:00:48,962 --> 00:00:51,950
+é limitado e não comprova desempenho brasileiro.
+
+11
+00:00:54,200 --> 00:01:00,039
+Aqui a detecção e o OCR foram executados novamente
+para produzir esta
+
+12
+00:01:00,039 --> 00:01:05,879
+evidência. A caixa amarela vem do modelo
+customizado, e o recorte mostrado
+
+13
+00:01:05,879 --> 00:01:11,718
+é a região prevista, não uma caixa inventada. O
+texto retornado pelo
+
+14
+00:01:11,718 --> 00:01:17,557
+OCR nesta imagem foi 166. É uma imagem única de
+Bangkok. Nenhuma
+
+15
+00:01:17,557 --> 00:01:21,450
+confirmação temporal foi fabricada pela repetição
+dessa fotografia.
+
+16
+00:01:23,650 --> 00:01:28,837
+A interface oferece histórico, mensagens textuais e
+anúncio por voz. Esta captura
+
+17
+00:01:28,837 --> 00:01:34,024
+é explicitamente uma simulação, com leituras
+artificiais. Ela demonstra os estados de
+
+18
+00:01:34,024 --> 00:01:39,211
+correspondência, outra linha e incerteza, mas não
+prova que o OCR leu
+
+19
+00:01:39,211 --> 00:01:44,398
+nove sete um dê dez. A narração deste vídeo foi
+sintetizada localmente
+
+20
+00:01:44,398 --> 00:01:48,720
+e não é um teste acústico da voz no navegador.
+
+21
+00:01:50,900 --> 00:01:56,650
+O checkpoint aprovou cento e quatro testes de
+software. O OCR acertou
+
+22
+00:01:56,650 --> 00:02:02,401
+oito de nove recortes legíveis, enquanto oito outros
+recortes não tinham transcrição
+
+23
+00:02:02,401 --> 00:02:08,151
+confiável. Nos vídeos reais explorados não houve
+confirmação de código. A próxima
+
+24
+00:02:08,151 --> 00:02:13,901
+etapa é avaliar encontros brasileiros anotados e
+revisar áudio e tecnologias assistivas.
+
+25
+00:02:13,901 --> 00:02:19,651
+As imagens do dataset Bangkok são de Saint sete zero
+dois três
+
+26
+00:02:19,651 --> 00:02:25,402
+nove, com licença Creative Commons atribuição quatro
+ponto zero. A entrega continua
+
+27
+00:02:25,402 --> 00:02:26,360
+parcialmente concluída.

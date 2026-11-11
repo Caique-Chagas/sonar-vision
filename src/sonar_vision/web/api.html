@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SONAR VISION · API</title><link rel="stylesheet" href="/static/style.css"></head>
+<body><main><a href="/">Voltar à demonstração</a><h1>Contrato da API</h1>
+<p>API local do protótipo SONAR VISION. <a href="/openapi.json">Consultar schema OpenAPI completo</a>.</p>
+<p><code>POST /api/sessions</code> inicia uma sessão e retorna HTTP 202 com <code>session_id</code>.</p>
+<pre>{"route_requested":"971D-10","mode":"simulation","max_seconds":30}</pre>
+<p>Em modo <code>real</code>, informe <code>source_url</code> HTTPS direto em host autorizado pelo servidor. Exige pesos customizados.</p>
+<ul><li><code>GET /health</code>: disponibilidade e versão.</li>
+<li><code>GET /api/sessions/{id}</code>: estado, eventos e desempenho da sessão.</li>
+<li><code>DELETE /api/sessions/{id}</code>: solicita cancelamento.</li>
+<li><code>GET /api/sessions/{id}/frame</code>: último JPEG; HTTP 204 enquanto não há frame.</li>
+<li><code>GET /api/sessions/{id}/events</code>: eventos v1, sem imagens.</li>
+<li><code>GET /api/sessions/{id}/legacy</code>: adaptação para o contrato do grupo.</li></ul>
+<h2>Semântica</h2><p>CONFIRMED exige pelo menos três frames e refere-se apenas ao código visual. MATCH indica igualdade com o código completo solicitado; NON_MATCH indica outra linha. UNCERTAIN impede anúncio positivo. Destino e tempo parado permanecem nulos.</p>
+<p>Scores de detector e OCR são separados e não são probabilidades calibradas. Eventos artificiais carregam <code>simulated=true</code> e <code>source=simulation</code>.</p>
+<p>422: entrada/fonte inválida; 503: pesos ausentes; 429: capacidade ocupada; 404: sessão expirada/inexistente; 413: payload acima de 16 KiB. Falhas posteriores de inicialização ou vídeo aparecem como estado ERROR da sessão.</p>
+</main></body></html>

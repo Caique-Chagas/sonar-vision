@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sonar-vision"
+version = "0.1.0"
+description = "Protótipo acadêmico de identificação visual de linhas de ônibus"
+requires-python = ">=3.11,<3.13"
+license = "AGPL-3.0-only"
+dependencies = [
+  "fastapi>=0.115,<1", "uvicorn>=0.30,<1", "pydantic>=2.10,<3",
+  "pydantic-settings>=2.7,<3", "numpy>=1.26,<2.4",
+  "opencv-python==4.10.0.84", "PyYAML>=6,<7", "httpx>=0.28,<1"
+]
+
+[project.optional-dependencies]
+vision = ["ultralytics>=8.3,<9"]
+paddle = ["paddleocr>=3.0,<4", "paddlepaddle>=3.0,<4"]
+cloud = ["roboflow>=1.1,<2"]
+report = ["reportlab>=4.2,<5"]
+browser = ["playwright>=1.50,<2"]
+video = ["imageio-ffmpeg>=0.6,<1", "Pillow>=10"]
+dev = ["pytest>=8,<10", "pytest-cov>=6,<8", "ruff>=0.11,<1", "mypy>=1.15,<2", "types-PyYAML>=6"]
+
+[project.scripts]
+sonar-vision = "sonar_vision.cli.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+sonar_vision = ["web/*", "fixtures/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+ignore_missing_imports = true

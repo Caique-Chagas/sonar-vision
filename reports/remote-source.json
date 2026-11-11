@@ -1,0 +1,13 @@
+{
+  "status": "PASSED",
+  "frames": 3,
+  "shape": [
+    1080,
+    1920,
+    3
+  ],
+  "seconds": 6.22333037503995,
+  "transferred_bytes": 851968,
+  "source_url": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Road_traffic_in_Ljubljana.webm",
+  "scope": "transport_only_no_model_or_ocr"
+}

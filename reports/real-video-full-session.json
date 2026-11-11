@@ -1,0 +1,16 @@
+{
+  "session_id": "e67a5bf779c04cc8832c95e0b0b3eb12",
+  "mode": "real",
+  "state": "COMPLETED",
+  "error": null,
+  "frames_processed": 193,
+  "detections_total": 0,
+  "ocr_calls": 0,
+  "events": [],
+  "latency_ms_mean": 64.44389743662869,
+  "observed_fps": 3.5396999630471524,
+  "metrics_scope": "session",
+  "context_source": "no_operational_context",
+  "scope": "full available foreign video session; no Brazilian route ground truth",
+  "source_attribution": "Sounds of Changes / CC BY 3.0 / Wikimedia Commons"
+}

@@ -1,0 +1,31 @@
+{
+  "timestamp": "2026-11-10T20:59:09.911118-03:00",
+  "status": "PASSED",
+  "checks": [
+    {
+      "check": "lint",
+      "exit_code": 0,
+      "log": "reports/qa/lint.log"
+    },
+    {
+      "check": "format",
+      "exit_code": 0,
+      "log": "reports/qa/format.log"
+    },
+    {
+      "check": "types",
+      "exit_code": 0,
+      "log": "reports/qa/types.log"
+    },
+    {
+      "check": "dependencies",
+      "exit_code": 0,
+      "log": "reports/qa/dependencies.log"
+    },
+    {
+      "check": "tests",
+      "exit_code": 0,
+      "log": "reports/qa/tests.log"
+    }
+  ]
+}

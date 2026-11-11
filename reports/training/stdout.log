@@ -1,0 +1,471 @@
+Ultralytics 8.4.209 🚀 Python-3.12.16 torch-2.15.0 MPS (Apple M1)
+engine/trainer: agnostic_nms=False, amp=False, angle=1.0, augment=False, auto_augment=randaugment, batch=4, bgr=0.0, box=7.5, cache=False, cfg=None, channels_last=None, classes=None, close_mosaic=3, cls=0.5, cls_pw=0.0, cls_remap=True, compile=False, conf=None, copy_paste=0.0, copy_paste_mode=flip, cos_lr=False, cutmix=0.0, data=<PROJECT>/data/bangkok-pilot/data.yaml, degrees=3.0, deterministic=True, device=mps, dfl=1.5, dgrad=0.5, dis=6.0, distill_model=None, dlam=1.0, dlog=1.0, dnn=False, dropout=0.0, dynamic=False, embed=None, epochs=12, erasing=0.4, exist_ok=False, fliplr=0.0, flipud=0.0, format=torchscript, fraction=1.0, freeze=None, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, imgsz=416, iou=None, kobj=1.0, line_width=None, lr0=0.01, lrf=0.01, mask_ratio=4, max_det=300, mixup=0.0, mode=train, model=yolo11n.pt, momentum=0.937, mosaic=0.1, multi_scale=0.0, name=run, nbs=64, nms=None, opset=None, optimize=False, optimizer=auto, overlap_mask=True, patience=4, perspective=0.0, plots=True, pose=12.0, pretrained=True, profile=False, project=<PROJECT>/artifacts/training/pilot-01, quantize=None, rect=False, resume=False, retina_masks=False, rle=1.0, save=True, save_conf=False, save_crop=False, save_dir=<PROJECT>/artifacts/training/pilot-01/run, save_frames=False, save_json=False, save_period=2, save_txt=False, scale=0.2, seed=42, shear=0.0, show=False, show_boxes=True, show_conf=True, show_labels=True, simplify=True, single_cls=False, source=None, split=val, stream_buffer=False, task=detect, tile=False, time=None, tracker=tracktrack.yaml, translate=0.05, val=True, verbose=True, vid_stride=1, visualize=False, warmup_bias_lr=0.1, warmup_epochs=3.0, warmup_momentum=0.8, weight_decay=0.0005, workers=0, workspace=None
+Overriding model.yaml nc=80 with nc=1
+
+                   from  n    params  module                                       arguments                     
+  0                  -1  1       464  ultralytics.nn.modules.conv.Conv             [3, 16, 3, 2]                 
+  1                  -1  1      4672  ultralytics.nn.modules.conv.Conv             [16, 32, 3, 2]                
+  2                  -1  1      6640  ultralytics.nn.modules.block.C3k2            [32, 64, 1, False, 0.25]      
+  3                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]                
+  4                  -1  1     26080  ultralytics.nn.modules.block.C3k2            [64, 128, 1, False, 0.25]     
+  5                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+  6                  -1  1     87040  ultralytics.nn.modules.block.C3k2            [128, 128, 1, True]           
+  7                  -1  1    295424  ultralytics.nn.modules.conv.Conv             [128, 256, 3, 2]              
+  8                  -1  1    346112  ultralytics.nn.modules.block.C3k2            [256, 256, 1, True]           
+  9                  -1  1    164608  ultralytics.nn.modules.block.SPPF            [256, 256, 5]                 
+ 10                  -1  1    249728  ultralytics.nn.modules.block.C2PSA           [256, 256, 1]                 
+ 11                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+ 12             [-1, 6]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 13                  -1  1    111296  ultralytics.nn.modules.block.C3k2            [384, 128, 1, False]          
+ 14                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+ 15             [-1, 4]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 16                  -1  1     32096  ultralytics.nn.modules.block.C3k2            [256, 64, 1, False]           
+ 17                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]                
+ 18            [-1, 13]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 19                  -1  1     86720  ultralytics.nn.modules.block.C3k2            [192, 128, 1, False]          
+ 20                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+ 21            [-1, 10]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 22                  -1  1    378880  ultralytics.nn.modules.block.C3k2            [384, 256, 1, True]           
+ 23        [16, 19, 22]  1    430867  ultralytics.nn.modules.head.Detect           [1, 16, None, [64, 128, 256]] 
+YOLO11n summary: 181 layers, 2,590,035 parameters, 2,590,019 gradients, 6.5 GFLOPs
+
+Transferred 493/499 items from pretrained weights
+Freezing layer 'model.23.dfl.conv.weight'
+train: Fast image access ✅ (ping: 0.0±0.0 ms, read: 2178.4±841.0 MB/s, size: 92.8 KB)
+
+train: Scanning <PROJECT>/data/bangkok-pilot/train/labels.cache... 84 images, 9 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 84/84 20.7Mit/s 0.0s
+val: Fast image access ✅ (ping: 0.0±0.0 ms, read: 2437.6±565.6 MB/s, size: 89.5 KB)
+
+val: Scanning <PROJECT>/data/bangkok-pilot/val/labels.cache... 18 images, 1 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 18/18 10.8Mit/s 0.0s
+optimizer: 'optimizer=auto' found, ignoring 'lr0=0.01' and determining best 'optimizer' and 'lr0' automatically... 
+optimizer: AdamW(lr=0.002, momentum=0.9) with parameter groups 81 weight(decay=0.0), 88 weight(decay=0.0005), 87 bias(decay=0.0)
+Plotting labels to <PROJECT>/artifacts/training/pilot-01/run/labels.jpg... 
+Using 84 train, 18 val images for fraction=1.0 at imgsz=416
+Using 0 dataloader workers
+Logging results to <PROJECT>/artifacts/training/pilot-01/run
+Starting training for 12 epochs...
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+<PROJECT>/.venv/lib/python3.12/site-packages/torch/autograd/graph.py:1113: UserWarning: scatter_reduce_mps does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at <PYTORCH_BUILD>/aten/src/ATen/Context.cpp:224.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+<PROJECT>/.venv/lib/python3.12/site-packages/torch/autograd/graph.py:1113: UserWarning: index_put_with_accumulate_mps does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at <PYTORCH_BUILD>/aten/src/ATen/Context.cpp:224.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+
+       1/12      1.17G       2.29      13.67      2.036          3        416: 0% ──────────── 0/21  5.0s
+       1/12       1.2G      2.169      18.14      1.901          5        416: 4% ╸─────────── 1/21 1.1it/s 5.3s<18.3s
+       1/12      1.18G      2.728      19.95      1.889          5        416: 9% ━─────────── 2/21 2.6it/s 5.5s<7.3s
+       1/12      1.18G      2.847      20.24      2.124          4        416: 14% ━╸────────── 3/21 3.8it/s 5.6s<4.8s
+       1/12      1.19G      2.961      20.66      2.248          6        416: 19% ━━────────── 4/21 4.3it/s 5.8s<4.0s
+       1/12      1.21G      3.017      20.96      2.207          4        416: 23% ━━╸───────── 5/21 4.7it/s 6.0s<3.4s
+       1/12      1.19G      2.847      19.39      2.102          6        416: 28% ━━━───────── 6/21 5.1it/s 6.2s<2.9s
+       1/12      1.19G      2.736      18.53      2.009          3        416: 33% ━━━━──────── 7/21 5.6it/s 6.3s<2.5s
+       1/12      1.19G      2.814      20.18      1.965          2        416: 38% ━━━━╸─────── 8/21 5.9it/s 6.5s<2.2s
+       1/12      1.21G      2.753      18.96      1.942          5        416: 42% ━━━━━─────── 9/21 6.0it/s 6.6s<2.0s
+       1/12      1.19G      2.739      18.03      1.958          3        416: 47% ━━━━━╸────── 10/21 6.3it/s 6.8s<1.8s
+       1/12      1.19G      2.714      17.46      1.928          4        416: 52% ━━━━━━────── 11/21 6.4it/s 6.9s<1.6s
+       1/12      1.21G      2.677      16.77      1.936          4        416: 57% ━━━━━━╸───── 12/21 6.4it/s 7.1s<1.4s
+       1/12      1.21G      2.689      16.26      1.922          4        416: 61% ━━━━━━━───── 13/21 6.0it/s 7.3s<1.3s
+       1/12      1.19G      2.814      16.14      2.006          5        416: 66% ━━━━━━━━──── 14/21 6.0it/s 7.4s<1.2s
+       1/12      1.19G      2.763      15.75      1.972          3        416: 71% ━━━━━━━━╸─── 15/21 6.3it/s 7.6s<1.0s
+       1/12      1.19G      2.726       15.3      1.936          4        416: 76% ━━━━━━━━━─── 16/21 6.4it/s 7.7s<0.8s
+       1/12      1.19G      2.678      14.96      1.913          4        416: 80% ━━━━━━━━━╸── 17/21 6.5it/s 7.9s<0.6s
+       1/12      1.19G      2.674      14.56       1.91          4        416: 85% ━━━━━━━━━━── 18/21 6.4it/s 8.0s<0.5s
+       1/12      1.21G      2.672      14.17      1.902          5        416: 90% ━━━━━━━━━━╸─ 19/21 6.4it/s 8.2s<0.3s
+       1/12      1.19G      2.655      13.73        1.9          7        416: 95% ━━━━━━━━━━━─ 20/21 6.4it/s 8.3s<0.2s
+       1/12      1.19G      2.655      13.73        1.9          7        416: 100% ━━━━━━━━━━━━ 21/21 2.5it/s 8.3s
+
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 3.5s/it 1.0s<6.9s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 2.4it/s 1.2s<0.4s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 2.0it/s 1.5s
+                   all         18         17      0.147      0.118     0.0284     0.0161
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+<PROJECT>/.venv/lib/python3.12/site-packages/torch/autograd/graph.py:1113: UserWarning: scatter_reduce_mps does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at <PYTORCH_BUILD>/aten/src/ATen/Context.cpp:224.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+<PROJECT>/.venv/lib/python3.12/site-packages/torch/autograd/graph.py:1113: UserWarning: index_put_with_accumulate_mps does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at <PYTORCH_BUILD>/aten/src/ATen/Context.cpp:224.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+
+       2/12      1.22G      2.038      6.813       1.52          5        416: 0% ──────────── 0/21  0.7s
+       2/12       1.2G      2.219      7.227      1.695          4        416: 4% ╸─────────── 1/21 2.1it/s 0.8s<9.6s
+       2/12       1.2G      2.146      6.449      1.576          5        416: 9% ━─────────── 2/21 3.5it/s 1.0s<5.4s
+       2/12       1.2G      2.047      6.729      1.469          4        416: 14% ━╸────────── 3/21 4.5it/s 1.1s<4.0s
+       2/12       1.2G      2.104       6.92      1.554          5        416: 19% ━━────────── 4/21 5.0it/s 1.3s<3.4s
+       2/12       1.2G      2.131      6.967      1.559          4        416: 23% ━━╸───────── 5/21 5.5it/s 1.4s<2.9s
+       2/12      1.22G      2.149      6.624      1.565          6        416: 28% ━━━───────── 6/21 5.8it/s 1.6s<2.6s
+       2/12       1.2G      2.111      6.362      1.555          5        416: 33% ━━━━──────── 7/21 6.1it/s 1.7s<2.3s
+       2/12      1.22G      2.241      6.377      1.598          6        416: 38% ━━━━╸─────── 8/21 6.3it/s 1.9s<2.1s
+       2/12       1.2G      2.227      6.505      1.534          2        416: 42% ━━━━━─────── 9/21 6.5it/s 2.0s<1.9s
+       2/12       1.2G      2.178      6.421      1.521          5        416: 47% ━━━━━╸────── 10/21 6.6it/s 2.2s<1.7s
+       2/12       1.2G      2.148      6.336      1.528          3        416: 52% ━━━━━━────── 11/21 6.7it/s 2.3s<1.5s
+       2/12       1.2G       2.11      6.243      1.521          4        416: 57% ━━━━━━╸───── 12/21 6.8it/s 2.5s<1.3s
+       2/12       1.2G      2.131      6.268      1.535          3        416: 61% ━━━━━━━───── 13/21 6.7it/s 2.6s<1.2s
+       2/12       1.2G      2.155      6.205       1.57          4        416: 66% ━━━━━━━━──── 14/21 6.8it/s 2.8s<1.0s
+       2/12       1.2G      2.143      6.088      1.574          4        416: 71% ━━━━━━━━╸─── 15/21 6.9it/s 2.9s<0.9s
+       2/12       1.2G      2.137      6.028      1.573          4        416: 76% ━━━━━━━━━─── 16/21 6.9it/s 3.0s<0.7s
+       2/12       1.2G      2.181      6.067       1.58          5        416: 80% ━━━━━━━━━╸── 17/21 6.9it/s 3.2s<0.6s
+       2/12       1.2G      2.155      5.984      1.575          4        416: 85% ━━━━━━━━━━── 18/21 6.9it/s 3.3s<0.4s
+       2/12       1.2G      2.153       5.88      1.559          7        416: 90% ━━━━━━━━━━╸─ 19/21 6.9it/s 3.5s<0.3s
+       2/12       1.2G       2.13      5.903      1.533          4        416: 95% ━━━━━━━━━━━─ 20/21 6.8it/s 3.6s<0.1s
+       2/12       1.2G       2.13      5.903      1.533          4        416: 100% ━━━━━━━━━━━━ 21/21 5.8it/s 3.6s
+
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 1.2s/it 0.4s<2.4s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 2.7it/s 0.5s<0.4s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 4.0it/s 0.7s
+                   all         18         17      0.159       0.59      0.244     0.0672
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+<PROJECT>/.venv/lib/python3.12/site-packages/torch/autograd/graph.py:1113: UserWarning: scatter_reduce_mps does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at <PYTORCH_BUILD>/aten/src/ATen/Context.cpp:224.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+<PROJECT>/.venv/lib/python3.12/site-packages/torch/autograd/graph.py:1113: UserWarning: index_put_with_accumulate_mps does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at <PYTORCH_BUILD>/aten/src/ATen/Context.cpp:224.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+
+       3/12      1.22G      2.058      11.07      1.931          2        416: 0% ──────────── 0/21  0.7s
+       3/12      1.22G      1.932      8.031      1.687          4        416: 4% ╸─────────── 1/21 2.0it/s 0.9s<9.8s
+       3/12       1.2G       1.82      6.647      1.494          4        416: 9% ━─────────── 2/21 3.5it/s 1.0s<5.5s
+       3/12       1.2G      1.981      6.582      1.507          4        416: 14% ━╸────────── 3/21 4.5it/s 1.2s<4.0s
+       3/12       1.2G      2.163      6.323      1.594          5        416: 19% ━━────────── 4/21 5.1it/s 1.3s<3.3s
+       3/12       1.2G      2.237      6.126      1.614          5        416: 23% ━━╸───────── 5/21 5.6it/s 1.5s<2.9s
+       3/12      1.22G       2.24      6.198      1.561          4        416: 28% ━━━───────── 6/21 5.9it/s 1.6s<2.5s
+       3/12       1.2G       2.14      5.908      1.539          4        416: 33% ━━━━──────── 7/21 6.2it/s 1.8s<2.3s
+       3/12      1.22G      2.106      5.646       1.54          4        416: 38% ━━━━╸─────── 8/21 6.5it/s 1.9s<2.0s
+       3/12      1.22G      2.052      5.555      1.488          3        416: 42% ━━━━━─────── 9/21 6.6it/s 2.0s<1.8s
+       3/12      1.22G      2.094      5.497      1.458          6        416: 47% ━━━━━╸────── 10/21 6.8it/s 2.2s<1.6s
+       3/12      1.22G      2.051       5.36      1.442          4        416: 52% ━━━━━━────── 11/21 6.9it/s 2.3s<1.5s
+       3/12      1.22G       2.08      5.382       1.45          4        416: 57% ━━━━━━╸───── 12/21 6.9it/s 2.5s<1.3s
+       3/12       1.2G      2.079      5.302      1.441          5        416: 61% ━━━━━━━───── 13/21 6.8it/s 2.6s<1.2s
+       3/12       1.2G      2.083      5.191      1.427          7        416: 66% ━━━━━━━━──── 14/21 6.8it/s 2.8s<1.0s
+       3/12      1.22G      2.047      5.066      1.415          4        416: 71% ━━━━━━━━╸─── 15/21 6.9it/s 2.9s<0.9s
+       3/12       1.2G      2.072      5.032       1.44          4        416: 76% ━━━━━━━━━─── 16/21 6.9it/s 3.0s<0.7s
+       3/12      1.22G      2.088      5.096      1.453          4        416: 80% ━━━━━━━━━╸── 17/21 6.9it/s 3.2s<0.6s
+       3/12       1.2G      2.047      5.022      1.439          5        416: 85% ━━━━━━━━━━── 18/21 6.8it/s 3.3s<0.4s
+       3/12       1.2G      2.058      4.922      1.433          5        416: 90% ━━━━━━━━━━╸─ 19/21 6.8it/s 3.5s<0.3s
+       3/12       1.2G      2.051      4.835      1.432          4        416: 95% ━━━━━━━━━━━─ 20/21 6.7it/s 3.6s<0.1s
+       3/12       1.2G      2.051      4.835      1.432          4        416: 100% ━━━━━━━━━━━━ 21/21 5.8it/s 3.6s
+
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 1.2s/it 0.3s<2.3s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 2.7it/s 0.5s<0.4s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 3.9it/s 0.8s
+                   all         18         17       0.47      0.294        0.4      0.126
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+<PROJECT>/.venv/lib/python3.12/site-packages/torch/autograd/graph.py:1113: UserWarning: scatter_reduce_mps does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at <PYTORCH_BUILD>/aten/src/ATen/Context.cpp:224.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+<PROJECT>/.venv/lib/python3.12/site-packages/torch/autograd/graph.py:1113: UserWarning: index_put_with_accumulate_mps does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at <PYTORCH_BUILD>/aten/src/ATen/Context.cpp:224.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+
+       4/12      1.21G      1.849      2.808      1.203          5        416: 0% ──────────── 0/21  0.8s
+       4/12      1.21G      2.402      3.161      1.601          4        416: 4% ╸─────────── 1/21 2.0it/s 0.9s<10.2s
+       4/12      1.19G      2.101      3.123      1.571          3        416: 9% ━─────────── 2/21 3.5it/s 1.1s<5.5s
+       4/12      1.22G      2.011       3.33      1.566          3        416: 14% ━╸────────── 3/21 4.5it/s 1.2s<4.0s
+       4/12       1.2G      1.961      3.316      1.516          4        416: 19% ━━────────── 4/21 5.2it/s 1.3s<3.3s
+       4/12       1.2G      1.985      3.372      1.469          5        416: 23% ━━╸───────── 5/21 5.6it/s 1.5s<2.9s
+       4/12       1.2G      2.078      3.282      1.485          5        416: 28% ━━━───────── 6/21 6.0it/s 1.6s<2.5s
+       4/12       1.2G       2.03      3.204      1.458          6        416: 33% ━━━━──────── 7/21 6.3it/s 1.8s<2.2s
+       4/12       1.2G      1.997      3.195       1.47          3        416: 38% ━━━━╸─────── 8/21 6.5it/s 1.9s<2.0s
+       4/12       1.2G      2.001      3.218      1.464          4        416: 42% ━━━━━─────── 9/21 6.6it/s 2.1s<1.8s
+       4/12      1.22G      2.006      3.251      1.482          5        416: 47% ━━━━━╸────── 10/21 6.7it/s 2.2s<1.6s
+       4/12      1.22G      2.011      3.331      1.496          5        416: 52% ━━━━━━────── 11/21 6.8it/s 2.4s<1.5s
+       4/12      1.22G      2.003      3.335      1.475          3        416: 57% ━━━━━━╸───── 12/21 6.9it/s 2.5s<1.3s
+       4/12      1.22G       1.98      3.362      1.449          3        416: 61% ━━━━━━━───── 13/21 6.9it/s 2.7s<1.2s
+       4/12       1.2G      1.949      3.306      1.431          4        416: 66% ━━━━━━━━──── 14/21 6.9it/s 2.8s<1.0s
+       4/12      1.22G       1.96      3.331      1.437          5        416: 71% ━━━━━━━━╸─── 15/21 6.8it/s 2.9s<0.9s
+       4/12      1.22G      1.924       3.28      1.411          4        416: 76% ━━━━━━━━━─── 16/21 6.9it/s 3.1s<0.7s
+       4/12      1.22G      1.955      3.293      1.413          4        416: 80% ━━━━━━━━━╸── 17/21 6.9it/s 3.2s<0.6s
+       4/12       1.2G      1.975      3.292       1.43          3        416: 85% ━━━━━━━━━━── 18/21 6.9it/s 3.4s<0.4s
+       4/12       1.2G      2.008      3.271      1.452          4        416: 90% ━━━━━━━━━━╸─ 19/21 6.9it/s 3.5s<0.3s
+       4/12       1.2G      2.047      3.367      1.466          5        416: 95% ━━━━━━━━━━━─ 20/21 6.9it/s 3.7s<0.1s
+       4/12       1.2G      2.047      3.367      1.466          5        416: 100% ━━━━━━━━━━━━ 21/21 5.7it/s 3.7s
+
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 1.1s/it 0.3s<2.1s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 2.9it/s 0.5s<0.3s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 4.2it/s 0.7s
+                   all         18         17       0.37      0.412      0.308     0.0902
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+<PROJECT>/.venv/lib/python3.12/site-packages/torch/autograd/graph.py:1113: UserWarning: scatter_reduce_mps does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at <PYTORCH_BUILD>/aten/src/ATen/Context.cpp:224.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+<PROJECT>/.venv/lib/python3.12/site-packages/torch/autograd/graph.py:1113: UserWarning: index_put_with_accumulate_mps does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at <PYTORCH_BUILD>/aten/src/ATen/Context.cpp:224.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+
+       5/12      1.22G      2.232      4.134      1.087          4        416: 0% ──────────── 0/21  0.7s
+       5/12       1.2G      2.017      3.622      1.236          4        416: 4% ╸─────────── 1/21 2.1it/s 0.8s<9.7s
+       5/12       1.2G      1.901      3.381      1.213          4        416: 9% ━─────────── 2/21 3.5it/s 0.9s<5.4s
+       5/12       1.2G      1.895      3.197      1.256          5        416: 14% ━╸────────── 3/21 4.6it/s 1.1s<3.9s
+       5/12       1.2G       1.82      3.174       1.24          4        416: 19% ━━────────── 4/21 5.3it/s 1.2s<3.2s
+       5/12       1.2G      1.892      3.438      1.371          3        416: 23% ━━╸───────── 5/21 5.7it/s 1.4s<2.8s
+       5/12       1.2G      1.817      3.365      1.354          3        416: 28% ━━━───────── 6/21 6.1it/s 1.5s<2.4s
+       5/12      1.22G      1.911      4.066      1.407          3        416: 33% ━━━━──────── 7/21 6.4it/s 1.7s<2.2s
+       5/12       1.2G      1.922      3.921       1.39          5        416: 38% ━━━━╸─────── 8/21 6.5it/s 1.8s<2.0s
+       5/12       1.2G      1.927      3.803      1.395          5        416: 42% ━━━━━─────── 9/21 6.5it/s 2.0s<1.8s
+       5/12       1.2G      1.939      3.686      1.385          4        416: 47% ━━━━━╸────── 10/21 6.1it/s 2.2s<1.8s
+       5/12       1.2G      1.924      3.663      1.392          5        416: 52% ━━━━━━────── 11/21 6.2it/s 2.3s<1.6s
+       5/12      1.22G      1.976      3.661      1.399          5        416: 57% ━━━━━━╸───── 12/21 6.4it/s 2.5s<1.4s
+       5/12       1.2G      1.986      3.618      1.419          4        416: 61% ━━━━━━━───── 13/21 6.6it/s 2.6s<1.2s
+       5/12       1.2G      1.974      3.607      1.443          5        416: 66% ━━━━━━━━──── 14/21 6.6it/s 2.7s<1.1s
+       5/12      1.22G      1.995      3.663      1.432          4        416: 71% ━━━━━━━━╸─── 15/21 6.6it/s 2.9s<0.9s
+       5/12       1.2G      1.963      3.644      1.423          3        416: 76% ━━━━━━━━━─── 16/21 6.6it/s 3.1s<0.8s
+       5/12       1.2G      1.958       3.62       1.42          4        416: 80% ━━━━━━━━━╸── 17/21 6.6it/s 3.2s<0.6s
+       5/12       1.2G      1.966       3.62      1.434          6        416: 85% ━━━━━━━━━━── 18/21 6.6it/s 3.4s<0.5s
+       5/12       1.2G      1.952      3.609      1.412          5        416: 90% ━━━━━━━━━━╸─ 19/21 6.7it/s 3.5s<0.3s
+       5/12       1.2G      1.932      3.571      1.412          4        416: 95% ━━━━━━━━━━━─ 20/21 6.7it/s 3.6s<0.1s
+       5/12       1.2G      1.932      3.571      1.412          4        416: 100% ━━━━━━━━━━━━ 21/21 5.8it/s 3.6s
+
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 1.3s/it 0.4s<2.5s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 2.9it/s 0.5s<0.3s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 3.8it/s 0.8s
+                   all         18         17      0.454      0.353      0.256     0.0777
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+<PROJECT>/.venv/lib/python3.12/site-packages/torch/autograd/graph.py:1113: UserWarning: scatter_reduce_mps does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at <PYTORCH_BUILD>/aten/src/ATen/Context.cpp:224.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+<PROJECT>/.venv/lib/python3.12/site-packages/torch/autograd/graph.py:1113: UserWarning: index_put_with_accumulate_mps does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at <PYTORCH_BUILD>/aten/src/ATen/Context.cpp:224.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+
+       6/12      1.22G      2.202      3.546      1.807          4        416: 0% ──────────── 0/21  0.9s
+       6/12       1.2G      1.966      3.484      1.525          5        416: 4% ╸─────────── 1/21 1.9it/s 1.0s<10.5s
+       6/12       1.2G       1.89      3.345      1.463          4        416: 9% ━─────────── 2/21 3.4it/s 1.2s<5.6s
+       6/12      1.22G      1.835       3.25      1.474          4        416: 14% ━╸────────── 3/21 4.5it/s 1.3s<4.0s
+       6/12       1.2G      1.891      3.214      1.471          5        416: 19% ━━────────── 4/21 5.2it/s 1.5s<3.2s
+       6/12       1.2G      1.876      3.284      1.446          5        416: 23% ━━╸───────── 5/21 5.6it/s 1.6s<2.8s
+       6/12       1.2G      1.924      3.162      1.464          5        416: 28% ━━━───────── 6/21 5.9it/s 1.8s<2.6s
+       6/12       1.2G      1.992      3.097      1.502          5        416: 33% ━━━━──────── 7/21 6.1it/s 1.9s<2.3s
+       6/12      1.22G      1.954      3.005      1.484          4        416: 38% ━━━━╸─────── 8/21 6.4it/s 2.1s<2.0s
+       6/12       1.2G      1.915      2.938      1.446          4        416: 42% ━━━━━─────── 9/21 6.5it/s 2.2s<1.8s
+       6/12       1.2G      1.906       2.92       1.45          4        416: 47% ━━━━━╸────── 10/21 6.6it/s 2.4s<1.7s
+       6/12      1.22G      1.878      2.861      1.439          5        416: 52% ━━━━━━────── 11/21 6.6it/s 2.5s<1.5s
+       6/12       1.2G      1.931      2.828      1.466          6        416: 57% ━━━━━━╸───── 12/21 6.7it/s 2.6s<1.3s
+       6/12      1.22G      1.902       2.89      1.451          3        416: 61% ━━━━━━━───── 13/21 6.8it/s 2.8s<1.2s
+       6/12       1.2G      1.913       2.89      1.449          4        416: 66% ━━━━━━━━──── 14/21 6.8it/s 2.9s<1.0s
+       6/12      1.22G      1.893       2.87      1.431          4        416: 71% ━━━━━━━━╸─── 15/21 6.8it/s 3.1s<0.9s
+       6/12       1.2G      1.901      2.871      1.447          4        416: 76% ━━━━━━━━━─── 16/21 6.8it/s 3.2s<0.7s
+       6/12       1.2G      1.882      2.852       1.43          3        416: 80% ━━━━━━━━━╸── 17/21 6.8it/s 3.4s<0.6s
+       6/12      1.22G      1.908       2.84      1.436          5        416: 85% ━━━━━━━━━━── 18/21 6.8it/s 3.5s<0.4s
+       6/12       1.2G      1.879      2.838      1.422          2        416: 90% ━━━━━━━━━━╸─ 19/21 6.8it/s 3.7s<0.3s
+       6/12       1.2G      1.876      2.846      1.415          3        416: 95% ━━━━━━━━━━━─ 20/21 6.8it/s 3.8s<0.1s
+       6/12       1.2G      1.876      2.846      1.415          3        416: 100% ━━━━━━━━━━━━ 21/21 5.5it/s 3.8s
+
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 1.3s/it 0.4s<2.6s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 2.8it/s 0.5s<0.4s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 3.6it/s 0.8s
+                   all         18         17      0.279      0.235      0.258      0.103
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+<PROJECT>/.venv/lib/python3.12/site-packages/torch/autograd/graph.py:1113: UserWarning: scatter_reduce_mps does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at <PYTORCH_BUILD>/aten/src/ATen/Context.cpp:224.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+<PROJECT>/.venv/lib/python3.12/site-packages/torch/autograd/graph.py:1113: UserWarning: index_put_with_accumulate_mps does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at <PYTORCH_BUILD>/aten/src/ATen/Context.cpp:224.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+
+       7/12      1.22G      1.749      3.166      1.468          5        416: 0% ──────────── 0/21  0.7s
+       7/12       1.2G      1.701      2.435       1.42          4        416: 4% ╸─────────── 1/21 2.1it/s 0.8s<9.5s
+       7/12      1.22G      1.595      2.256      1.343          4        416: 9% ━─────────── 2/21 3.6it/s 1.0s<5.3s
+       7/12       1.2G      1.569      2.075      1.357          5        416: 14% ━╸────────── 3/21 4.6it/s 1.1s<3.9s
+       7/12       1.2G      1.756      2.139      1.413          5        416: 19% ━━────────── 4/21 5.3it/s 1.3s<3.2s
+       7/12       1.2G      1.735      2.095      1.417          5        416: 23% ━━╸───────── 5/21 5.8it/s 1.4s<2.8s
+       7/12       1.2G      1.703      2.067      1.395          3        416: 28% ━━━───────── 6/21 6.2it/s 1.6s<2.4s
+       7/12       1.2G      1.759      2.191      1.396          3        416: 33% ━━━━──────── 7/21 6.4it/s 1.7s<2.2s
+       7/12      1.22G      1.759       2.12       1.39          4        416: 38% ━━━━╸─────── 8/21 6.5it/s 1.8s<2.0s
+       7/12      1.22G      1.792      2.091      1.389          8        416: 42% ━━━━━─────── 9/21 6.6it/s 2.0s<1.8s
+       7/12       1.2G      1.806      2.098      1.395          4        416: 47% ━━━━━╸────── 10/21 6.7it/s 2.1s<1.6s
+       7/12       1.2G      1.788      2.116      1.381          4        416: 52% ━━━━━━────── 11/21 6.8it/s 2.3s<1.5s
+       7/12       1.2G      1.807      2.156       1.43          4        416: 57% ━━━━━━╸───── 12/21 6.8it/s 2.4s<1.3s
+       7/12       1.2G      1.806      2.146       1.44          4        416: 61% ━━━━━━━───── 13/21 6.9it/s 2.6s<1.2s
+       7/12      1.22G      1.813      2.182      1.453          4        416: 66% ━━━━━━━━──── 14/21 6.9it/s 2.7s<1.0s
+       7/12      1.22G      1.861      2.207      1.469          5        416: 71% ━━━━━━━━╸─── 15/21 6.9it/s 2.9s<0.9s
+       7/12       1.2G      1.833       2.19      1.454          3        416: 76% ━━━━━━━━━─── 16/21 6.8it/s 3.0s<0.7s
+       7/12       1.2G      1.835      2.159      1.454          5        416: 80% ━━━━━━━━━╸── 17/21 6.8it/s 3.2s<0.6s
+       7/12       1.2G      1.837      2.166      1.451          6        416: 85% ━━━━━━━━━━── 18/21 6.9it/s 3.3s<0.4s
+       7/12      1.22G      1.878      2.148      1.453          7        416: 90% ━━━━━━━━━━╸─ 19/21 6.9it/s 3.4s<0.3s
+       7/12      1.22G       1.86      2.143      1.456          4        416: 95% ━━━━━━━━━━━─ 20/21 6.9it/s 3.6s<0.1s
+       7/12      1.22G       1.86      2.143      1.456          4        416: 100% ━━━━━━━━━━━━ 21/21 5.8it/s 3.6s
+
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 2.2s/it 0.7s<4.4s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 2.7it/s 0.8s<0.4s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 2.8it/s 1.1s
+                   all         18         17      0.431      0.491      0.407      0.164
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+<PROJECT>/.venv/lib/python3.12/site-packages/torch/autograd/graph.py:1113: UserWarning: scatter_reduce_mps does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at <PYTORCH_BUILD>/aten/src/ATen/Context.cpp:224.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+<PROJECT>/.venv/lib/python3.12/site-packages/torch/autograd/graph.py:1113: UserWarning: index_put_with_accumulate_mps does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at <PYTORCH_BUILD>/aten/src/ATen/Context.cpp:224.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+
+       8/12      1.22G      1.358       2.04     0.9936          5        416: 0% ──────────── 0/21  0.7s
+       8/12      1.21G      1.616      2.133      1.091          5        416: 4% ╸─────────── 1/21 2.0it/s 0.8s<9.8s
+       8/12      1.21G      1.596      2.161      1.198          4        416: 9% ━─────────── 2/21 3.6it/s 0.9s<5.3s
+       8/12      1.21G      1.655      2.023      1.289          5        416: 14% ━╸────────── 3/21 4.6it/s 1.1s<3.9s
+       8/12      1.21G       1.72      2.096      1.274          4        416: 19% ━━────────── 4/21 5.4it/s 1.2s<3.2s
+       8/12      1.21G      1.734      1.998      1.306          5        416: 23% ━━╸───────── 5/21 5.5it/s 1.4s<2.9s
+       8/12      1.21G      1.824       1.96      1.314          8        416: 28% ━━━───────── 6/21 5.9it/s 1.5s<2.6s
+       8/12      1.21G       1.82      1.904      1.324          4        416: 33% ━━━━──────── 7/21 6.1it/s 1.7s<2.3s
+       8/12      1.21G      1.808      1.901      1.335          3        416: 38% ━━━━╸─────── 8/21 6.3it/s 1.8s<2.1s
+       8/12      1.23G      1.777      1.917      1.321          4        416: 42% ━━━━━─────── 9/21 6.4it/s 2.0s<1.9s
+       8/12      1.23G      1.817      1.949       1.33          3        416: 47% ━━━━━╸────── 10/21 6.3it/s 2.2s<1.8s
+       8/12      1.23G      1.769       1.96      1.316          3        416: 52% ━━━━━━────── 11/21 6.4it/s 2.3s<1.6s
+       8/12      1.21G      1.738      1.981      1.283          3        416: 57% ━━━━━━╸───── 12/21 6.5it/s 2.5s<1.4s
+       8/12      1.21G      1.781       2.01      1.293          6        416: 61% ━━━━━━━───── 13/21 6.7it/s 2.6s<1.2s
+       8/12      1.21G      1.765      1.978      1.287          4        416: 66% ━━━━━━━━──── 14/21 6.8it/s 2.7s<1.0s
+       8/12      1.21G      1.745      1.953      1.285          3        416: 71% ━━━━━━━━╸─── 15/21 6.9it/s 2.9s<0.9s
+       8/12      1.21G      1.744      1.949      1.297          5        416: 76% ━━━━━━━━━─── 16/21 6.9it/s 3.0s<0.7s
+       8/12      1.21G      1.725      1.957      1.315          4        416: 80% ━━━━━━━━━╸── 17/21 6.9it/s 3.2s<0.6s
+       8/12      1.21G      1.712      1.913      1.304          4        416: 85% ━━━━━━━━━━── 18/21 6.9it/s 3.3s<0.4s
+       8/12      1.21G      1.713      1.926      1.318          6        416: 90% ━━━━━━━━━━╸─ 19/21 6.9it/s 3.5s<0.3s
+       8/12      1.21G      1.698      1.904      1.314          3        416: 95% ━━━━━━━━━━━─ 20/21 6.9it/s 3.6s<0.1s
+       8/12      1.21G      1.698      1.904      1.314          3        416: 100% ━━━━━━━━━━━━ 21/21 5.8it/s 3.6s
+
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 1.1it/s 0.3s<1.9s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 3.1it/s 0.4s<0.3s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 4.5it/s 0.7s
+                   all         18         17      0.481      0.529      0.556      0.218
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+<PROJECT>/.venv/lib/python3.12/site-packages/torch/autograd/graph.py:1113: UserWarning: scatter_reduce_mps does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at <PYTORCH_BUILD>/aten/src/ATen/Context.cpp:224.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+<PROJECT>/.venv/lib/python3.12/site-packages/torch/autograd/graph.py:1113: UserWarning: index_put_with_accumulate_mps does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at <PYTORCH_BUILD>/aten/src/ATen/Context.cpp:224.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+
+       9/12      1.22G      2.271      2.223      1.851          5        416: 0% ──────────── 0/21  0.8s
+       9/12      1.22G      2.093      2.144       1.59          5        416: 4% ╸─────────── 1/21 1.6it/s 1.0s<12.5s
+       9/12      1.22G      1.987      2.032      1.483          7        416: 9% ━─────────── 2/21 3.0it/s 1.2s<6.3s
+       9/12       1.2G       1.89      2.195      1.471          5        416: 14% ━╸────────── 3/21 4.1it/s 1.3s<4.4s
+       9/12       1.2G      1.853      2.115      1.413          3        416: 19% ━━────────── 4/21 4.9it/s 1.5s<3.5s
+       9/12       1.2G      1.778      2.046      1.398          3        416: 23% ━━╸───────── 5/21 5.5it/s 1.6s<2.9s
+       9/12       1.2G       1.74      2.022      1.363          6        416: 28% ━━━───────── 6/21 5.8it/s 1.8s<2.6s
+       9/12       1.2G      1.761       1.98       1.35          4        416: 33% ━━━━──────── 7/21 6.2it/s 1.9s<2.3s
+       9/12       1.2G      1.724      1.921      1.323          4        416: 38% ━━━━╸─────── 8/21 6.4it/s 2.0s<2.0s
+       9/12       1.2G      1.729       1.88      1.305          5        416: 42% ━━━━━─────── 9/21 6.5it/s 2.2s<1.8s
+       9/12       1.2G      1.711      1.851      1.288          4        416: 47% ━━━━━╸────── 10/21 6.7it/s 2.3s<1.7s
+       9/12       1.2G      1.746      1.865      1.307          5        416: 52% ━━━━━━────── 11/21 6.8it/s 2.5s<1.5s
+       9/12       1.2G      1.719      1.869      1.318          3        416: 57% ━━━━━━╸───── 12/21 6.8it/s 2.6s<1.3s
+       9/12      1.22G      1.705      1.864       1.32          4        416: 61% ━━━━━━━───── 13/21 6.8it/s 2.8s<1.2s
+       9/12       1.2G      1.703      1.835      1.308          7        416: 66% ━━━━━━━━──── 14/21 6.8it/s 2.9s<1.0s
+       9/12       1.2G      1.743      1.828      1.321          4        416: 71% ━━━━━━━━╸─── 15/21 6.9it/s 3.1s<0.9s
+       9/12       1.2G      1.747      1.819      1.338          4        416: 76% ━━━━━━━━━─── 16/21 7.0it/s 3.2s<0.7s
+       9/12       1.2G      1.717      1.791      1.329          5        416: 80% ━━━━━━━━━╸── 17/21 7.0it/s 3.3s<0.6s
+       9/12       1.2G      1.717      1.808      1.312          4        416: 85% ━━━━━━━━━━── 18/21 6.9it/s 3.5s<0.4s
+       9/12       1.2G      1.695      1.801      1.304          4        416: 90% ━━━━━━━━━━╸─ 19/21 6.9it/s 3.6s<0.3s
+       9/12      1.22G      1.679      1.784      1.307          3        416: 95% ━━━━━━━━━━━─ 20/21 6.9it/s 3.8s<0.1s
+       9/12      1.22G      1.679      1.784      1.307          3        416: 100% ━━━━━━━━━━━━ 21/21 5.6it/s 3.8s
+
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 1.1it/s 0.3s<1.9s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 3.1it/s 0.4s<0.3s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 4.3it/s 0.7s
+                   all         18         17      0.593      0.647      0.649      0.215
+Closing dataloader mosaic
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+<PROJECT>/.venv/lib/python3.12/site-packages/torch/autograd/graph.py:1113: UserWarning: scatter_reduce_mps does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at <PYTORCH_BUILD>/aten/src/ATen/Context.cpp:224.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+<PROJECT>/.venv/lib/python3.12/site-packages/torch/autograd/graph.py:1113: UserWarning: index_put_with_accumulate_mps does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at <PYTORCH_BUILD>/aten/src/ATen/Context.cpp:224.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+
+      10/12      1.22G      1.751      1.787      1.161          4        416: 0% ──────────── 0/21  0.7s
+      10/12      1.22G       1.73      1.849      1.424          5        416: 4% ╸─────────── 1/21 1.7it/s 0.8s<11.9s
+      10/12       1.2G        1.7      1.867      1.529          4        416: 9% ━─────────── 2/21 3.3it/s 1.0s<5.8s
+      10/12      1.22G       1.61      1.727      1.411          4        416: 14% ━╸────────── 3/21 4.4it/s 1.1s<4.1s
+      10/12      1.22G      1.563      1.742      1.352          3        416: 19% ━━────────── 4/21 5.0it/s 1.3s<3.4s
+      10/12      1.21G      1.692      1.841      1.388          4        416: 23% ━━╸───────── 5/21 5.5it/s 1.4s<2.9s
+      10/12      1.23G      1.691      1.867      1.361          5        416: 28% ━━━───────── 6/21 5.9it/s 1.6s<2.6s
+      10/12      1.21G      1.706      1.805      1.352          5        416: 33% ━━━━──────── 7/21 6.2it/s 1.7s<2.3s
+      10/12      1.21G       1.79      1.775      1.336          7        416: 38% ━━━━╸─────── 8/21 6.4it/s 1.9s<2.0s
+      10/12      1.21G      1.753      1.721      1.315          5        416: 42% ━━━━━─────── 9/21 6.5it/s 2.0s<1.8s
+      10/12      1.21G      1.743      1.728      1.284          4        416: 47% ━━━━━╸────── 10/21 6.6it/s 2.2s<1.7s
+      10/12      1.21G      1.734      1.789      1.298          3        416: 52% ━━━━━━────── 11/21 6.7it/s 2.3s<1.5s
+      10/12      1.21G      1.765      1.764      1.311          6        416: 57% ━━━━━━╸───── 12/21 6.6it/s 2.5s<1.4s
+      10/12      1.21G      1.751      1.731      1.297          4        416: 61% ━━━━━━━───── 13/21 6.7it/s 2.6s<1.2s
+      10/12      1.21G      1.744      1.708      1.295          4        416: 66% ━━━━━━━━──── 14/21 6.8it/s 2.7s<1.0s
+      10/12      1.21G      1.756      1.687      1.289          5        416: 71% ━━━━━━━━╸─── 15/21 6.8it/s 2.9s<0.9s
+      10/12      1.21G      1.765      1.723      1.338          3        416: 76% ━━━━━━━━━─── 16/21 6.8it/s 3.0s<0.7s
+      10/12      1.21G      1.729      1.718      1.334          4        416: 80% ━━━━━━━━━╸── 17/21 6.6it/s 3.2s<0.6s
+      10/12      1.21G      1.709      1.711      1.324          3        416: 85% ━━━━━━━━━━── 18/21 6.6it/s 3.4s<0.5s
+      10/12      1.23G      1.693      1.705      1.321          3        416: 90% ━━━━━━━━━━╸─ 19/21 6.7it/s 3.5s<0.3s
+      10/12      1.21G      1.688      1.691      1.314          4        416: 95% ━━━━━━━━━━━─ 20/21 6.8it/s 3.6s<0.1s
+      10/12      1.21G      1.688      1.691      1.314          4        416: 100% ━━━━━━━━━━━━ 21/21 5.8it/s 3.6s
+
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 1.0s/it 0.3s<2.1s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 3.0it/s 0.4s<0.3s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 4.4it/s 0.7s
+                   all         18         17      0.708      0.647      0.689      0.294
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+<PROJECT>/.venv/lib/python3.12/site-packages/torch/autograd/graph.py:1113: UserWarning: scatter_reduce_mps does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at <PYTORCH_BUILD>/aten/src/ATen/Context.cpp:224.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+<PROJECT>/.venv/lib/python3.12/site-packages/torch/autograd/graph.py:1113: UserWarning: index_put_with_accumulate_mps does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at <PYTORCH_BUILD>/aten/src/ATen/Context.cpp:224.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+
+      11/12      1.22G       1.36      1.908      1.419          3        416: 0% ──────────── 0/21  0.7s
+      11/12       1.2G      1.713      1.628      1.505          4        416: 4% ╸─────────── 1/21 2.1it/s 0.8s<9.7s
+      11/12       1.2G      1.584      1.639      1.316          5        416: 9% ━─────────── 2/21 3.4it/s 1.0s<5.6s
+      11/12      1.21G      1.679      1.532      1.336          4        416: 14% ━╸────────── 3/21 4.5it/s 1.1s<4.0s
+      11/12      1.23G      1.562      1.499      1.318          3        416: 19% ━━────────── 4/21 5.2it/s 1.3s<3.3s
+      11/12      1.23G      1.553       1.46      1.315          3        416: 23% ━━╸───────── 5/21 5.7it/s 1.4s<2.8s
+      11/12      1.21G      1.521      1.435      1.315          4        416: 28% ━━━───────── 6/21 6.1it/s 1.5s<2.5s
+      11/12      1.21G      1.549      1.468      1.308          6        416: 33% ━━━━──────── 7/21 6.3it/s 1.7s<2.2s
+      11/12      1.23G      1.649      1.495      1.297          5        416: 38% ━━━━╸─────── 8/21 6.4it/s 1.8s<2.0s
+      11/12      1.21G      1.649      1.531       1.32          5        416: 42% ━━━━━─────── 9/21 6.5it/s 2.0s<1.8s
+      11/12      1.23G      1.633      1.517      1.312          5        416: 47% ━━━━━╸────── 10/21 6.6it/s 2.1s<1.7s
+      11/12      1.21G       1.64      1.522      1.286          3        416: 52% ━━━━━━────── 11/21 6.7it/s 2.3s<1.5s
+      11/12      1.21G      1.611      1.547      1.278          3        416: 57% ━━━━━━╸───── 12/21 6.6it/s 2.4s<1.4s
+      11/12      1.21G      1.634       1.55      1.283          3        416: 61% ━━━━━━━───── 13/21 6.7it/s 2.6s<1.2s
+      11/12      1.21G      1.633      1.535      1.273          5        416: 66% ━━━━━━━━──── 14/21 6.7it/s 2.7s<1.0s
+      11/12      1.21G      1.651      1.519      1.277          5        416: 71% ━━━━━━━━╸─── 15/21 6.8it/s 2.9s<0.9s
+      11/12      1.23G      1.639      1.524      1.271          3        416: 76% ━━━━━━━━━─── 16/21 6.8it/s 3.0s<0.7s
+      11/12      1.23G      1.621      1.517      1.262          6        416: 80% ━━━━━━━━━╸── 17/21 6.8it/s 3.2s<0.6s
+      11/12      1.21G      1.596      1.515      1.258          4        416: 85% ━━━━━━━━━━── 18/21 6.8it/s 3.3s<0.4s
+      11/12      1.21G       1.59      1.499      1.255          4        416: 90% ━━━━━━━━━━╸─ 19/21 6.8it/s 3.5s<0.3s
+      11/12      1.21G      1.597      1.504      1.256          6        416: 95% ━━━━━━━━━━━─ 20/21 6.8it/s 3.6s<0.1s
+      11/12      1.21G      1.597      1.504      1.256          6        416: 100% ━━━━━━━━━━━━ 21/21 5.8it/s 3.6s
+
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 1.1s/it 0.3s<2.3s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 3.0it/s 0.5s<0.3s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 4.1it/s 0.7s
+                   all         18         17      0.677      0.588      0.676      0.284
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+<PROJECT>/.venv/lib/python3.12/site-packages/torch/autograd/graph.py:1113: UserWarning: scatter_reduce_mps does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at <PYTORCH_BUILD>/aten/src/ATen/Context.cpp:224.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+<PROJECT>/.venv/lib/python3.12/site-packages/torch/autograd/graph.py:1113: UserWarning: index_put_with_accumulate_mps does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at <PYTORCH_BUILD>/aten/src/ATen/Context.cpp:224.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+
+      12/12      1.22G      1.823      1.281       1.29          3        416: 0% ──────────── 0/21  0.7s
+      12/12       1.2G      1.687      1.202      1.226          4        416: 4% ╸─────────── 1/21 2.0it/s 0.9s<10.1s
+      12/12      1.21G      1.575      1.527      1.319          4        416: 9% ━─────────── 2/21 3.5it/s 1.0s<5.4s
+      12/12      1.21G      1.667       1.54      1.316          7        416: 14% ━╸────────── 3/21 4.5it/s 1.1s<4.0s
+      12/12      1.21G      1.637      1.584      1.254          3        416: 19% ━━────────── 4/21 5.2it/s 1.3s<3.3s
+      12/12      1.23G      1.671      1.509      1.252          4        416: 23% ━━╸───────── 5/21 5.8it/s 1.4s<2.8s
+      12/12      1.21G      1.768      1.617      1.277          4        416: 28% ━━━───────── 6/21 6.1it/s 1.6s<2.5s
+      12/12      1.21G      1.766      1.601      1.263          5        416: 33% ━━━━──────── 7/21 6.1it/s 1.7s<2.3s
+      12/12      1.21G      1.789      1.606      1.245          8        416: 38% ━━━━╸─────── 8/21 6.3it/s 1.9s<2.1s
+      12/12      1.21G      1.793      1.642      1.236          3        416: 42% ━━━━━─────── 9/21 6.4it/s 2.0s<1.9s
+      12/12      1.21G      1.731      1.607      1.226          4        416: 47% ━━━━━╸────── 10/21 6.6it/s 2.2s<1.7s
+      12/12      1.23G      1.689      1.584      1.223          5        416: 52% ━━━━━━────── 11/21 6.6it/s 2.3s<1.5s
+      12/12      1.23G      1.664      1.562      1.224          5        416: 57% ━━━━━━╸───── 12/21 6.7it/s 2.5s<1.3s
+      12/12      1.21G      1.627      1.529      1.212          4        416: 61% ━━━━━━━───── 13/21 6.7it/s 2.6s<1.2s
+      12/12      1.21G        1.6      1.502      1.206          4        416: 66% ━━━━━━━━──── 14/21 6.8it/s 2.8s<1.0s
+      12/12      1.21G      1.569      1.478      1.191          3        416: 71% ━━━━━━━━╸─── 15/21 6.9it/s 2.9s<0.9s
+      12/12      1.21G      1.564      1.483      1.187          4        416: 76% ━━━━━━━━━─── 16/21 6.8it/s 3.1s<0.7s
+      12/12      1.21G      1.587      1.505      1.206          3        416: 80% ━━━━━━━━━╸── 17/21 6.9it/s 3.2s<0.6s
+      12/12      1.21G      1.571       1.49        1.2          4        416: 85% ━━━━━━━━━━── 18/21 7.0it/s 3.3s<0.4s
+      12/12      1.21G      1.591      1.493       1.21          3        416: 90% ━━━━━━━━━━╸─ 19/21 6.9it/s 3.5s<0.3s
+      12/12      1.21G      1.598      1.486      1.219          5        416: 95% ━━━━━━━━━━━─ 20/21 6.9it/s 3.6s<0.1s
+      12/12      1.21G      1.598      1.486      1.219          5        416: 100% ━━━━━━━━━━━━ 21/21 5.8it/s 3.6s
+
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 1.0s/it 0.3s<2.1s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 3.0it/s 0.4s<0.3s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 4.4it/s 0.7s
+                   all         18         17      0.728      0.631      0.704      0.302
+
+12 epochs completed in 0.019 hours.
+Optimizer stripped from <PROJECT>/artifacts/training/pilot-01/run/weights/last.pt, 5.5MB
+Optimizer stripped from <PROJECT>/artifacts/training/pilot-01/run/weights/best.pt, 5.5MB
+
+Validating <PROJECT>/artifacts/training/pilot-01/run/weights/best.pt...
+Ultralytics 8.4.209 🚀 Python-3.12.16 torch-2.15.0 MPS (Apple M1)
+YOLO11n summary (fused): 101 layers, 2,597,051 parameters, 0 gradients, 6.4 GFLOPs
+
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 1.7s/it 0.5s<3.4s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 2.5it/s 0.7s<0.4s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 3.5it/s 0.9s
+                   all         18         17      0.721      0.608      0.704      0.302
+Speed: 0.2ms preprocess, 34.7ms inference, 0.0ms loss, 4.5ms postprocess per image
+Results saved to <PROJECT>/artifacts/training/pilot-01/run
+<PROJECT>/artifacts/training/pilot-01/run/weights/best.pt

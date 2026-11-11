@@ -1,0 +1,15 @@
+SONAR VISION — demonstração técnica do piloto, 10/11/2026.
+
+Imagem de ônibus e ROI: SAINT70239 / llsrwsaint225, Bangkok-Bus-Dataset.
+Fonte: https://universe.roboflow.com/saint70239/bangkok-bus-dataset
+Espelho: https://github.com/llsrwsaint225/Bangkok-Bus-Dataset-YOLOV8
+Licença: Creative Commons Attribution 4.0 International.
+https://creativecommons.org/licenses/by/4.0/
+Modificações: seleção de imagem de teste, caixa prevista por YOLO, recorte e redimensionamento.
+Sem endosso dos autores ao SONAR VISION.
+
+Gráficos: resultados reais deste projeto. Interface: simulação explicitamente identificada.
+Narração: voz local macOS Luciana pt-BR, sintetizada para esta apresentação.
+Não é teste acústico de Web Speech nem validação temporal brasileira.
+Legendas: temporização aproximada por capítulo, revisão humana pendente.
+Relatório e fontes completos: docs/REPORT.md e docs/DATA_SOURCES.md.

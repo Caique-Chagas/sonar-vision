@@ -1,0 +1,26 @@
+{
+  "scope": "Bangkok held-out test sign crops, not Brazilian routes",
+  "annotation_method": "Provisional transcription by agent visual inspection; human review pending",
+  "total_crops": 17,
+  "included": {
+    "00039:0": "510(1-19)",
+    "00044:0": "(510)1-19",
+    "00061:0": "A2",
+    "00068:0": "166",
+    "00077:0": "1-50",
+    "00082:0": "24",
+    "00083:0": "A2",
+    "00084:0": "137(3-48)",
+    "00085:0": "166"
+  },
+  "excluded": {
+    "00008:0": "Partially clipped digital characters, full code not readable",
+    "00023:0": "Partially clipped digital characters, full code not readable",
+    "00029:0": "Suffix not reliably legible",
+    "00052:0": "Blurred low-resolution display",
+    "00073:0": "Overexposed display",
+    "00078:0": "Clipped low-resolution display",
+    "00108:0": "Partial text outside crop boundary",
+    "00116:0": "Ambiguous suffix in blurred display"
+  }
+}

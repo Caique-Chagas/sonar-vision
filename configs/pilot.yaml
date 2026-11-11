@@ -1,0 +1,20 @@
+# Small real-data local experiment, not a calibrated production model.
+model: yolo11n.pt
+epochs: 12
+imgsz: 416
+batch: 4
+patience: 4
+seed: 42
+workers: 0
+cache: false
+deterministic: true
+save: true
+save_period: 2
+close_mosaic: 3
+fliplr: 0.0
+flipud: 0.0
+degrees: 3.0
+translate: 0.05
+scale: 0.2
+mosaic: 0.1
+mixup: 0.0

@@ -1,0 +1,11 @@
+{
+  "repository": "https://raw.githubusercontent.com/llsrwsaint225/Bangkok-Bus-Dataset-YOLOV8/",
+  "commit": "cacdb66543150261916da59eaa6ce34d89f6839e",
+  "count": 120,
+  "seed": 42,
+  "class_mapping": {
+    "Bus Line Number (1)": "destination_sign (0)"
+  },
+  "limitation": "One augmentation per source photo; video/vehicle identity unavailable",
+  "manifest_sha256": "7c51ab66dcdef0a431ec406723722600decc727ceaffe80a49b80e9c6db6601c"
+}

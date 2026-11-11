@@ -1,0 +1,20 @@
+# Starting hypothesis for a small dataset; calibrate against validation, never test.
+model: yolo11n.pt
+epochs: 30
+imgsz: 640
+batch: 8
+patience: 8
+seed: 42
+workers: 2
+cache: false
+deterministic: true
+save: true
+save_period: 5
+close_mosaic: 5
+fliplr: 0.0
+flipud: 0.0
+degrees: 3.0
+translate: 0.05
+scale: 0.2
+mosaic: 0.2
+mixup: 0.0

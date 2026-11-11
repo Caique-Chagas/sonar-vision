@@ -1,0 +1,16 @@
+{
+  "session_id": "90d394750e5447829adc76aa8ef743c8",
+  "mode": "real",
+  "state": "COMPLETED",
+  "error": null,
+  "frames_processed": 100,
+  "detections_total": 0,
+  "ocr_calls": 0,
+  "events": [],
+  "latency_ms_mean": 60.964006640715525,
+  "observed_fps": 2.969203873984519,
+  "metrics_scope": "session",
+  "context_source": "no_operational_context",
+  "scope": "real YOLO pilot + PaddleOCR pipeline on foreign public video; no Brazilian route ground truth",
+  "source_attribution": "Sounds of Changes / Road traffic in Ljubljana / CC BY 3.0 / Wikimedia Commons"
+}

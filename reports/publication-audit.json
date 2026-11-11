@@ -1,0 +1,16 @@
+{
+  "status": "PASSED",
+  "files_examined": 126,
+  "bytes_examined": 6344708,
+  "credential_pattern_findings": [],
+  "private_machine_path_findings": [],
+  "internal_operation_files_present": false,
+  "broken_relative_links": [],
+  "files_above_10_mib": [],
+  "core_source_files_unchanged": 40,
+  "test_count": 108,
+  "public_personal_identifiers": "Only the five team names and RMs supplied for the academic submission.",
+  "licenses": "AGPL-3.0-only code; Bangkok media CC BY 4.0; Wikimedia media keep attributed licenses.",
+  "metadata_changes": "Machine paths normalized; JUnit hostname removed; numeric historical metrics and model tensors unchanged.",
+  "history_policy": "Fresh Git repository with an independent initial commit; no development history imported."
+}

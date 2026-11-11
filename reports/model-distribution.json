@@ -1,0 +1,15 @@
+{
+  "source_checkpoint_sha256": "e132edf296f451b73295f077b54f39f94ce6e1cb214770ad04f14d1c6dee4e77",
+  "published_checkpoint_sha256": "9de9b7abdf4e543fe6976d0461110d02656973d78edeb7684882d3b904aaccc9",
+  "tensor_state_sha256": "1a4dee74b27b6ffff148c8d1e4ffe4fe87076fd2b792117d09df93cf06a03ddd",
+  "tensor_parameters_unchanged": true,
+  "comparison_input": "empty control frame; tensors independently compared in full",
+  "control_predictions_equal": true,
+  "modification": "Only local filesystem paths in serialized metadata normalized; no retraining or parameter changes.",
+  "classes": {
+    "0": "destination_sign"
+  },
+  "model_license": "AGPL-3.0-only; see Ultralytics licensing and repository LICENSE",
+  "training_data": "Bangkok-Bus-Dataset / SAINT70239 / CC BY 4.0",
+  "bytes": 5472794
+}

@@ -1,0 +1,46 @@
+{
+  "samples": [
+    {
+      "seconds": 60,
+      "seek": true,
+      "decoded": false
+    },
+    {
+      "seconds": 120,
+      "seek": true,
+      "decoded": false
+    },
+    {
+      "seconds": 240,
+      "seek": true,
+      "decoded": false
+    },
+    {
+      "seconds": 360,
+      "seek": true,
+      "decoded": false
+    },
+    {
+      "seconds": 480,
+      "seek": true,
+      "decoded": false
+    },
+    {
+      "seconds": 600,
+      "seek": true,
+      "decoded": false
+    },
+    {
+      "seconds": 720,
+      "seek": true,
+      "decoded": false
+    },
+    {
+      "seconds": 840,
+      "seek": true,
+      "decoded": false
+    }
+  ],
+  "transferred_bytes": 265766,
+  "scope": "source discovery only; no training or metrics"
+}

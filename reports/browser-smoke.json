@@ -1,0 +1,8 @@
+{
+  "scope": "simulation_ui_only",
+  "browser": "Chromium",
+  "page_errors": [],
+  "mobile_horizontal_overflow": false,
+  "match_non_match_uncertain": true,
+  "audio": "not verified acoustically; disabled in headless recording"
+}

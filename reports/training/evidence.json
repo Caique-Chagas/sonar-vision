@@ -1,0 +1,42 @@
+{
+  "purpose": "custom_training",
+  "status": "TRAINED",
+  "dataset_audit_sha256": "3bd8ac91045ff1f267e02a410654d8010b37bb42f6ebb69da965304105733d69",
+  "split_assurance": "origin_group_only_sequence_unknown",
+  "hardware": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python": "3.12.16",
+    "torch": "2.15.0",
+    "cuda": false,
+    "mps": true,
+    "ultralytics": "8.4.209"
+  },
+  "device": "mps",
+  "args": {
+    "epochs": 12,
+    "imgsz": 416,
+    "batch": 4,
+    "patience": 4,
+    "seed": 42,
+    "workers": 0,
+    "cache": false,
+    "deterministic": true,
+    "save": true,
+    "save_period": 2,
+    "close_mosaic": 3,
+    "fliplr": 0.0,
+    "flipud": 0.0,
+    "degrees": 3.0,
+    "translate": 0.05,
+    "scale": 0.2,
+    "mosaic": 0.1,
+    "mixup": 0.0,
+    "amp": false
+  },
+  "initialization": "yolo11n.pt",
+  "resume_checkpoint": null,
+  "run_dir": "artifacts/training/pilot-01/run",
+  "best": "artifacts/training/pilot-01/run/weights/best.pt",
+  "best_sha256": "e132edf296f451b73295f077b54f39f94ce6e1cb214770ad04f14d1c6dee4e77",
+  "last": "artifacts/training/pilot-01/run/weights/last.pt"
+}

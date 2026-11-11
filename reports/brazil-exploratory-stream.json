@@ -1,0 +1,12 @@
+{
+  "status": "PASSED",
+  "frames": 80,
+  "detections": 0,
+  "ocr_calls": 0,
+  "events": [],
+  "source_url": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Apartes_Grandes_Reportagens_-_SP_24h_-_Bloco_1-3.webm",
+  "source_attribution": "Câmara SP, CC BY 3.0, via Wikimedia Commons",
+  "scope": "exploratory unannotated first 40 seconds; no accuracy metric",
+  "transferred_bytes": 4521984,
+  "elapsed_seconds": 40.14086733292788
+}

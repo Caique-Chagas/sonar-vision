@@ -1,0 +1,134 @@
+{
+  "scope": "Bangkok held-out test sign crops, not Brazilian routes",
+  "annotation_method": "Provisional transcription by agent visual inspection; human review pending",
+  "preprocessing": "original crop, resize height up to 64px, no CLAHE",
+  "normalization": "Unicode NFKC, uppercase, strip whitespace, normalize dash",
+  "total_crops": 17,
+  "excluded_illegible": 8,
+  "evaluated": 9,
+  "exact_matches": 8,
+  "exact_accuracy_readable_subset": 0.8888888888888888,
+  "records": [
+    {
+      "crop_id": "00039:0",
+      "expected": "510(1-19)",
+      "actual": "510(1-19)",
+      "readings": [
+        {
+          "text": "510(1-19)",
+          "confidence": 0.9751977920532227
+        }
+      ],
+      "latency_ms": 167.0172919984907,
+      "exact_match": true
+    },
+    {
+      "crop_id": "00044:0",
+      "expected": "(510)1-19",
+      "actual": " 1-19(510)",
+      "readings": [
+        {
+          "text": " 1-19",
+          "confidence": 0.7734459638595581
+        },
+        {
+          "text": "(510)",
+          "confidence": 0.9760899543762207
+        }
+      ],
+      "latency_ms": 265.66916599404067,
+      "exact_match": false
+    },
+    {
+      "crop_id": "00061:0",
+      "expected": "A2",
+      "actual": "A2",
+      "readings": [
+        {
+          "text": "A2",
+          "confidence": 0.9999153017997742
+        }
+      ],
+      "latency_ms": 124.86520898528397,
+      "exact_match": true
+    },
+    {
+      "crop_id": "00068:0",
+      "expected": "166",
+      "actual": "166",
+      "readings": [
+        {
+          "text": "166",
+          "confidence": 0.9998562932014465
+        }
+      ],
+      "latency_ms": 86.52083307970315,
+      "exact_match": true
+    },
+    {
+      "crop_id": "00077:0",
+      "expected": "1-50",
+      "actual": "1-50",
+      "readings": [
+        {
+          "text": "1-50",
+          "confidence": 0.9960700273513794
+        }
+      ],
+      "latency_ms": 84.28212499711663,
+      "exact_match": true
+    },
+    {
+      "crop_id": "00082:0",
+      "expected": "24",
+      "actual": "24",
+      "readings": [
+        {
+          "text": "24",
+          "confidence": 0.9997177124023438
+        }
+      ],
+      "latency_ms": 118.63458401057869,
+      "exact_match": true
+    },
+    {
+      "crop_id": "00083:0",
+      "expected": "A2",
+      "actual": "A2",
+      "readings": [
+        {
+          "text": "A2",
+          "confidence": 0.9998224973678589
+        }
+      ],
+      "latency_ms": 86.47500001825392,
+      "exact_match": true
+    },
+    {
+      "crop_id": "00084:0",
+      "expected": "137(3-48)",
+      "actual": "137(3-48)",
+      "readings": [
+        {
+          "text": "137(3-48)",
+          "confidence": 0.9339945912361145
+        }
+      ],
+      "latency_ms": 79.32233298197389,
+      "exact_match": true
+    },
+    {
+      "crop_id": "00085:0",
+      "expected": "166",
+      "actual": "166",
+      "readings": [
+        {
+          "text": "166",
+          "confidence": 0.998382568359375
+        }
+      ],
+      "latency_ms": 97.89016703143716,
+      "exact_match": true
+    }
+  ]
+}

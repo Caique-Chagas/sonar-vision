@@ -1,0 +1,4 @@
+{
+  "source": "SONAR fictional integration fixture, not official SPTrans data",
+  "routes": ["971D-10", "971D-21", "875P-10", "8000-10"]
+}

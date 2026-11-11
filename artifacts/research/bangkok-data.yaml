@@ -1,0 +1,13 @@
+train: /kaggle/working/Bangkok-Bus-Dataset-YOLOV8/train/images
+val: /kaggle/working/Bangkok-Bus-Dataset-YOLOV8/train/images
+test: /kaggle/working/Bangkok-Bus-Dataset-YOLOV8/train/images
+
+nc: 5
+names: ['BMTA-bus', 'Bus Line Number', 'Bus Side Number', 'Destination Sign', 'TSB-Bus']
+
+roboflow:
+  workspace: saint70239
+  project: bangkok-bus-dataset
+  version: 20
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/saint70239/bangkok-bus-dataset/dataset/20

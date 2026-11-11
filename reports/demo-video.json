@@ -1,0 +1,31 @@
+{
+  "status": "PASSED",
+  "scope": "narrated pilot evidence, not Brazilian temporal validation",
+  "video": "artifacts/demo/pilot-narrated.mp4",
+  "width": 1600,
+  "height": 900,
+  "duration_seconds": 148.75,
+  "fps": 20.0,
+  "audio_rms_pcm16": 5978.347211927593,
+  "audio_voice": "macOS Luciana pt-BR",
+  "chapter_audio_seconds": [
+    21.04,
+    28.6,
+    27.25,
+    25.07,
+    35.46
+  ],
+  "audio_acoustically_reviewed": false,
+  "simulation_explicitly_labeled": true,
+  "bytes": 3103920,
+  "subtitle": "artifacts/demo/pilot-narrated.srt",
+  "subtitle_timing": "approximate word-proportional timing within each narration chapter; human review pending",
+  "encoded_chapter_seconds": [
+    23.35,
+    30.85,
+    29.45,
+    27.25,
+    37.85
+  ],
+  "full_video_and_audio_decode_verified": true
+}

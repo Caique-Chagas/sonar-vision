@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>SONAR VISION · Identificação de linhas</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#analysis">Ir para análise</a>
+  <header>
+    <a class="brand" href="/" aria-label="SONAR VISION início"><span class="mark" aria-hidden="true">◉</span> SONAR<span>VISION</span></a>
+    <span class="tag">FIAP · GLOBAL SOLUTION 2026.2</span>
+  </header>
+  <main id="analysis">
+    <div class="intro"><p class="eyebrow">ACESSIBILIDADE EM MOVIMENTO</p>
+      <h1>Qual linha está chegando?</h1>
+      <p>Uma leitura visual. Mais informação para sua decisão.</p>
+    </div>
+    <aside class="notice" aria-label="Limites do protótipo">
+      <strong>Protótipo acadêmico.</strong> A identificação da linha não confirma destino, sentido ou condições de embarque.
+      <span id="readiness">Verificando disponibilidade do modelo…</span>
+    </aside>
+    <div class="workspace">
+      <section class="panel controls" aria-labelledby="setup-title">
+        <div class="section-title"><span class="step">01</span><h2 id="setup-title">Sua análise</h2></div>
+        <form id="session-form">
+          <label for="route">Linha desejada</label>
+          <input id="route" name="route" value="971D-10" maxlength="32" required autocomplete="off" aria-describedby="route-help">
+          <small id="route-help">Use o código completo, como 971D-10.</small>
+          <label for="mode">Modo de execução</label>
+          <select id="mode" name="mode">
+            <option value="real">Inferência real · exige modelo customizado</option>
+            <option value="simulation">Simulação · leituras e cenas artificiais</option>
+          </select>
+          <label for="url">URL do vídeo</label>
+          <input id="url" name="url" type="url" placeholder="https://host-autorizado/video.mp4" aria-describedby="url-help">
+          <small id="url-help">HTTPS direto: MP4, WebM, AVI ou MJPEG em host autorizado no servidor. Não aceita páginas de vídeo.</small>
+          <label class="check"><input id="audio" type="checkbox" checked> Anunciar resultados por voz</label>
+          <p id="voice-status" class="muted">A voz depende do navegador e das vozes instaladas.</p>
+          <button id="start" type="submit">Iniciar análise <span aria-hidden="true">↗</span></button>
+          <button id="stop" class="secondary" type="button" disabled>Encerrar análise</button>
+        </form>
+        <p id="error" class="error" role="alert"></p>
+        <p class="privacy">As imagens ficam apenas na memória durante a sessão. Nenhum frame é enviado nos eventos JSON.</p>
+      </section>
+      <section class="panel monitor" aria-labelledby="monitor-title">
+        <div class="section-title"><span class="step">02</span><h2 id="monitor-title">Observação</h2><span id="state" class="state">Aguardando</span></div>
+        <div class="viewport">
+          <img id="frame" alt="Frame da análise com caixas dos letreiros e identificação das leituras" hidden>
+          <div id="empty-frame"><span class="view-symbol" aria-hidden="true">⌖</span><p>O próximo ônibus começa aqui.</p><small>Inicie uma análise para acompanhar os frames.</small></div>
+          <span id="simulation-label" class="simulation-label" hidden>SIMULAÇÃO · SEM INFERÊNCIA REAL</span>
+        </div>
+        <div class="result" role="status" aria-live="polite" aria-atomic="true">
+          <span class="eyebrow">ÚLTIMA LEITURA</span><p id="result-text">Nenhuma identificação disponível.</p>
+        </div>
+        <div class="monitor-footer"><span id="stats">0 frames processados</span><button id="repeat" class="text-button" type="button" disabled>Ouvir última informação</button></div>
+      </section>
+    </div>
+    <section class="panel history" aria-labelledby="history-title">
+      <div class="section-title"><span class="step">03</span><h2 id="history-title">Histórico da sessão</h2><span id="event-count" class="muted">0 eventos</span></div>
+      <p id="empty-history" class="muted">As leituras confirmadas e incertas aparecerão aqui, separadas por veículo observado.</p>
+      <ol id="events" aria-label="Eventos de identificação"></ol>
+    </section>
+  </main>
+  <footer>SONAR VISION <span>Visão computacional a serviço da autonomia.</span><a href="/docs">Contrato da API</a></footer>
+</body>
+</html>

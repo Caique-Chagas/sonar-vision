@@ -1,0 +1,285 @@
+{
+  "scope": "single-frame held-out images; no temporal or Brazilian route validation",
+  "model_version": "yolo-sign-sha256:e132edf296f451b73295f077b54f39f94ce6e1cb214770ad04f14d1c6dee4e77",
+  "images": 18,
+  "detections": 6,
+  "ocr_calls": 6,
+  "records": [
+    {
+      "image": "test/images/00008.jpg",
+      "detections": 0,
+      "ocr_calls": 0,
+      "latency_ms": 2940.8323749667034,
+      "events": []
+    },
+    {
+      "image": "test/images/00023.jpg",
+      "detections": 0,
+      "ocr_calls": 0,
+      "latency_ms": 54.43862499669194,
+      "events": []
+    },
+    {
+      "image": "test/images/00029.jpg",
+      "detections": 1,
+      "ocr_calls": 1,
+      "latency_ms": 373.35462507326156,
+      "events": [
+        {
+          "schema_version": "1.0",
+          "event_id": "50127755-385c-47f2-a88d-601fa6390110",
+          "timestamp": "2026-11-10T22:50:32.806980Z",
+          "stop_id": "still-test",
+          "waiting_session_id": "still-test",
+          "track_id": 1,
+          "route_requested": "971D-10",
+          "route_detected": null,
+          "destination_detected": null,
+          "detection_confidence": null,
+          "ocr_confidence": null,
+          "match_status": "UNCERTAIN",
+          "frames_considered": 1,
+          "supporting_frames": 0,
+          "source": "local_video",
+          "model_version": "yolo-sign-sha256:e132edf296f451b73295f077b54f39f94ce6e1cb214770ad04f14d1c6dee4e77",
+          "status": "UNCERTAIN",
+          "raw_texts": [
+            "510-."
+          ],
+          "reason": "Consenso temporal insuficiente. Leitura insuficiente ou ambígua",
+          "simulated": false
+        }
+      ]
+    },
+    {
+      "image": "test/images/00039.jpg",
+      "detections": 0,
+      "ocr_calls": 0,
+      "latency_ms": 83.81420909427106,
+      "events": []
+    },
+    {
+      "image": "test/images/00044.jpg",
+      "detections": 0,
+      "ocr_calls": 0,
+      "latency_ms": 56.65162508375943,
+      "events": []
+    },
+    {
+      "image": "test/images/00052.jpg",
+      "detections": 1,
+      "ocr_calls": 1,
+      "latency_ms": 61.16658297833055,
+      "events": [
+        {
+          "schema_version": "1.0",
+          "event_id": "c987ba89-f1b4-4959-91a8-34ba327c08f9",
+          "timestamp": "2026-11-10T22:50:33.021330Z",
+          "stop_id": "still-test",
+          "waiting_session_id": "still-test",
+          "track_id": 1,
+          "route_requested": "971D-10",
+          "route_detected": null,
+          "destination_detected": null,
+          "detection_confidence": null,
+          "ocr_confidence": null,
+          "match_status": "UNCERTAIN",
+          "frames_considered": 1,
+          "supporting_frames": 0,
+          "source": "local_video",
+          "model_version": "yolo-sign-sha256:e132edf296f451b73295f077b54f39f94ce6e1cb214770ad04f14d1c6dee4e77",
+          "status": "UNCERTAIN",
+          "raw_texts": [
+            ""
+          ],
+          "reason": "Consenso temporal insuficiente. Leitura insuficiente ou ambígua",
+          "simulated": false
+        }
+      ]
+    },
+    {
+      "image": "test/images/00053.jpg",
+      "detections": 0,
+      "ocr_calls": 0,
+      "latency_ms": 106.49079200811684,
+      "events": []
+    },
+    {
+      "image": "test/images/00061.jpg",
+      "detections": 0,
+      "ocr_calls": 0,
+      "latency_ms": 66.72574998810887,
+      "events": []
+    },
+    {
+      "image": "test/images/00068.jpg",
+      "detections": 1,
+      "ocr_calls": 1,
+      "latency_ms": 146.74524997826666,
+      "events": [
+        {
+          "schema_version": "1.0",
+          "event_id": "908f598b-f7ba-49f7-a513-ebd9314fe28f",
+          "timestamp": "2026-11-10T22:50:33.350552Z",
+          "stop_id": "still-test",
+          "waiting_session_id": "still-test",
+          "track_id": 1,
+          "route_requested": "971D-10",
+          "route_detected": null,
+          "destination_detected": null,
+          "detection_confidence": null,
+          "ocr_confidence": null,
+          "match_status": "UNCERTAIN",
+          "frames_considered": 1,
+          "supporting_frames": 0,
+          "source": "local_video",
+          "model_version": "yolo-sign-sha256:e132edf296f451b73295f077b54f39f94ce6e1cb214770ad04f14d1c6dee4e77",
+          "status": "UNCERTAIN",
+          "raw_texts": [
+            "166"
+          ],
+          "reason": "Consenso temporal insuficiente. Leitura insuficiente ou ambígua",
+          "simulated": false
+        }
+      ]
+    },
+    {
+      "image": "test/images/00073.jpg",
+      "detections": 0,
+      "ocr_calls": 0,
+      "latency_ms": 48.07283298578113,
+      "events": []
+    },
+    {
+      "image": "test/images/00077.jpg",
+      "detections": 1,
+      "ocr_calls": 1,
+      "latency_ms": 119.26466599106789,
+      "events": [
+        {
+          "schema_version": "1.0",
+          "event_id": "16fdf268-59f5-48b4-b83c-091c0ee70c69",
+          "timestamp": "2026-11-10T22:50:33.521915Z",
+          "stop_id": "still-test",
+          "waiting_session_id": "still-test",
+          "track_id": 1,
+          "route_requested": "971D-10",
+          "route_detected": null,
+          "destination_detected": null,
+          "detection_confidence": null,
+          "ocr_confidence": null,
+          "match_status": "UNCERTAIN",
+          "frames_considered": 1,
+          "supporting_frames": 0,
+          "source": "local_video",
+          "model_version": "yolo-sign-sha256:e132edf296f451b73295f077b54f39f94ce6e1cb214770ad04f14d1c6dee4e77",
+          "status": "UNCERTAIN",
+          "raw_texts": [
+            "1-50"
+          ],
+          "reason": "Consenso temporal insuficiente. Leitura insuficiente ou ambígua",
+          "simulated": false
+        }
+      ]
+    },
+    {
+      "image": "test/images/00078.jpg",
+      "detections": 0,
+      "ocr_calls": 0,
+      "latency_ms": 71.40366698149592,
+      "events": []
+    },
+    {
+      "image": "test/images/00082.jpg",
+      "detections": 0,
+      "ocr_calls": 0,
+      "latency_ms": 46.47120798472315,
+      "events": []
+    },
+    {
+      "image": "test/images/00083.jpg",
+      "detections": 0,
+      "ocr_calls": 0,
+      "latency_ms": 47.65587509609759,
+      "events": []
+    },
+    {
+      "image": "test/images/00084.jpg",
+      "detections": 1,
+      "ocr_calls": 1,
+      "latency_ms": 129.20958397444338,
+      "events": [
+        {
+          "schema_version": "1.0",
+          "event_id": "72caf3a6-e0fd-4537-9524-c91612332e9c",
+          "timestamp": "2026-11-10T22:50:33.825742Z",
+          "stop_id": "still-test",
+          "waiting_session_id": "still-test",
+          "track_id": 1,
+          "route_requested": "971D-10",
+          "route_detected": null,
+          "destination_detected": null,
+          "detection_confidence": null,
+          "ocr_confidence": null,
+          "match_status": "UNCERTAIN",
+          "frames_considered": 1,
+          "supporting_frames": 0,
+          "source": "local_video",
+          "model_version": "yolo-sign-sha256:e132edf296f451b73295f077b54f39f94ce6e1cb214770ad04f14d1c6dee4e77",
+          "status": "UNCERTAIN",
+          "raw_texts": [
+            "137(a-48)"
+          ],
+          "reason": "Consenso temporal insuficiente. Leitura insuficiente ou ambígua",
+          "simulated": false
+        }
+      ]
+    },
+    {
+      "image": "test/images/00085.jpg",
+      "detections": 1,
+      "ocr_calls": 1,
+      "latency_ms": 255.81883394625038,
+      "events": [
+        {
+          "schema_version": "1.0",
+          "event_id": "c21562e7-bcd2-438f-adfa-45c4274cd3d6",
+          "timestamp": "2026-11-10T22:50:34.083209Z",
+          "stop_id": "still-test",
+          "waiting_session_id": "still-test",
+          "track_id": 1,
+          "route_requested": "971D-10",
+          "route_detected": null,
+          "destination_detected": null,
+          "detection_confidence": null,
+          "ocr_confidence": null,
+          "match_status": "UNCERTAIN",
+          "frames_considered": 1,
+          "supporting_frames": 0,
+          "source": "local_video",
+          "model_version": "yolo-sign-sha256:e132edf296f451b73295f077b54f39f94ce6e1cb214770ad04f14d1c6dee4e77",
+          "status": "UNCERTAIN",
+          "raw_texts": [
+            "166"
+          ],
+          "reason": "Consenso temporal insuficiente. Leitura insuficiente ou ambígua",
+          "simulated": false
+        }
+      ]
+    },
+    {
+      "image": "test/images/00108.jpg",
+      "detections": 0,
+      "ocr_calls": 0,
+      "latency_ms": 101.67416592594236,
+      "events": []
+    },
+    {
+      "image": "test/images/00116.jpg",
+      "detections": 0,
+      "ocr_calls": 0,
+      "latency_ms": 83.27245805412531,
+      "events": []
+    }
+  ]
+}

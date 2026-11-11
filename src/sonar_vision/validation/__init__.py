@@ -1,0 +1,1 @@
+"""SONAR VISION validation components."""

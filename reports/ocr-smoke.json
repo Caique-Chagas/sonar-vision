@@ -1,0 +1,8 @@
+{
+  "scope": "synthetic_crop_integration_only",
+  "backend": "PaddleOCR 3.7.0 PP-OCRv5_mobile_det en_PP-OCRv5_mobile_rec",
+  "text": "971D-10",
+  "ocr_confidence": 0.9997121691703796,
+  "load_seconds": 55.89743858296424,
+  "read_seconds": 0.16088379197753966
+}

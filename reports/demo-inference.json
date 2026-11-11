@@ -1,0 +1,28 @@
+{
+  "scope": "selected held-out single image, not a new accuracy benchmark",
+  "source_image": "data/bangkok-pilot/test/images/00068.jpg",
+  "model_version": "yolo-sign-sha256:e132edf296f451b73295f077b54f39f94ce6e1cb214770ad04f14d1c6dee4e77",
+  "records": [
+    {
+      "detection": {
+        "box": {
+          "x1": 232.37783813476562,
+          "y1": 196.40829467773438,
+          "x2": 279.2243347167969,
+          "y2": 229.21133422851562
+        },
+        "confidence": 0.5579195022583008,
+        "label": "destination_sign"
+      },
+      "ocr": [
+        {
+          "text": "166",
+          "confidence": 0.9999352097511292
+        }
+      ],
+      "crop": "artifacts/demo/build/real-roi-0.png"
+    }
+  ],
+  "temporal_confirmation": false,
+  "attribution": "SAINT70239 / Bangkok-Bus-Dataset / CC BY 4.0"
+}

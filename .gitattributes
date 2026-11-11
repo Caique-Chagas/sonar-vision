@@ -1,0 +1,9 @@
+* text=auto eol=lf
+*.pdf binary
+*.png binary
+*.webm binary
+*.mp4 binary
+
+# Preserve padding in archived upstream license snapshots and training output.
+artifacts/research/bangkok-README*.txt -whitespace
+reports/training/stdout.log -whitespace

@@ -1,0 +1,25 @@
+{
+  "scope": "detector_test",
+  "samples": 18,
+  "split_assurance": "origin_group_only_sequence_unknown",
+  "model_sha256": "e132edf296f451b73295f077b54f39f94ce6e1cb214770ad04f14d1c6dee4e77",
+  "dataset_audit_sha256": "3bd8ac91045ff1f267e02a410654d8010b37bb42f6ebb69da965304105733d69",
+  "hardware": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python": "3.12.16",
+    "torch": "2.15.0",
+    "cuda": false,
+    "mps": true,
+    "ultralytics": "8.4.209"
+  },
+  "precision": 0.9357620303828941,
+  "recall": 0.47058823529411764,
+  "map50": 0.6439098251201961,
+  "map50_95": 0.28839991929165437,
+  "speed_ms": {
+    "preprocess": 1.2452361730134323,
+    "inference": 16.899175780256176,
+    "loss": 0.00047909432194299164,
+    "postprocess": 8.434708443625519
+  }
+}
