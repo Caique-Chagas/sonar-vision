@@ -17,6 +17,7 @@ class Settings(BaseSettings):
     min_ratio: float = Field(default=0.75, ge=0.5, le=1)
     min_ocr: float = Field(default=0.7, ge=0, le=1)
     min_detection: float = Field(default=0.35, ge=0, le=1)
+    roi_padding: float = Field(default=0.0, ge=0, le=0.25)
     evidence_seconds: float = Field(default=3, gt=0, le=10)
     min_span_seconds: float = Field(default=0.3, ge=0.1, le=5)
 

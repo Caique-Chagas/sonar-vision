@@ -1,84 +1,60 @@
-# Treinamento e persistência
+# Treinamento customizado
 
-## Experimento executado
+## BR V1 — detector de letreiro usado no pipeline
 
-`configs/pilot.yaml`: YOLO11n pré-treinado oficialmente, 12 epochs, resolução
-416, batch 4, patience 4, seed 42. Sinais pequenos motivam resolução acima do
-smoke 320; dataset pequeno e 8 GiB de RAM motivam batch/epochs modestos.
-Espelhamento foi desativado para não inverter texto. Foram usados pequenos
-deslocamentos, escala/rotação e mosaic reduzido, sem alegar configuração ótima.
-O melhor checkpoint foi selecionado pela validação; teste reservado não guiou tuning.
+YOLO11n COCO, adaptado a uma classe `destination_sign`; não inicializado pelo
+modeloBangkok. Base:33fotografias brasileiras licenciadas,30grupos,29painéis e
+4negativos. Split21/6/6imagens e19/5/5painéis. Anotação do módulo frontal principal
+completo; revisão visual do agente, sem segunda anotação humana independente.
+A base se chama commons-br-v2; a versão do detector resultante é BR V1.
 
-- Dataset: Bangkok, 120 famílias, 84/18/18, uma aumentação publicada por família.
-- Classe: Bus Line Number remapeada para destination_sign.
-- Hardware: Apple M1, MPS, 8 GiB RAM; Python 3.12.16 e PyTorch 2.15.0.
-- Smoke separado: `artifacts/training/pilot-smoke` (1 epoch, 320, batch 2).
-- Treino real: `artifacts/training/pilot-01/run`.
-- Checkpoints: `weights/best.pt`, `weights/last.pt` e arquivos periódicos de epochs.
-- Cópia de inferência: `models/best.pt`, ignorada pelo Git; obtenha a distribuição pela release e confira docs/MODEL_CARD.md.
-- Evidências pequenas versionáveis: `reports/training/evidence.json`, `args.yaml`,
-  `results.csv`, `results.png` e `reports/evaluation/detector_metrics.json`.
-- Hash do melhor modelo: e132edf296f451b73295f077b54f39f94ce6e1cb214770ad04f14d1c6dee4e77.
+40épocas,640px,batch2,MPS,seed42,workers0,AMPfalse,AdamW,lr0=0,001,lrf0,05,
+warmup3,patience12,mosaic0,5,sem flips ou mixup. Tempo acumuladoCSV436,946s.
+Melhor validação interna:mAP50=0,995,mAP50-95=0,7355. Não extrapolar esses números
+à frota brasileira. Mesmos autores e cenários limitam independência.
 
-Treino customizado foi realizado. Isso não torna o modelo validado para São Paulo.
-A divisão garante famílias separadas e auditoria de duplicatas, mas identidade de
-veículo/sequência não está disponível. Resultado é exploratório.
-PyTorch advertiu que algumas operações MPS não são determinísticas; arquivos,
-sementes e versões são registrados, sem promessa de reprodução bit a bit.
+Evidências completas numéricas: [CSV](../reports/training/br-v1/results.csv),
+[args reais](../reports/training/br-v1/args.yaml),
+[curvas](../reports/training/br-v1/results.png) e
+[fontes/anotações](datasets/br-v1-sources.json).
 
-## Reproduzir ou retomar
+## V3 — detector de ônibus usado na composição
 
-Os comandos completos estão no README. `sonar-vision hardware` detecta CUDA/MPS.
-O preparador exige um manifesto CSV com image,label,group_id,source,license.
-As caixas devem estar em YOLO normalizado, classe única 0. Fonte e licença
-precisam ter sido verificadas; o campo textual não substitui essa verificação.
-Informe `--sequence-reviewed` somente após conferir agrupamento por filmagem/veículo.
-Arquivos alterados depois da auditoria impedem o treino, pois hashes são rechecados.
+YOLO11n com classes0`bus` e1`destination_sign`. Dados:26frames anotados,
+16treino/5val/5teste. VeículosSantosval/teste distintos, mas cenário e autoria
+correlacionados; não se alega independência estatística plena. SP pertence ao
+conjunto de desenvolvimento/treino, portanto a demonstração não é teste externo.
 
-```sh
-.venv/bin/sonar-vision train --data data/bangkok-pilot/data.yaml --config configs/pilot.yaml --output artifacts/training/pilot-01 --device mps --resume artifacts/training/pilot-01/run/weights/last.pt
-```
+Configuração40épocas máximas,960px,batch2,MPS,seed42,patience8. Early stopping
+encerrou em9épocas; checkpoint selecionado anteriormente naépoca1. Não houve
+retreinamento na preparação desta publicação. O V3 falhou no letreiro(0/5painéis
+no pequeno teste anterior); a classe ônibus foi mantida e o letreiro usa BR V1.
 
-Use esse comando apenas para treino interrompido. Checkpoints finais podem ter
-otimizador removido pela biblioteca e não suportar resume. Não reinicie um treino
-interrompido automaticamente nem apague runs existentes. Verifique `evidence.json`
-e o estado real de last.pt. Guarde dados e checkpoints no mesmo armazenamento
-persistente; o checkpoint não contém as imagens.
+[CSV](../reports/training/bus-v3/results.csv),
+[args](../reports/training/bus-v3/args.yaml) e
+[curvas](../reports/training/bus-v3/results.png).
+Vídeos pessoais declarados pelo usuário, autorizados paraML no desenvolvimento;
+originais e frames não são distribuídos. Sem esses dados, treinoV3exato não é
+reproduzível pelo clone. Os pesos finais estão disponíveis, sem exigir treino.
 
-## Colab preparado
+## Baseline Bangkok
 
-1. Gere `.venv/bin/python scripts/package_source.py`.
-2. Envie o ZIP para `Meu Drive/SONAR/sonar-vision-source.zip`.
-3. Abra `notebooks/train_colab.ipynb` no [Colab](https://colab.research.google.com/).
-4. Autentique sua conta, escolha runtime GPU disponível e monte o Drive.
-5. Execute as células. O notebook verifica GPU; não inicia treino completo em CPU.
-6. Dados e runs ficam em `Meu Drive/SONAR/sonar-vision/`; copie best.pt para
-   `models/best.pt` na máquina de demonstração e preserve hash/evidências.
+Preservado o piloto120famílias,84/18/18,12épocas,YOLO11n eMPS.
+Teste18imagens/17caixas:precision0,936,recall0,471,mAP50=0,644,mAP50-95=0,288.
+OCR8/9cropslegíveis;8outros excluídos por ilegibilidade. Não é resultado brasileiro.
+[CSV e evidência](../reports/training/evidence.json),
+[métricas](../reports/evaluation/detector_metrics.json) e releasev0.1.0-academic.
 
-Notebook preparado e JSON validado localmente; **não executado no Colab** neste
-experimento. Disponibilidade de GPU, cotas, preços e autenticação dependem da conta.
-Não foi contratado serviço. O caminho público Bangkok não exige chave; exportação
-alternativa Roboflow usa `.env`/variável ROBOFLOW_API_KEY, nunca o chat.
+## Reprodução do processo
 
-## Próximo experimento
+O pacote inclui preparação/validação de datasets e treino na CLI
+`sonar-vision prepare`, `sonar-vision train`, `sonar-vision evaluate`.
+Configurações e métodos adicionais estão em `sonar_br/` e `configs/`.
+As fontes devem ser adquiridas e licenciadas antes de treinar; mantenha grupos
+independentes, hashes e splits congelados. O notebookColab é uma alternativa
+executável, não prova de que aquele ambiente foi utilizado.
 
-Obter dados brasileiros autorizados, incluindo negativos e múltiplos veículos,
-anotar caixas e códigos reais por encontro, separar por veículo/filmagem antes de
-aumentar dados e reservar um teste independente. Ajustar limiares na validação;
-medir precisão/recall do detector, OCR, confirmação errada, rejeição e latência
-separadamente. `evaluation/metrics.py` fornece denominadores por encontro.
-O protótipo não se declara validado enquanto essa etapa estiver pendente.
-
-## Reprodução pela distribuição pública
-
-Para executar o piloto sem repetir treinamento, instale os extras vision/paddle e
-execute `python scripts/download_model.py`. O arquivo da release tem caminhos de
-metadados normalizados, tensores idênticos ao checkpoint avaliado e hash próprio.
-Os hashes e a transformação estão em MODEL_CARD.md. Nenhum treino é declarado
-novo por essa transformação. Checkpoints de otimizador/intermediários não integram
-a distribuição: para novos experimentos, use novos diretórios de saída e preserve
-seus próprios arquivos best/last.
-
-O notebook foi preparado, mas não executado no Colab. No formato ZIP, somente os
-arquivos acadêmicos deste repositório são empacotados; autenticação do Drive e
-escolha de GPU ocorrem na conta de quem executa.
+Os pesos de runtime são exportações portáveis com tensores idênticos. Metadados de
+caminhos/otimizador foram removidos; isso não constitui novo treinamento ou ganho
+científico. [Modelo e licença](MODEL_CARD.md). Nenhum datasetRoboflow de direitos
+fotográficos incertos foi usado no treinoBR V1.

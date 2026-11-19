@@ -1,0 +1,48 @@
+{
+  "status": "BLOCKED_DATA_COVERAGE_NOT_EXECUTED",
+  "execution_allowed": false,
+  "candidate_weights": null,
+  "coverage": {
+    "coverage_passed": false,
+    "counts": {
+      "positive_groups": 12,
+      "small_panels": 1,
+      "windshield_images": 3,
+      "complete_code_images": 4
+    },
+    "panels": 12,
+    "incomplete_frames": 3,
+    "reasons": [
+      "small_panels: 1 < research gate 8",
+      "windshield_images: 3 < research gate 8",
+      "complete_code_images: 4 < research gate 6",
+      "3 frames require exhaustive annotation review"
+    ],
+    "scope": "Engineering coverage screen, not statistical sufficiency or training authorization"
+  },
+  "source_reference": "sonar_br/datasets/manifests/generalization-20261116.review.json",
+  "reserved_test_pageid": "35046766",
+  "reserved_test_inference_allowed": false,
+  "future_comparison": {
+    "baseline_training_imgsz": 640,
+    "target_training_imgsz": 960,
+    "single_factor": "training input resolution",
+    "same_dataset_seed_optimizer_augmentation_and_batch": true,
+    "batch_proposed": 1,
+    "seed_proposed": 42,
+    "epochs_max_proposed": 40,
+    "patience_proposed": 12,
+    "initialization": "generic COCO YOLO11n, preserved hash in existing training plans; no Bangkok initialization",
+    "scope": "Draft only; do not run before targeted data and independent splits reviewed"
+  },
+  "context_crops_and_scale_augmentation": "Training only; deferred controlled ablations, not mixed into first resolution comparison",
+  "remaining_requirements": [
+    "More real8to20px panels across new capture/vehicle groups",
+    "More main displays behind continuous windshield",
+    "Exhaustive background labels or justified training-only contextual crops",
+    "Separate train/DEV/future-test by source/capture/vehicle",
+    "Enough independently verified complete SPTrans codes in unseen test",
+    "Freeze candidate before any209P inference"
+  ],
+  "promotion": "Never automatic; require independent detection/OCR/FP/latency and real temporal evidence"
+}

@@ -1,0 +1,70 @@
+{
+  "scope": "Selected known development video,not independent generalization accuracy",
+  "profiles": {
+    "sao-paulo": {
+      "states": {
+        "PANEL_DETECTED": 216,
+        "NO_DETECTION": 89,
+        "OCR_CANDIDATE": 34,
+        "CODE_STABLE": 21
+      },
+      "counts": {
+        "frames": 360,
+        "bus": 360,
+        "panel": 271,
+        "OCR_text": 271
+      },
+      "layout": {
+        "skipped": 0,
+        "panel_occlusions": 0,
+        "label_overlaps": 0
+      },
+      "audio_events": 1
+    },
+    "santos-a": {
+      "states": {
+        "PANEL_DETECTED": 418,
+        "NO_DETECTION": 182
+      },
+      "counts": {
+        "frames": 600,
+        "bus": 600,
+        "panel": 418,
+        "OCR_text": 418
+      },
+      "layout": {
+        "skipped": 0,
+        "panel_occlusions": 0,
+        "label_overlaps": 0
+      },
+      "audio_events": 0
+    },
+    "santos-b": {
+      "states": {
+        "PANEL_DETECTED": 452,
+        "NO_DETECTION": 148
+      },
+      "counts": {
+        "frames": 600,
+        "bus": 600,
+        "panel": 452,
+        "OCR_text": 452
+      },
+      "layout": {
+        "skipped": 0,
+        "panel_occlusions": 0,
+        "label_overlaps": 0
+      },
+      "audio_events": 0
+    }
+  },
+  "models": "V3 bus + BR V1 destination_sign + E3/desktop OCR",
+  "YOLO_imgsz": 960,
+  "confidence": 0.35,
+  "IoU_threshold": 0.5,
+  "ground_truth_policy": "637P-10 visually checked;never supplied to model/OCR",
+  "source_videos_redistributed": false,
+  "annotation_origin": "current-frame detector,no interpolation",
+  "audio_event_sao_paulo_seconds": 6.8,
+  "LINE_VERIFIED": false
+}

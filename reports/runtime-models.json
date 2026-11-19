@@ -1,0 +1,33 @@
+[
+  {
+    "id": "br-v1",
+    "file": "br-v1.pt",
+    "size": 5496663,
+    "sha256": "deabd4d6672813ed5e8902138fef82335c105a417179d64851c8b6d535bc7c65",
+    "original_sha256": "5978a1571bd3ee03b3ddd48625917e64db8db4bcd8ab53a4eb22d18fe5db412a",
+    "tensor_sha256": "56fb088d190b57adeef13935ac81b7206bdd6b9d80553a436621420e4f84a0a7",
+    "tensors_unchanged": true,
+    "classes": {
+      "0": "destination_sign"
+    },
+    "license": "AGPL-3.0-only",
+    "url": "https://github.com/Caique-Chagas/sonar-vision/releases/download/v0.2.0-fiap/br-v1.pt",
+    "destination": "sonar_br/artifacts/train-v1/run/weights/best.pt"
+  },
+  {
+    "id": "bus-v3",
+    "file": "bus-v3.pt",
+    "size": 5544148,
+    "sha256": "9957224e3aa0c2c292e8b7ff1135b8735a36ced6c504d540d5ba7e780b654473",
+    "original_sha256": "3a8680d7cb7e04c0c421f8232385025dda236fa2327ae52ba82fc5c0af38f755",
+    "tensor_sha256": "7001f91400127a6636b2669d457994e1aa0b4d9128a9c861204beb2a9b6e1936",
+    "tensors_unchanged": true,
+    "classes": {
+      "0": "bus",
+      "1": "destination_sign"
+    },
+    "license": "AGPL-3.0-only",
+    "url": "https://github.com/Caique-Chagas/sonar-vision/releases/download/v0.2.0-fiap/bus-v3.pt",
+    "destination": "artifacts/demo/sonar-video-v3/training/full-f5829c9ab4/run/weights/best.pt"
+  }
+]

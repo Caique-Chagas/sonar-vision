@@ -1,0 +1,951 @@
+{
+  "records": [
+    {
+      "id": "75774691",
+      "title": "File:Campo Belo - 7 2061 - Flickr - Rafael Delazari.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Campo_Belo_-_7_2061_-_Flickr_-_Rafael_Delazari.jpg",
+      "author": "Rafael Delazari from Belo Horizonte, Brazil",
+      "credit": "Campo Belo - 7 2061",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "date": "2014-11-08 14:52",
+      "image_sha256": "0d9f454004748035406e9c71421abd947bbe90e58f037faaafff0f5e980359d5",
+      "width": 1280,
+      "height": 960,
+      "split": "val",
+      "group_id": "capture-75774691",
+      "group_evidence": "Visible distinct fleet vehicle/date; same author/day/location captures conservatively kept together",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:Campo_Belo_-_7_2061_-_Flickr_-_Rafael_Delazari.jpg; photographer named Rafael Delazari, matching watermark; original Flickr attribution URL and Commons FlickreviewR license review",
+      "boxes": [
+        {
+          "xyxy": [
+            150,
+            300,
+            505,
+            380
+          ],
+          "approved": true,
+          "boundary_evidence": "Full image and enlarged red-box overlay inspected; physical display module/bezel boundary, not just glyphs; rectangular envelope under perspective"
+        }
+      ]
+    },
+    {
+      "id": "75634580",
+      "title": "File:Tupi - 6 2153 - Flickr - Rafael Delazari.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Tupi_-_6_2153_-_Flickr_-_Rafael_Delazari.jpg",
+      "author": "Rafael Delazari from Belo Horizonte, Brazil",
+      "credit": "Tupi - 6 2153",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "date": "2017-05-28 10:05",
+      "image_sha256": "a414fe688c3d4a7018294c7f3be0792a133ca5e3f3dd1c845ddb8a571871aba9",
+      "width": 1280,
+      "height": 853,
+      "split": "train",
+      "group_id": "capture-75634580",
+      "group_evidence": "Visible distinct fleet vehicle/date; same author/day/location captures conservatively kept together",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:Tupi_-_6_2153_-_Flickr_-_Rafael_Delazari.jpg; photographer named Rafael Delazari, matching watermark; original Flickr attribution URL and Commons FlickreviewR license review",
+      "boxes": [
+        {
+          "xyxy": [
+            770,
+            145,
+            1170,
+            245
+          ],
+          "approved": true,
+          "boundary_evidence": "Full image and enlarged red-box overlay inspected; physical display module/bezel boundary, not just glyphs; rectangular envelope under perspective"
+        }
+      ]
+    },
+    {
+      "id": "75777357",
+      "title": "File:Santa Brígida - 1 1573 - Flickr - Rafael Delazari.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Santa_Br%C3%ADgida_-_1_1573_-_Flickr_-_Rafael_Delazari.jpg",
+      "author": "Rafael Delazari from Belo Horizonte, Brazil",
+      "credit": "Santa Brígida - 1 1573",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "date": "2014-11-09 13:35",
+      "image_sha256": "f8a260232fccc465241a298795bf6a1f0b10333d04ec5d178f88dcf76438da0f",
+      "width": 1280,
+      "height": 960,
+      "split": "test",
+      "group_id": "capture-75777357",
+      "group_evidence": "Visible distinct fleet vehicle/date; same author/day/location captures conservatively kept together",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:Santa_Br%C3%ADgida_-_1_1573_-_Flickr_-_Rafael_Delazari.jpg; photographer named Rafael Delazari, matching watermark; original Flickr attribution URL and Commons FlickreviewR license review",
+      "boxes": [
+        {
+          "xyxy": [
+            765,
+            220,
+            1155,
+            315
+          ],
+          "approved": true,
+          "boundary_evidence": "Full image and enlarged red-box overlay inspected; physical display module/bezel boundary, not just glyphs; rectangular envelope under perspective"
+        }
+      ]
+    },
+    {
+      "id": "75781144",
+      "title": "File:Fenix - 2 5220 - Flickr - Rafael Delazari.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Fenix_-_2_5220_-_Flickr_-_Rafael_Delazari.jpg",
+      "author": "Rafael Delazari from Belo Horizonte, Brazil",
+      "credit": "Fenix - 2 5220",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "date": "2016-05-12 07:43",
+      "image_sha256": "59e34b4d59e39d7382bb90655e37eaea5abf5c117b619165c6e0874523c9042c",
+      "width": 1280,
+      "height": 960,
+      "split": "train",
+      "group_id": "capture-75781144",
+      "group_evidence": "Visible distinct fleet vehicle/date; same author/day/location captures conservatively kept together",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:Fenix_-_2_5220_-_Flickr_-_Rafael_Delazari.jpg; photographer named Rafael Delazari, matching watermark; original Flickr attribution URL and Commons FlickreviewR license review",
+      "boxes": [
+        {
+          "xyxy": [
+            765,
+            235,
+            1120,
+            315
+          ],
+          "approved": true,
+          "boundary_evidence": "Full image and enlarged red-box overlay inspected; physical display module/bezel boundary, not just glyphs; rectangular envelope under perspective"
+        }
+      ]
+    },
+    {
+      "id": "192120305",
+      "title": "File:SPTrans Atende.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:SPTrans_Atende.jpg",
+      "author": "MacGyver Santista",
+      "credit": "Own work",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "date": "2026-05-16 11:22:40",
+      "image_sha256": "130c16ff66d0c9c6e2db86f69ad9aa272abb10946cdbb2777774f6eb8c3e08e6",
+      "width": 1280,
+      "height": 960,
+      "split": "val",
+      "group_id": "capture-192120305",
+      "group_evidence": "Visible distinct fleet vehicle/date; same author/day/location captures conservatively kept together",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:SPTrans_Atende.jpg; Own work photographer declaration",
+      "boxes": []
+    },
+    {
+      "id": "75212854",
+      "title": "File:Alpha 415 2018-12-19 1.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Alpha_415_2018-12-19_1.jpg",
+      "author": "Mwaldeck",
+      "credit": "Own work",
+      "license": "Public domain",
+      "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "date": "2018-12-20",
+      "image_sha256": "15c8264f7b70952f03da306a692ea51b077dbb57fa3981f43c08f14acfd67039",
+      "width": 1280,
+      "height": 960,
+      "split": "test",
+      "group_id": "capture-75212854",
+      "group_evidence": "Visible distinct fleet vehicle/date; same author/day/location captures conservatively kept together",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:Alpha_415_2018-12-19_1.jpg; Own work photographer declaration",
+      "boxes": []
+    },
+    {
+      "id": "18678850",
+      "title": "File:Carro Transurb.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Carro_Transurb.jpg",
+      "author": "Kongs",
+      "credit": "Own work",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "date": "2012-03-12",
+      "image_sha256": "0d2d7efb1947dcc3eccf72cea6e62f062e19421f14cadea60b9ea75450bc13bc",
+      "width": 1280,
+      "height": 960,
+      "split": "train",
+      "group_id": "capture-18678850",
+      "group_evidence": "Visible distinct fleet vehicle/date; same author/day/location captures conservatively kept together",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:Carro_Transurb.jpg; Own work photographer declaration",
+      "boxes": [
+        {
+          "xyxy": [
+            350,
+            140,
+            845,
+            248
+          ],
+          "approved": true,
+          "boundary_evidence": "Full image and enlarged red-box overlay inspected; physical display module/bezel boundary, not just glyphs; rectangular envelope under perspective"
+        }
+      ]
+    },
+    {
+      "id": "16344100",
+      "title": "File:Niturvia.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Niturvia.jpg",
+      "author": "Wanderson S. Dantas",
+      "credit": "Own work",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "date": "2011-09-05",
+      "image_sha256": "5a2555e328d268fd1b4e5863d72fd13a425d0f56e04a4160d9c9aae1f1612da9",
+      "width": 1280,
+      "height": 960,
+      "split": "test",
+      "group_id": "capture-16344100",
+      "group_evidence": "Visible distinct fleet vehicle/date; same author/day/location captures conservatively kept together",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:Niturvia.jpg; Own work photographer declaration",
+      "boxes": [
+        {
+          "xyxy": [
+            85,
+            175,
+            385,
+            315
+          ],
+          "approved": true,
+          "boundary_evidence": "Full image and enlarged red-box overlay inspected; physical display module/bezel boundary, not just glyphs; rectangular envelope under perspective"
+        }
+      ]
+    },
+    {
+      "id": "12353690",
+      "title": "File:PICT0005 Paranapuan.JPG",
+      "source": "https://commons.wikimedia.org/wiki/File:PICT0005_Paranapuan.JPG",
+      "author": "Quintinense",
+      "credit": "Own work",
+      "license": "Public domain",
+      "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "date": "2010-12-17 01:50:51",
+      "image_sha256": "9c4191fa9f5a0ad806b6d01eac638dca7a5c50a4188b1cffde41ccca151c7178",
+      "width": 500,
+      "height": 467,
+      "split": "train",
+      "group_id": "capture-12353690",
+      "group_evidence": "Visible distinct fleet vehicle/date; same author/day/location captures conservatively kept together",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:PICT0005_Paranapuan.JPG; Own work photographer declaration",
+      "boxes": [
+        {
+          "xyxy": [
+            25,
+            125,
+            155,
+            180
+          ],
+          "approved": true,
+          "boundary_evidence": "Full image and enlarged red-box overlay inspected; physical display module/bezel boundary, not just glyphs; rectangular envelope under perspective"
+        }
+      ]
+    },
+    {
+      "id": "75765423",
+      "title": "File:Autotrans - 1830 - Flickr - Rafael Delazari.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Autotrans_-_1830_-_Flickr_-_Rafael_Delazari.jpg",
+      "author": "Rafael Delazari from Belo Horizonte, Brazil",
+      "credit": "Autotrans - 1830",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "date": "2013-05-10 13:59",
+      "image_sha256": "113c9a294166f31d47e089348af59cdd4aa933ebd7a3e4a78036d7f42ff8b6c2",
+      "width": 1280,
+      "height": 960,
+      "split": "train",
+      "group_id": "capture-75765423",
+      "group_evidence": "Visible distinct fleet vehicle/date; same author/day/location captures conservatively kept together",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:Autotrans_-_1830_-_Flickr_-_Rafael_Delazari.jpg; photographer named Rafael Delazari, matching watermark; original Flickr attribution URL and Commons FlickreviewR license review",
+      "boxes": [
+        {
+          "xyxy": [
+            625,
+            78,
+            1175,
+            245
+          ],
+          "approved": true,
+          "boundary_evidence": "Full image and enlarged red-box overlay inspected; physical display module/bezel boundary, not just glyphs; rectangular envelope under perspective"
+        }
+      ]
+    },
+    {
+      "id": "75779741",
+      "title": "File:Brasília - 39068 - Flickr - Rafael Delazari.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Bras%C3%ADlia_-_39068_-_Flickr_-_Rafael_Delazari.jpg",
+      "author": "Rafael Delazari from Belo Horizonte, Brazil",
+      "credit": "Brasília - 39068",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "date": "2016-06-06 14:34",
+      "image_sha256": "64f7a44539b880873223ed00f3f8845a6b52c985d06f51af0615b2bede757b3b",
+      "width": 1280,
+      "height": 960,
+      "split": "train",
+      "group_id": "capture-75779741",
+      "group_evidence": "Visible distinct fleet vehicle/date; same author/day/location captures conservatively kept together",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:Bras%C3%ADlia_-_39068_-_Flickr_-_Rafael_Delazari.jpg; photographer named Rafael Delazari, matching watermark; original Flickr attribution URL and Commons FlickreviewR license review",
+      "boxes": [
+        {
+          "xyxy": [
+            825,
+            280,
+            1195,
+            365
+          ],
+          "approved": true,
+          "boundary_evidence": "Full image and enlarged red-box overlay inspected; physical display module/bezel boundary, not just glyphs; rectangular envelope under perspective"
+        }
+      ]
+    },
+    {
+      "id": "75613730",
+      "title": "File:Brasília - 39110 - Flickr - Rafael Delazari.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Bras%C3%ADlia_-_39110_-_Flickr_-_Rafael_Delazari.jpg",
+      "author": "Rafael Delazari from Belo Horizonte, Brazil",
+      "credit": "Brasília - 39110",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "date": "2018-02-16 16:13",
+      "image_sha256": "cb8494fb8856c2d3b98b5986a916f831093b5a656f11d1b3395236ab44522e04",
+      "width": 1280,
+      "height": 853,
+      "split": "train",
+      "group_id": "capture-75613730",
+      "group_evidence": "Visible distinct fleet vehicle/date; same author/day/location captures conservatively kept together",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:Bras%C3%ADlia_-_39110_-_Flickr_-_Rafael_Delazari.jpg; photographer named Rafael Delazari, matching watermark; original Flickr attribution URL and Commons FlickreviewR license review",
+      "boxes": [
+        {
+          "xyxy": [
+            875,
+            225,
+            1200,
+            315
+          ],
+          "approved": true,
+          "boundary_evidence": "Full image and enlarged red-box overlay inspected; physical display module/bezel boundary, not just glyphs; rectangular envelope under perspective"
+        }
+      ]
+    },
+    {
+      "id": "75765250",
+      "title": "File:Buião - 40025 - Flickr - Rafael Delazari.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Bui%C3%A3o_-_40025_-_Flickr_-_Rafael_Delazari.jpg",
+      "author": "Rafael Delazari from Belo Horizonte, Brazil",
+      "credit": "Buião - 40025",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "date": "2014-02-12 17:01",
+      "image_sha256": "3e6dcd1da6886a60df67946f2157141592b7346c57cf4c73359534f7ffa3c686",
+      "width": 1280,
+      "height": 960,
+      "split": "val",
+      "group_id": "capture-75765250",
+      "group_evidence": "Visible distinct fleet vehicle/date; same author/day/location captures conservatively kept together",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:Bui%C3%A3o_-_40025_-_Flickr_-_Rafael_Delazari.jpg; photographer named Rafael Delazari, matching watermark; original Flickr attribution URL and Commons FlickreviewR license review",
+      "boxes": [
+        {
+          "xyxy": [
+            120,
+            195,
+            435,
+            280
+          ],
+          "approved": true,
+          "boundary_evidence": "Full image and enlarged red-box overlay inspected; physical display module/bezel boundary, not just glyphs; rectangular envelope under perspective"
+        }
+      ]
+    },
+    {
+      "id": "75779033",
+      "title": "File:Fênix - 27038 - Flickr - Rafael Delazari.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:F%C3%AAnix_-_27038_-_Flickr_-_Rafael_Delazari.jpg",
+      "author": "Rafael Delazari from Belo Horizonte, Brazil",
+      "credit": "Fênix - 27038",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "date": "2016-06-16 08:01",
+      "image_sha256": "c63815e7794752a94dbe031ebbdb9363718dc7a0210554ca330ee7d19563af58",
+      "width": 1280,
+      "height": 959,
+      "split": "train",
+      "group_id": "capture-75779033",
+      "group_evidence": "Visible distinct fleet vehicle/date; same author/day/location captures conservatively kept together",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:F%C3%AAnix_-_27038_-_Flickr_-_Rafael_Delazari.jpg; photographer named Rafael Delazari, matching watermark; original Flickr attribution URL and Commons FlickreviewR license review",
+      "boxes": [
+        {
+          "xyxy": [
+            695,
+            180,
+            1138,
+            285
+          ],
+          "approved": true,
+          "boundary_evidence": "Full image and enlarged red-box overlay inspected; physical display module/bezel boundary, not just glyphs; rectangular envelope under perspective"
+        }
+      ]
+    },
+    {
+      "id": "75613178",
+      "title": "File:Grande Vitória - 6980 - Flickr - Rafael Delazari.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Grande_Vit%C3%B3ria_-_6980_-_Flickr_-_Rafael_Delazari.jpg",
+      "author": "Rafael Delazari from Belo Horizonte, Brazil",
+      "credit": "Grande Vitória - 6980",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "date": "2018-02-23 14:54",
+      "image_sha256": "eab1cbab5d6407d301ba44a01dd802a61fea0c817a6d218b21b8f492a410a454",
+      "width": 1280,
+      "height": 853,
+      "split": "test",
+      "group_id": "capture-Delazari-Vitoria-20180223",
+      "group_evidence": "Visible distinct fleet vehicle/date; same author/day/location captures conservatively kept together",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:Grande_Vit%C3%B3ria_-_6980_-_Flickr_-_Rafael_Delazari.jpg; photographer named Rafael Delazari, matching watermark; original Flickr attribution URL and Commons FlickreviewR license review",
+      "boxes": [
+        {
+          "xyxy": [
+            340,
+            355,
+            640,
+            425
+          ],
+          "approved": true,
+          "boundary_evidence": "Full image and enlarged red-box overlay inspected; physical display module/bezel boundary, not just glyphs; rectangular envelope under perspective"
+        }
+      ]
+    },
+    {
+      "id": "75681290",
+      "title": "File:Nossa Sra Lourdes - B58047 - Flickr - Rafael Delazari.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Nossa_Sra_Lourdes_-_B58047_-_Flickr_-_Rafael_Delazari.jpg",
+      "author": "Rafael Delazari from Belo Horizonte, Brazil",
+      "credit": "Nossa Sra Lourdes - B58047",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "date": "2016-12-30 10:51",
+      "image_sha256": "a9466c0129192903d2f906b87561a465c526bbfd1ba8b8afef1aaa325a4c7cfe",
+      "width": 1280,
+      "height": 960,
+      "split": "test",
+      "group_id": "capture-75681290",
+      "group_evidence": "Visible distinct fleet vehicle/date; same author/day/location captures conservatively kept together",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:Nossa_Sra_Lourdes_-_B58047_-_Flickr_-_Rafael_Delazari.jpg; photographer named Rafael Delazari, matching watermark; original Flickr attribution URL and Commons FlickreviewR license review",
+      "boxes": [
+        {
+          "xyxy": [
+            145,
+            280,
+            575,
+            392
+          ],
+          "approved": true,
+          "boundary_evidence": "Full image and enlarged red-box overlay inspected; physical display module/bezel boundary, not just glyphs; rectangular envelope under perspective"
+        }
+      ]
+    },
+    {
+      "id": "75638101",
+      "title": "File:Pavunense - B32680 - Flickr - Rafael Delazari.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Pavunense_-_B32680_-_Flickr_-_Rafael_Delazari.jpg",
+      "author": "Rafael Delazari from Belo Horizonte, Brazil",
+      "credit": "Pavunense - B32680",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "date": "2015-05-05 12:38",
+      "image_sha256": "d27f2992e096fc3be1bb665d964103c669c3d71b76ef9af4dec2c33711f5e02c",
+      "width": 1280,
+      "height": 960,
+      "split": "train",
+      "group_id": "capture-Delazari-Rio-20150505",
+      "group_evidence": "Visible distinct fleet vehicle/date; same author/day/location captures conservatively kept together",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:Pavunense_-_B32680_-_Flickr_-_Rafael_Delazari.jpg; photographer named Rafael Delazari, matching watermark; original Flickr attribution URL and Commons FlickreviewR license review",
+      "boxes": [
+        {
+          "xyxy": [
+            830,
+            220,
+            1225,
+            315
+          ],
+          "approved": true,
+          "boundary_evidence": "Full image and enlarged red-box overlay inspected; physical display module/bezel boundary, not just glyphs; rectangular envelope under perspective"
+        }
+      ]
+    },
+    {
+      "id": "75615389",
+      "title": "File:Real - A41439 - Flickr - Rafael Delazari.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Real_-_A41439_-_Flickr_-_Rafael_Delazari.jpg",
+      "author": "Rafael Delazari from Belo Horizonte, Brazil",
+      "credit": "Real - A41439",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "date": "2015-05-05 10:02",
+      "image_sha256": "640cf547014e407e20d5142457fa6dfc015ab67f4f8d61b36ae840a1edf52557",
+      "width": 1280,
+      "height": 960,
+      "split": "train",
+      "group_id": "capture-Delazari-Rio-20150505",
+      "group_evidence": "Visible distinct fleet vehicle/date; same author/day/location captures conservatively kept together",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:Real_-_A41439_-_Flickr_-_Rafael_Delazari.jpg; photographer named Rafael Delazari, matching watermark; original Flickr attribution URL and Commons FlickreviewR license review",
+      "boxes": [
+        {
+          "xyxy": [
+            875,
+            270,
+            1200,
+            375
+          ],
+          "approved": true,
+          "boundary_evidence": "Full image and enlarged red-box overlay inspected; physical display module/bezel boundary, not just glyphs; rectangular envelope under perspective"
+        }
+      ]
+    },
+    {
+      "id": "75613173",
+      "title": "File:Santa Paula - 16101 - Flickr - Rafael Delazari.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Santa_Paula_-_16101_-_Flickr_-_Rafael_Delazari.jpg",
+      "author": "Rafael Delazari from Belo Horizonte, Brazil",
+      "credit": "Santa Paula - 16101",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "date": "2018-02-23 13:15",
+      "image_sha256": "31bc9b1a8019d65e58ca63e5ba7a6ee23897521bb4480dbe8c2455986255c4b5",
+      "width": 1280,
+      "height": 853,
+      "split": "test",
+      "group_id": "capture-Delazari-Vitoria-20180223",
+      "group_evidence": "Visible distinct fleet vehicle/date; same author/day/location captures conservatively kept together",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:Santa_Paula_-_16101_-_Flickr_-_Rafael_Delazari.jpg; photographer named Rafael Delazari, matching watermark; original Flickr attribution URL and Commons FlickreviewR license review",
+      "boxes": [
+        {
+          "xyxy": [
+            120,
+            145,
+            550,
+            280
+          ],
+          "approved": true,
+          "boundary_evidence": "Full image and enlarged red-box overlay inspected; physical display module/bezel boundary, not just glyphs; rectangular envelope under perspective"
+        }
+      ]
+    },
+    {
+      "id": "75638204",
+      "title": "File:Saritur - 237 - Flickr - Rafael Delazari.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Saritur_-_237_-_Flickr_-_Rafael_Delazari.jpg",
+      "author": "Rafael Delazari from Belo Horizonte, Brazil",
+      "credit": "Saritur - 237",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "date": "2016-10-22 14:20",
+      "image_sha256": "2ab9548fe32a579757ab893f2de1477fd4b6a7860ee10c5178feb78dc7464101",
+      "width": 1280,
+      "height": 960,
+      "split": "val",
+      "group_id": "capture-Delazari-Saritur-20161022",
+      "group_evidence": "Visible distinct fleet vehicle/date; same author/day/location captures conservatively kept together",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:Saritur_-_237_-_Flickr_-_Rafael_Delazari.jpg; photographer named Rafael Delazari, matching watermark; original Flickr attribution URL and Commons FlickreviewR license review",
+      "boxes": [
+        {
+          "xyxy": [
+            755,
+            120,
+            1160,
+            245
+          ],
+          "approved": true,
+          "boundary_evidence": "Full image and enlarged red-box overlay inspected; physical display module/bezel boundary, not just glyphs; rectangular envelope under perspective"
+        }
+      ]
+    },
+    {
+      "id": "75684169",
+      "title": "File:Saritur - 241 - Flickr - Rafael Delazari (1).jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Saritur_-_241_-_Flickr_-_Rafael_Delazari_(1).jpg",
+      "author": "Rafael Delazari from Belo Horizonte, Brazil",
+      "credit": "Saritur - 241",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "date": "2016-10-22 15:14",
+      "image_sha256": "c80f80968f52c82493ce325cb6f2b4b66c7541647214a2df6a3718b8773ed0d5",
+      "width": 1280,
+      "height": 960,
+      "split": "val",
+      "group_id": "capture-Delazari-Saritur-20161022",
+      "group_evidence": "Visible distinct fleet vehicle/date; same author/day/location captures conservatively kept together",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:Saritur_-_241_-_Flickr_-_Rafael_Delazari_(1).jpg; photographer named Rafael Delazari, matching watermark; original Flickr attribution URL and Commons FlickreviewR license review",
+      "boxes": [
+        {
+          "xyxy": [
+            755,
+            250,
+            1175,
+            355
+          ],
+          "approved": true,
+          "boundary_evidence": "Full image and enlarged red-box overlay inspected; physical display module/bezel boundary, not just glyphs; rectangular envelope under perspective"
+        }
+      ]
+    },
+    {
+      "id": "75776221",
+      "title": "File:Seletrans - 00686 - Flickr - Rafael Delazari.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Seletrans_-_00686_-_Flickr_-_Rafael_Delazari.jpg",
+      "author": "Rafael Delazari from Belo Horizonte, Brazil",
+      "credit": "Seletrans - 00686",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "date": "2015-03-17 09:37",
+      "image_sha256": "cf05e7ace5cd28481db01e6014e6e7b0585a43737c764743a9ca221907a87913",
+      "width": 1280,
+      "height": 960,
+      "split": "train",
+      "group_id": "capture-75776221",
+      "group_evidence": "Visible distinct fleet vehicle/date; same author/day/location captures conservatively kept together",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:Seletrans_-_00686_-_Flickr_-_Rafael_Delazari.jpg; photographer named Rafael Delazari, matching watermark; original Flickr attribution URL and Commons FlickreviewR license review",
+      "boxes": [
+        {
+          "xyxy": [
+            100,
+            200,
+            520,
+            285
+          ],
+          "approved": true,
+          "boundary_evidence": "Full image and enlarged red-box overlay inspected; physical display module/bezel boundary, not just glyphs; rectangular envelope under perspective"
+        }
+      ]
+    },
+    {
+      "id": "75681477",
+      "title": "File:São Jorge Autobus - 180 - Flickr - Rafael Delazari.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:S%C3%A3o_Jorge_Autobus_-_180_-_Flickr_-_Rafael_Delazari.jpg",
+      "author": "Rafael Delazari from Belo Horizonte, Brazil",
+      "credit": "São Jorge Autobus - 180",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "date": "2015-05-15 13:48",
+      "image_sha256": "5a2d414d063664eebe4ea5ed74ef009463e0fb433d1063d5310b63270878c636",
+      "width": 1280,
+      "height": 960,
+      "split": "train",
+      "group_id": "capture-75681477",
+      "group_evidence": "Visible distinct fleet vehicle/date; same author/day/location captures conservatively kept together",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:S%C3%A3o_Jorge_Autobus_-_180_-_Flickr_-_Rafael_Delazari.jpg; photographer named Rafael Delazari, matching watermark; original Flickr attribution URL and Commons FlickreviewR license review",
+      "boxes": [
+        {
+          "xyxy": [
+            130,
+            245,
+            565,
+            360
+          ],
+          "approved": true,
+          "boundary_evidence": "Full image and enlarged red-box overlay inspected; physical display module/bezel boundary, not just glyphs; rectangular envelope under perspective"
+        }
+      ]
+    },
+    {
+      "id": "75605299",
+      "title": "File:São José - 77909 - Flickr - Rafael Delazari.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:S%C3%A3o_Jos%C3%A9_-_77909_-_Flickr_-_Rafael_Delazari.jpg",
+      "author": "Rafael Delazari from Belo Horizonte, Brazil",
+      "credit": "São José - 77909",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "date": "2017-09-08 07:46",
+      "image_sha256": "fda69c986fcf38086c01a81fe862ca158ca465a9d80f9bee9c820ddfb3c4c168",
+      "width": 1280,
+      "height": 834,
+      "split": "train",
+      "group_id": "capture-75605299",
+      "group_evidence": "Visible distinct fleet vehicle/date; same author/day/location captures conservatively kept together",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:S%C3%A3o_Jos%C3%A9_-_77909_-_Flickr_-_Rafael_Delazari.jpg; photographer named Rafael Delazari, matching watermark; original Flickr attribution URL and Commons FlickreviewR license review",
+      "boxes": [
+        {
+          "xyxy": [
+            140,
+            170,
+            540,
+            280
+          ],
+          "approved": true,
+          "boundary_evidence": "Full image and enlarged red-box overlay inspected; physical display module/bezel boundary, not just glyphs; rectangular envelope under perspective"
+        }
+      ]
+    },
+    {
+      "id": "75681307",
+      "title": "File:Trans Bela Vista - 150 - Flickr - Rafael Delazari.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Trans_Bela_Vista_-_150_-_Flickr_-_Rafael_Delazari.jpg",
+      "author": "Rafael Delazari from Belo Horizonte, Brazil",
+      "credit": "Trans Bela Vista - 150",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "date": "2016-09-24 10:15",
+      "image_sha256": "9843f4827a6a212c18820ba69ff8ea2f65567731455b7df6a8046a30e1ead3b0",
+      "width": 1280,
+      "height": 960,
+      "split": "train",
+      "group_id": "capture-75681307",
+      "group_evidence": "Visible distinct fleet vehicle/date; same author/day/location captures conservatively kept together",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:Trans_Bela_Vista_-_150_-_Flickr_-_Rafael_Delazari.jpg; photographer named Rafael Delazari, matching watermark; original Flickr attribution URL and Commons FlickreviewR license review",
+      "boxes": [
+        {
+          "xyxy": [
+            110,
+            265,
+            505,
+            360
+          ],
+          "approved": true,
+          "boundary_evidence": "Full image and enlarged red-box overlay inspected; physical display module/bezel boundary, not just glyphs; rectangular envelope under perspective"
+        }
+      ]
+    },
+    {
+      "id": "75617419",
+      "title": "File:Trel - RJ. 165.316 - Flickr - Rafael Delazari.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Trel_-_RJ._165.316_-_Flickr_-_Rafael_Delazari.jpg",
+      "author": "Rafael Delazari from Belo Horizonte, Brazil",
+      "credit": "Trel - RJ. 165.316",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "date": "2018-01-02 18:18",
+      "image_sha256": "d41c115bcdf82fa129e8aa260979c93dd14d289b54410b9f6c9356019b098342",
+      "width": 1280,
+      "height": 853,
+      "split": "val",
+      "group_id": "capture-75617419",
+      "group_evidence": "Visible distinct fleet vehicle/date; same author/day/location captures conservatively kept together",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:Trel_-_RJ._165.316_-_Flickr_-_Rafael_Delazari.jpg; photographer named Rafael Delazari, matching watermark; original Flickr attribution URL and Commons FlickreviewR license review",
+      "boxes": [
+        {
+          "xyxy": [
+            660,
+            90,
+            1190,
+            230
+          ],
+          "approved": true,
+          "boundary_evidence": "Full image and enlarged red-box overlay inspected; physical display module/bezel boundary, not just glyphs; rectangular envelope under perspective"
+        }
+      ]
+    },
+    {
+      "id": "75686621",
+      "title": "File:Turilessa - 1110 - Flickr - Rafael Delazari.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Turilessa_-_1110_-_Flickr_-_Rafael_Delazari.jpg",
+      "author": "Rafael Delazari from Belo Horizonte, Brazil",
+      "credit": "Turilessa - 1110",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "date": "2016-10-30 09:04",
+      "image_sha256": "189455ffcbcd1b47979b9b19e27fb3c17d943bdc151175a87d314cf228f03327",
+      "width": 1280,
+      "height": 960,
+      "split": "train",
+      "group_id": "capture-75686621",
+      "group_evidence": "Visible distinct fleet vehicle/date; same author/day/location captures conservatively kept together",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:Turilessa_-_1110_-_Flickr_-_Rafael_Delazari.jpg; photographer named Rafael Delazari, matching watermark; original Flickr attribution URL and Commons FlickreviewR license review",
+      "boxes": [
+        {
+          "xyxy": [
+            120,
+            335,
+            490,
+            450
+          ],
+          "approved": true,
+          "boundary_evidence": "Full image and enlarged red-box overlay inspected; physical display module/bezel boundary, not just glyphs; rectangular envelope under perspective"
+        }
+      ]
+    },
+    {
+      "id": "75771697",
+      "title": "File:Turilessa - 25252 - Flickr - Rafael Delazari.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Turilessa_-_25252_-_Flickr_-_Rafael_Delazari.jpg",
+      "author": "Rafael Delazari from Belo Horizonte, Brazil",
+      "credit": "Turilessa - 25252",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "date": "2014-08-23 13:29",
+      "image_sha256": "31b7cc634e690644da7b749d9da1a115868c16465ef46e9b7108eb8694611974",
+      "width": 1280,
+      "height": 960,
+      "split": "train",
+      "group_id": "capture-75771697",
+      "group_evidence": "Visible distinct fleet vehicle/date; same author/day/location captures conservatively kept together",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:Turilessa_-_25252_-_Flickr_-_Rafael_Delazari.jpg; photographer named Rafael Delazari, matching watermark; original Flickr attribution URL and Commons FlickreviewR license review",
+      "boxes": []
+    },
+    {
+      "id": "75675140",
+      "title": "File:Turilessa - 25459 - Flickr - Rafael Delazari.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Turilessa_-_25459_-_Flickr_-_Rafael_Delazari.jpg",
+      "author": "Rafael Delazari from Belo Horizonte, Brazil",
+      "credit": "Turilessa - 25459",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "date": "2016-03-05 14:42",
+      "image_sha256": "793f0733ff19be34dab79b24be72f1d7beb074ca0390a565a013fe7eb8a02f18",
+      "width": 1280,
+      "height": 960,
+      "split": "train",
+      "group_id": "capture-75675140",
+      "group_evidence": "Visible distinct fleet vehicle/date; same author/day/location captures conservatively kept together",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:Turilessa_-_25459_-_Flickr_-_Rafael_Delazari.jpg; photographer named Rafael Delazari, matching watermark; original Flickr attribution URL and Commons FlickreviewR license review",
+      "boxes": [
+        {
+          "xyxy": [
+            815,
+            230,
+            1210,
+            345
+          ],
+          "approved": true,
+          "boundary_evidence": "Full image and enlarged red-box overlay inspected; physical display module/bezel boundary, not just glyphs; rectangular envelope under perspective"
+        }
+      ]
+    },
+    {
+      "id": "75778676",
+      "title": "File:Turilessa - 25476 - Flickr - Rafael Delazari.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Turilessa_-_25476_-_Flickr_-_Rafael_Delazari.jpg",
+      "author": "Rafael Delazari from Belo Horizonte, Brazil",
+      "credit": "Turilessa - 25476",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "date": "2013-11-07 11:36",
+      "image_sha256": "8489cdd93b0b0f8802dbbcb883b28db18b0668cb74d1b8c1f4c4d85f7977e6a7",
+      "width": 1280,
+      "height": 960,
+      "split": "train",
+      "group_id": "capture-75778676",
+      "group_evidence": "Visible distinct fleet vehicle/date; same author/day/location captures conservatively kept together",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:Turilessa_-_25476_-_Flickr_-_Rafael_Delazari.jpg; photographer named Rafael Delazari, matching watermark; original Flickr attribution URL and Commons FlickreviewR license review",
+      "boxes": [
+        {
+          "xyxy": [
+            805,
+            140,
+            1185,
+            250
+          ],
+          "approved": true,
+          "boundary_evidence": "Full image and enlarged red-box overlay inspected; physical display module/bezel boundary, not just glyphs; rectangular envelope under perspective"
+        }
+      ]
+    },
+    {
+      "id": "75614238",
+      "title": "File:Turilessa - 25559 - Flickr - Rafael Delazari.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Turilessa_-_25559_-_Flickr_-_Rafael_Delazari.jpg",
+      "author": "Rafael Delazari from Belo Horizonte, Brazil",
+      "credit": "Turilessa - 25559",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "date": "2014-09-22 18:13",
+      "image_sha256": "59581c5706ea1f5c2011b8435d41972be00943924acfef9ca94b8f0259528b96",
+      "width": 1280,
+      "height": 960,
+      "split": "train",
+      "group_id": "capture-75614238",
+      "group_evidence": "Visible distinct fleet vehicle/date; same author/day/location captures conservatively kept together",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:Turilessa_-_25559_-_Flickr_-_Rafael_Delazari.jpg; photographer named Rafael Delazari, matching watermark; original Flickr attribution URL and Commons FlickreviewR license review",
+      "boxes": [
+        {
+          "xyxy": [
+            670,
+            150,
+            1175,
+            265
+          ],
+          "approved": true,
+          "boundary_evidence": "Full image and enlarged red-box overlay inspected; physical display module/bezel boundary, not just glyphs; rectangular envelope under perspective"
+        }
+      ]
+    },
+    {
+      "id": "31734389",
+      "title": "File:Onibus BRT Belo Horizonte.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Onibus_BRT_Belo_Horizonte.jpg",
+      "author": "Cid Costa Neto",
+      "credit": "Own work",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "date": "2014-03-21 12:44:27",
+      "image_sha256": "99ccd0971b285572502ba3c397df290fcfc9350c6b1432948113e76ce33e53ce",
+      "width": 800,
+      "height": 533,
+      "split": "train",
+      "group_id": "capture-31734389",
+      "group_evidence": "Different city/date/vehicle from all other photographs",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:Onibus_BRT_Belo_Horizonte.jpg; photographer Own work declaration and individual CC license",
+      "boxes": [
+        {
+          "xyxy": [
+            375,
+            115,
+            620,
+            175
+          ],
+          "approved": true,
+          "boundary_evidence": "Physical top display board under windshield, whole rectangular perspective envelope"
+        }
+      ]
+    },
+    {
+      "id": "3569683",
+      "title": "File:Curitiba 04 2006 04 RIT.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Curitiba_04_2006_04_RIT.jpg",
+      "author": "Mario Roberto Duran Ortiz Mariordo",
+      "credit": "Own work",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "date": "2006-04-09",
+      "image_sha256": "c439294160fbb6f3364cbe9b387ca3db4b770a3822b69eb4e66b31041b202dd4",
+      "width": 1280,
+      "height": 808,
+      "split": "train",
+      "group_id": "capture-3569683",
+      "group_evidence": "Different city/date/vehicle from all other photographs",
+      "rights_verified": true,
+      "rights_evidence": "https://commons.wikimedia.org/wiki/File:Curitiba_04_2006_04_RIT.jpg; photographer Own work declaration and individual CC license",
+      "boxes": []
+    }
+  ],
+  "images_redistributed": false
+}

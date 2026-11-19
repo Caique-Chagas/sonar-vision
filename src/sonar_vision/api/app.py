@@ -1,6 +1,7 @@
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
 from importlib.resources import files
+from pathlib import Path
 from typing import Any
 
 from fastapi import FastAPI, HTTPException, Request
@@ -8,11 +9,16 @@ from fastapi.responses import FileResponse, Response
 from fastapi.staticfiles import StaticFiles
 
 from sonar_vision import __version__
+from sonar_vision.api.photo_routes import photo_router
 from sonar_vision.api.schemas import SessionRequest
 from sonar_vision.api.sessions import Session, SessionManager
+from sonar_vision.api.video_jobs import VideoJobManager
+from sonar_vision.api.video_routes import video_router
 from sonar_vision.core.config import Settings
 from sonar_vision.core.contracts import VisionEvent, to_legacy
 from sonar_vision.core.logging import configure_logging
+from sonar_vision.processing.local_video import MAX_UPLOAD
+from sonar_vision.processing.photograph import MAX_IMAGE
 from sonar_vision.processing.sources import SourceError, validate_url
 
 
@@ -20,16 +26,24 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     configure_logging()
     settings = settings or Settings()
     manager = SessionManager(settings)
+    video_jobs = VideoJobManager(
+        Path("artifacts/demo/practical-runs"),
+        Path("sonar_br/artifacts/train-v1/run/weights/best.pt"),
+    )
 
     @asynccontextmanager
     async def lifespan(app: FastAPI) -> AsyncIterator[None]:
         yield
         manager.close()
+        video_jobs.close()
 
     app = FastAPI(
         title="SONAR VISION", version=__version__, lifespan=lifespan, docs_url=None, redoc_url=None
     )
     app.state.manager = manager
+    app.state.video_jobs = video_jobs
+    app.include_router(video_router(video_jobs))
+    app.include_router(photo_router(video_jobs))
     web = str(files("sonar_vision").joinpath("web"))
     app.mount("/static", StaticFiles(directory=web), name="static")
 
@@ -52,15 +66,22 @@ def create_app(settings: Settings | None = None) -> FastAPI:
                 return Response("Content-Length inválido", status_code=400)
             if content_length < 0:
                 return Response("Content-Length obrigatório", status_code=411)
-            if content_length > 16384:
-                return Response("Payload excede 16 KiB", status_code=413)
+            limit = MAX_UPLOAD if request.url.path == "/api/video-demo/jobs" else 16384
+            if request.url.path == "/api/video-demo/photo/jobs":
+                limit = MAX_IMAGE
+            if content_length > limit:
+                message = "Vídeo excede64MiB" if limit == MAX_UPLOAD else "Payload excede 16 KiB"
+                if limit == MAX_IMAGE:
+                    message = "Fotografia excede12MiB"
+                return Response(message, status_code=413)
         response: Response = await call_next(request)
         response.headers["Cache-Control"] = "no-store"
         response.headers["X-Content-Type-Options"] = "nosniff"
         response.headers["Referrer-Policy"] = "no-referrer"
         response.headers["Content-Security-Policy"] = (
             "default-src 'self'; script-src 'self'; style-src 'self'; "
-            "img-src 'self' blob:; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'"
+            "img-src 'self' blob:; media-src 'self' blob:; connect-src 'self'; "
+            "frame-ancestors 'none'; base-uri 'none'"
         )
         return response
 

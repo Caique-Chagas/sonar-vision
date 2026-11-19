@@ -1,0 +1,16 @@
+[
+  {
+    "model": "br-v1",
+    "detections": 1,
+    "predictions_identical": true,
+    "protocol": "same real permitted image,imgsz960,CPU",
+    "independent_accuracy_claim": false
+  },
+  {
+    "model": "bus-v3",
+    "detections": 1,
+    "predictions_identical": true,
+    "protocol": "same real permitted image,imgsz960,CPU",
+    "independent_accuracy_claim": false
+  }
+]

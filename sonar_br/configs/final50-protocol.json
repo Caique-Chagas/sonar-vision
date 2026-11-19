@@ -1,0 +1,124 @@
+{
+  "base_checkpoint": "031cc74",
+  "status": "frozen_before_new_pixels_and_outputs",
+  "weights": {
+    "Bangkok": {
+      "path": "models/best.pt",
+      "sha256": "e132edf296f451b73295f077b54f39f94ce6e1cb214770ad04f14d1c6dee4e77"
+    },
+    "BR": {
+      "path": "sonar_br/artifacts/train-v1/run/weights/best.pt",
+      "sha256": "5978a1571bd3ee03b3ddd48625917e64db8db4bcd8ab53a4eb22d18fe5db412a"
+    }
+  },
+  "inference": {
+    "device": "cpu",
+    "imgsz": 640,
+    "conf": 0.35,
+    "iou": 0.5,
+    "max_det": 16,
+    "rect": true,
+    "quantize": null,
+    "batch": 1,
+    "tiles": false,
+    "roi_padding": 0.0
+  },
+  "AP_metrics": {
+    "imgsz": 640,
+    "device": "cpu",
+    "metrics_conf": 0.001,
+    "operating_conf": 0.35,
+    "nms_iou": 0.5,
+    "max_det": 16
+  },
+  "OCR": {
+    "weights": "models/best.pt",
+    "sha256": "e132edf296f451b73295f077b54f39f94ce6e1cb214770ad04f14d1c6dee4e77",
+    "class": {
+      "0": "destination_sign"
+    },
+    "imgsz": 640,
+    "device": "cpu",
+    "conf": 0.35,
+    "iou": 0.5,
+    "max_det": 16,
+    "batch": 1,
+    "rect": true,
+    "augment": false,
+    "agnostic_nms": false,
+    "quantize": null,
+    "save": false,
+    "ocr": "PaddleOCR PP-OCRv5_mobile_det + en_PP-OCRv5_mobile_rec",
+    "ocr_lang": "en",
+    "ocr_device": "cpu",
+    "orientation": false,
+    "unwarping": false,
+    "preprocessing": "BGR, int crop, cubic:min_h64/max_scale3/max_w1280; no CLAHE/Otsu",
+    "tile_size": 0,
+    "roi_padding": 0.0
+  },
+  "ocr_artifacts": {
+    "PP-OCRv5_mobile_det": {
+      "config.json": "7ac1c33f377ba58561f4b89d3180b6add2b7c5c60a4edac90fa4e0ceccdc6665",
+      "inference.json": "05feef1acb00aa4cd7362b15f7f501fc4f99d7b1fa73c1c871e0c7b1504b0f5c",
+      "inference.pdiparams": "afa1820cb16c1fd0dad589d0f8b389139061c1ef6d68019685fd07be997dda5b",
+      "inference.yml": "98069072e1b6b37d727fd9d9f11725faa46d6ea0de012f2ed26caea011c37699"
+    },
+    "en_PP-OCRv5_mobile_rec": {
+      "config.json": "16103ac291a82fca50f0bb000d62a4b8168f6042f03c89c44cf32f241d1eb1f2",
+      "inference.json": "fd1b6ec722ea841a72d3ba43e527df1d1066d5d7808e0503ee3eec7265188753",
+      "inference.pdiparams": "3ec8a97ed6cefe8568d3e2ee90bb193299b566a7661aa4fd52d224b96b59f66b",
+      "inference.yml": "27e91d0582f40168aa218303c76e184bc78fa7a5d105aad0cfbad8458b441067"
+    }
+  },
+  "temporal": {
+    "model_path": "models/best.pt",
+    "ocr_backend": "paddle",
+    "video_hosts": "",
+    "max_sessions": 2,
+    "session_retention": 20,
+    "min_votes": 3,
+    "window_frames": 8,
+    "min_ratio": 0.75,
+    "min_ocr": 0.7,
+    "min_detection": 0.35,
+    "roi_padding": 0.0,
+    "evidence_seconds": 3.0,
+    "min_span_seconds": 0.3
+  },
+  "hardware": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python": "3.12.16",
+    "torch": "2.15.0",
+    "cuda": false,
+    "mps": true,
+    "ultralytics": "8.4.209"
+  },
+  "no_training_or_parameter_changes": true,
+  "selection": {
+    "target_images": 50,
+    "positive_target": 40,
+    "negative_target": 10,
+    "readable_codes_target_min": 25,
+    "prior_photos_and_training_groups_excluded": true,
+    "one_photo_per_author_date_capture_group": true,
+    "GT_before_inference": true,
+    "max_candidates_downloaded": 100,
+    "max_total_download_bytes": 100000000,
+    "max_image_bytes": 5000000,
+    "max_width": 1280
+  },
+  "code_metrics": "exact visible code numerator over independently legible codes only; slash/hyphen equivalence only as evaluation metric",
+  "static_context": "true code as requested route, identical context both models, no full truth catalog",
+  "temporal_validation": false,
+  "latency": "paired alternating AB/BA; flag/exclude first native call per model; wall pipeline excluding decode/model initialization",
+  "source_hashes": {
+    "src/sonar_vision/detection/yolo.py": "b35aea574768b2d9af94ead39170ca750f3ba260add4bfa2d5525be23236c4fd",
+    "src/sonar_vision/ocr/paddle.py": "b79c81fcca57512aaa812cd79498e35f8ffacb4f4f33eb8402b29668ed8df0c3",
+    "src/sonar_vision/processing/roi.py": "a6d79068ae79569656c0139335a316e26b7b344e5d99498fd7dfc45d651a7d7e",
+    "src/sonar_vision/processing/pipeline.py": "63c85c7ef6aa68541e53f99b1c2e119c6ca71c193ddb1844c0b247cde56f63af",
+    "src/sonar_vision/br/observations.py": "8b8e315bd2ca79b3a4127b44f1caf02e526935857175745d1e227997b04143b0",
+    "src/sonar_vision/validation/normalizer.py": "61176927c1631124e780251d395dc02f2837dc783ba724fa0c2569428731c925",
+    "src/sonar_vision/validation/temporal.py": "1355a23ae2457e0329a8d3b6bac5a2ed6ae213c154fd7ec3087e03ad13b7975b"
+  }
+}

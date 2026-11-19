@@ -1,0 +1,39 @@
+{
+  "status": "FROZEN_BEFORE_NEW_ABLATION_DEV_ONLY",
+  "date": "2026-11-17",
+  "initial_checkpoint": "b38af2d",
+  "weights": "sonar_br/artifacts/train-v1/run/weights/best.pt",
+  "reference_sha256": "7df23d9691bc0a550cc6d0dfba89f1a139d420adbaa3c9a9c56398774d855f7c",
+  "reuse_baseline_binding_sha256": "a69bded9a7fd9edc761e8b5cc16b8e95773344d2ede732c262ee7dcfb8a63004",
+  "variants": {
+    "V1_T": {
+      "tile": 640,
+      "ROI_margin": 0
+    },
+    "V1_TM": {
+      "tile": 640,
+      "ROI_margin": 0.1
+    }
+  },
+  "weights_sha256": "5978a1571bd3ee03b3ddd48625917e64db8db4bcd8ab53a4eb22d18fe5db412a",
+  "imgsz": 640,
+  "conf": 0.35,
+  "NMS": 0.5,
+  "native_overlap": 0.2,
+  "max_tiles": 64,
+  "max_det": 16,
+  "OCR": "E3 frozen recognize, original preprocess, minOCR0.7/additional0.85",
+  "device": "CPU batch1, M1 8GiB",
+  "source_files": [
+    "src/sonar_vision/detection/yolo.py",
+    "src/sonar_vision/processing/roi.py",
+    "src/sonar_vision/br/ocr_optimization.py",
+    "src/sonar_vision/processing/pipeline.py"
+  ],
+  "hypothesis": "Native-resolution tiles may restore panel scale without resampling entire frame; isolate margin effect with same tile configuration. No further grid after observing outcomes.",
+  "train": false,
+  "reserved209P_inference": false,
+  "promotion": "Not authorized by DEV comparison; require independent prospective data and FP/latency/temporal assessment",
+  "stop": "14DEV times2configs; native64tilecap and existing frame/memory bounds; no further tuning",
+  "future_test": "Reserved209P untouched because no independent candidate-validation protocol established"
+}

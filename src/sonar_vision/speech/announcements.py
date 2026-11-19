@@ -18,10 +18,19 @@ class AnnouncementGate:
 
     def __init__(self) -> None:
         self.seen: set[tuple[int, str | None, MatchStatus]] = set()
+        self.last: dict[int, MatchStatus] = {}
 
     def accept(self, event: VisionEvent) -> bool:
         key = (event.track_id, event.route_detected, event.match_status)
-        if key in self.seen:
+        previous = self.last.get(event.track_id)
+        self.last[event.track_id] = event.match_status
+        # Report loss of consensus even if the initial uncertainty was announced.
+        # Confirmed semantic results remain deduplicated across the session.
+        lost_consensus = event.match_status == MatchStatus.UNCERTAIN and previous in {
+            MatchStatus.MATCH,
+            MatchStatus.NON_MATCH,
+        }
+        if key in self.seen and not lost_consensus:
             return False
         self.seen.add(key)
         return True

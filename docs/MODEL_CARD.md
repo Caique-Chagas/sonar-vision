@@ -1,43 +1,38 @@
-# Modelo do piloto acadêmico
+# Modelos finais e distribuição
 
-## Tarefa e procedência
+Release [v0.2.0-fiap](https://github.com/Caique-Chagas/sonar-vision/releases/tag/v0.2.0-fiap)
+contém somente dois pesos essenciais, checksums, licença, proveniência e validação
+de portabilidade. [Manifesto](../reports/runtime-models.json).
 
-YOLO11n ajustado para `destination_sign`, região visual de número de linha.
-Inicialização oficial YOLO11n; treino real com 120 famílias do Bangkok-Bus-Dataset
-(SAINT70239, CC BY 4.0), split 84/18/18, 12 épocas, 416 px, batch 4, seed 42,
-Apple M1/MPS. Evidência em reports/training e métricas em reports/evaluation.
+| Peso | Arquitetura/classes | Uso |
+|---|---|---|
+| br-v1.pt | YOLO11n, destination_sign | Localização do letreiro |
+| bus-v3.pt | YOLO11n, bus/destination_sign | Somente ônibus; não promover a classe letreiro |
 
-## Arquivo distribuído
+Pesos originais foram preservados no desenvolvimento. A exportação para publicação
+remove caminhos locais e metadados de treinamento dispensáveis; tensores,
+formatos e shapes foram comparados porSHA256 e permaneceram idênticos.
+Predições originais/portáveis foram comparadas no mesmo frame permitido, sem
+retreinamento. [Recibo](../reports/model-portability-validation.json).
+Alterar metadados muda o hashdoarquivo, por isso os hashes originais e públicos
+são informados separadamente no manifesto. Isso não é uma melhoria do modelo.
 
-Download público: [best.pt](https://github.com/Caique-Chagas/sonar-vision/releases/download/v0.1.0-academic/best.pt).
-O script `python scripts/download_model.py` confere limite de tamanho e SHA-256,
-sem sobrescrever pesos existentes de conteúdo diferente.
+BRV1 deriva deYOLO11n/Ultralytics e treino customizado em fontesCommons comlicenças
+registradas. V3 deriva deYOLO11n e dados pessoais declarados pelo usuário paraML.
+A publicação autorizada disponibiliza os parâmetros gerados, não as gravações.
+Nenhuma procedência independente dessas gravações é inventada. [Dados](DATA_SOURCES.md).
 
-| Identificador | SHA-256 |
-| --- | --- |
-| Checkpoint original avaliado | e132edf296f451b73295f077b54f39f94ce6e1cb214770ad04f14d1c6dee4e77 |
-| Arquivo distribuído | 9de9b7abdf4e543fe6976d0461110d02656973d78edeb7684882d3b904aaccc9 |
-| Estado numérico dos tensores | 1a4dee74b27b6ffff148c8d1e4ffe4fe87076fd2b792117d09df93cf06a03ddd |
+Código e modelos do projeto:AGPL-3.0-only, preservando licença/atribuiçõesUltralytics.
+Fotografias conservam suas licenças específicas. O baselineBangkok permanece na
+releasev0.1.0-academic e não foi sobrescrito.
 
-O arquivo público normaliza caminhos locais nos metadados serializados.
-**Não houve retreinamento nem alteração dos parâmetros numéricos.** Todos os
-nomes/dtypes/shapes/bytes do state_dict foram comparados, com o mesmo hash antes
-e depois. A saída de inferência em frame de controle também permaneceu igual.
-A evidência dessa transformação está em reports/model-distribution.json.
+Limites: amostras pequenas, domínio restrito, nenhuma validação operacional de
+linha/sentido/embarque, confiança não calibrada. CODE_STABLEé consenso textual.
+Não usar autonomamente por passageiros. LerPTarquivos somente de fonte confiável:
+checkpointsPyTorch podem conter objetos serializados. O downloader do projeto
+confere hash e tamanho antes da instalação; não aceite um hash obtido de fonte
+não confiável.
 
-As métricas históricas referem-se ao hash original; o hash diferente da distribuição
-resulta da serialização/metadados, não de um novo experimento ou melhora do modelo.
-Configurações, métricas e logs publicados tiveram somente caminhos de máquina
-normalizados; resultados numéricos foram preservados.
-
-## Limites e uso
-
-Precision 0,9358, recall 0,4706, mAP50 0,6439 e mAP50-95 0,2884 em 18 imagens
-estrangeiras, 17 caixas. O recall é limitado. A divisão é por família de fotografia;
-identidades de veículo/sequência não estão disponíveis. Não há validação temporal
-brasileira ou garantia operacional. Não usar como autorização de embarque.
-
-Código/modelo distribuídos sob as condições AGPL-3.0-only adotadas para Ultralytics;
-dados mantêm CC BY 4.0. Não são redistribuídas coleções completas de imagens.
-A release inclui hashes e esta procedência; pesos finais não substituem imagens
-rotuladas nem o estado completo de um treinamento interrompido.
+OCR usa modelos oficiais PaddleOCR(PP-OCRv5) obtidos pelo pacote na primeira
+execução; eles não são reempacotados nesta release. Interfaces e tratamento de
+falhas estão disponíveis no código, sem transcrição esperada embutida no runtime.

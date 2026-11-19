@@ -14,9 +14,9 @@ jobs:
         with:
           python-version: ${{ matrix.python }}
           cache: pip
-      - run: python -m pip install '.[dev]'
+      - run: python -m pip install '.[dev,video]'
       - run: ruff check .
-      - run: ruff format --check src scripts tests notebooks
+      - run: ruff format --check src scripts tests notebooks sonar_br
       - run: mypy src
       - run: pytest --junitxml=reports/pytest.xml
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7

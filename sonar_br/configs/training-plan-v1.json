@@ -1,0 +1,10 @@
+{
+  "generic_weights": "yolo11n.pt",
+  "generic_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "protected_weights": "models/best.pt",
+  "protected_sha256": "e132edf296f451b73295f077b54f39f94ce6e1cb214770ad04f14d1c6dee4e77",
+  "data": "sonar_br/datasets/prepared/commons-br-v2/prepared/data.yaml",
+  "data_audit_sha256": "06316a89cb1f2cabe05f11229a4e50d95938abc587ebbe06fc68b0d60859e50f",
+  "config": "sonar_br/configs/train-v1.yaml",
+  "config_sha256": "d53ae38b517f5a612165242bcfafd99d6173b2965ca29051dfd1aa67c95db3b0"
+}

@@ -32,6 +32,7 @@ class FrameProcessor:
         routes: set[str] | None = None,
     ):
         self.detector, self.ocr, self.context = detector, ocr, context
+        self.settings = settings
         self.tracker = SignTracker()
         # Requested full code is a parsing hint, never evidence that the route exists.
         self.normalizer = LineNormalizer((routes or set()) | {context.requested})
@@ -51,7 +52,9 @@ class FrameProcessor:
         self.temporal.prune(timestamp)
         for track_id, detection in self.tracker.update(detections, timestamp):
             self.ocr_calls += 1
-            readings = self.ocr.read(extract_roi(frame, detection.box))
+            readings = self.ocr.read(
+                extract_roi(frame, detection.box, padding=self.settings.roi_padding)
+            )
             # A single observation per sign/frame: competing codes must never become separate votes.
             normalized_readings = [(r, self.normalizer.normalize(r.text)) for r in readings]
             route_readings = [(r, n) for r, n in normalized_readings if n.candidates]

@@ -1,0 +1,118 @@
+{
+  "status": "frozen_before_any_V2_final_test_inference",
+  "models": {
+    "v1": "sonar_br/artifacts/train-v1/run/weights/best.pt",
+    "v2": "sonar_br/artifacts/train-v2/run/weights/best.pt"
+  },
+  "weights_sha256": {
+    "sonar_br/artifacts/train-v1/run/weights/best.pt": "5978a1571bd3ee03b3ddd48625917e64db8db4bcd8ab53a4eb22d18fe5db412a",
+    "sonar_br/artifacts/train-v2/run/weights/best.pt": "26ffdc60e0b114045e6b6ff0d03edb5fedf70be99eb64de20bc4a83447b19b65"
+  },
+  "protected": {
+    "models/best.pt": "e132edf296f451b73295f077b54f39f94ce6e1cb214770ad04f14d1c6dee4e77",
+    "sonar_br/artifacts/train-v1/run/weights/best.pt": "5978a1571bd3ee03b3ddd48625917e64db8db4bcd8ab53a4eb22d18fe5db412a",
+    "reports/SONAR_VISION_FIAP.pdf": "b7e5e8f2c79cdd946491c6764417e50cb98c6b2321943f23d313b07d90d73f0c",
+    "artifacts/demo/sonar-vision-final-silent.mp4": "873a3af79446a00dc73386ee4fd7bb0ae1917464eeb8c91c7ffdf46c1d57162a"
+  },
+  "reference_sha256": "c9bc0256a3ebb4531b2a3b528af4f9934f664cae5ccb1515ee652b9f39e16045",
+  "known_benchmark_sha256": "134fcf7a2b7a98ba353de955cb4ca678768a4e8a8d0ab744cbf2d5586bd123c8",
+  "source_hashes": {
+    "sonar_br/v2/evaluate.py": "8e81b035c9967d81a221599853afc5e7f352c8d3afd4e5ee839fd6eb930e4550",
+    "sonar_br/ocr_experiments/run.py": "e8fda13f168736e6ed9bf9445aad2e31b38f4de3d75175dd8be62d1fff293bdb",
+    "src/sonar_vision/br/ocr_optimization.py": "daf3493a5b0fd4f3a1c35d72863ac9c9120c8e19b0a94fa444a626282b293d2a",
+    "src/sonar_vision/br/code_region_ocr.py": "d79d363096cb784607c7b9eefbcd0f85829879fea18862213364b9dc03be3c4c",
+    "src/sonar_vision/validation/normalizer.py": "61176927c1631124e780251d395dc02f2837dc783ba724fa0c2569428731c925",
+    "src/sonar_vision/processing/pipeline.py": "63c85c7ef6aa68541e53f99b1c2e119c6ca71c193ddb1844c0b247cde56f63af",
+    "src/sonar_vision/br/lineage.py": "890e5ab028e33ca93f59fd2147146d0f36c7bba215d8669200e444089b164cd9"
+  },
+  "detector_protocol": {
+    "imgsz": 640,
+    "device": "cpu",
+    "metrics_conf": 0.001,
+    "operating_conf": 0.35,
+    "nms_iou": 0.5,
+    "max_det": 16
+  },
+  "settings": {
+    "model_path": "models/best.pt",
+    "ocr_backend": "paddle",
+    "video_hosts": "",
+    "max_sessions": 2,
+    "session_retention": 20,
+    "min_votes": 3,
+    "window_frames": 8,
+    "min_ratio": 0.75,
+    "min_ocr": 0.7,
+    "min_detection": 0.35,
+    "roi_padding": 0.0,
+    "evidence_seconds": 3.0,
+    "min_span_seconds": 0.3
+  },
+  "OCRv2": {
+    "configuration": {
+      "spatial": "recognize"
+    },
+    "decision": "Retain existing E3 experimental control; left ROI/scale did not improve DEV. No newly trained recognizer or new OCR superiority claim."
+  },
+  "OCR0": "PP-OCRv5_mobile_det + en_PP-OCRv5_mobile_rec, unmodified PaddleEngine CPU",
+  "E3": {
+    "preprocessing": "original",
+    "spatial": "recognize",
+    "max_width": 2560,
+    "max_polygons": 4,
+    "max_tokens": 8,
+    "polygon_margin": 0.04,
+    "additional_min_score": 0.85
+  },
+  "OCR_artifacts": {
+    "PP-OCRv5_mobile_det": {
+      "config.json": "7ac1c33f377ba58561f4b89d3180b6add2b7c5c60a4edac90fa4e0ceccdc6665",
+      "inference.json": "05feef1acb00aa4cd7362b15f7f501fc4f99d7b1fa73c1c871e0c7b1504b0f5c",
+      "inference.pdiparams": "afa1820cb16c1fd0dad589d0f8b389139061c1ef6d68019685fd07be997dda5b",
+      "inference.yml": "98069072e1b6b37d727fd9d9f11725faa46d6ea0de012f2ed26caea011c37699"
+    },
+    "en_PP-OCRv5_mobile_rec": {
+      "config.json": "16103ac291a82fca50f0bb000d62a4b8168f6042f03c89c44cf32f241d1eb1f2",
+      "inference.json": "fd1b6ec722ea841a72d3ba43e527df1d1066d5d7808e0503ee3eec7265188753",
+      "inference.pdiparams": "3ec8a97ed6cefe8568d3e2ee90bb193299b566a7661aa4fd52d224b96b59f66b",
+      "inference.yml": "27e91d0582f40168aa218303c76e184bc78fa7a5d105aad0cfbad8458b441067"
+    }
+  },
+  "variants": {
+    "A": [
+      "v1",
+      "original"
+    ],
+    "B": [
+      "v1",
+      "E3"
+    ],
+    "C": [
+      "v2",
+      "original"
+    ],
+    "D": [
+      "v2",
+      "E3"
+    ]
+  },
+  "versions": {
+    "ultralytics": "8.4.209",
+    "torch": "2.15.0",
+    "paddleocr": "3.7.0",
+    "paddlepaddle": "3.3.1",
+    "opencv-python": "4.10.0.84",
+    "numpy": "2.3.5"
+  },
+  "hardware": {
+    "machine": "arm64",
+    "processor": "Apple M1",
+    "RAM_GiB": 8,
+    "python": "3.12.16",
+    "inference": "CPU; training MPS"
+  },
+  "metrics_policy": "Primary new test: detector/text, full-code accuracy undefined n=0. Secondary known OCR14: reused diagnostic regression, not new independent validation. No promotion based on it.",
+  "order": "A-B-C-D on even images, reversed on odd images; no cached detector timings",
+  "roi_padding": 0,
+  "temporal": "Single photos only; final status UNCERTAIN or no event; no multi-frame claims"
+}

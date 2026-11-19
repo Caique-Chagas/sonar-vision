@@ -16,6 +16,9 @@ from sonar_vision.processing import sources
         (302, "video/mp4", False),
         (200, "text/html", False),
         (403, "video/mp4", False),
+        (404, "video/mp4", False),
+        (429, "video/mp4", False),
+        (503, "video/mp4", False),
     ],
 )
 def test_relay_allows_only_video_and_never_follows_redirect(

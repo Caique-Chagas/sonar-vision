@@ -80,6 +80,17 @@ def prepare_dataset(
     }
     if "train" not in assignments.values():
         raise ValueError("Divisão sem grupo de treino")
+    if "split" in rows[0]:
+        assignments = {}
+        for row in rows:
+            group, split = row["group_id"], row["split"]
+            if split not in {"train", "val", "test"}:
+                raise ValueError("Split explícito inválido")
+            if group in assignments and assignments[group] != split:
+                raise ValueError("Grupo cruza splits explícitos")
+            assignments[group] = split
+        if set(assignments.values()) != {"train", "val", "test"}:
+            raise ValueError("São necessários treino, validação e teste explícitos")
     seen_hashes: dict[str, str] = {}
     seen_origins: dict[str, str] = {}
     prepared: list[dict[str, Any]] = []
@@ -146,6 +157,7 @@ def prepare_dataset(
     report = {
         "schema_version": "1.0",
         "seed": seed,
+        "split_strategy": "explicit_reviewed" if "split" in rows[0] else "seeded_group_shuffle",
         "manifest_sha256": sha256(manifest),
         "split_assurance": split_assurance,
         "counts": dict(Counter(row["split"] for row in prepared)),

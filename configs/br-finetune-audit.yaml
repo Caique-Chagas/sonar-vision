@@ -1,0 +1,23 @@
+# Candidate only. NOT RUN. Requires reviewed data, split audit and measured smoke first.
+model: models/best.pt
+epochs: 12
+imgsz: 640
+batch: 2
+patience: 4
+seed: 42
+workers: 0
+cache: false
+amp: false
+save: true
+save_period: 2
+close_mosaic: 0
+fliplr: 0.0
+flipud: 0.0
+degrees: 2.0
+translate: 0.03
+scale: 0.1
+mosaic: 0.0
+mixup: 0.0
+hsv_h: 0.0
+hsv_s: 0.1
+hsv_v: 0.2

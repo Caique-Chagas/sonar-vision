@@ -47,6 +47,15 @@ class LineNormalizer:
         tokens = set(re.findall(r"[A-Z0-9]+(?:-[A-Z0-9]+)*", normalized))
         exact |= tokens & self.routes
         if exact:
+            # A plausible O/0 (or I/1, S/5) variant of a known route is ambiguous.
+            # Preserve legitimate explicitly catalogued alphanumeric codes.
+            alternatives = {
+                code.translate(str.maketrans("OIS", "015")) for code in exact
+            } & self.routes
+            if alternatives - exact and not exact <= self.routes:
+                return NormalizedLine(
+                    text, tuple(sorted(exact | alternatives)), "ocr_catalog_conflict", True
+                )
             return NormalizedLine(text, tuple(sorted(exact)), "exact", len(exact) != 1)
         shorts = set(SHORT_CODE.findall(normalized))
         if compact.isalnum():

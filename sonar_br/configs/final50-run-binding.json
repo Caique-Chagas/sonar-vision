@@ -1,0 +1,9 @@
+{
+  "protocol_sha256": "6bc4d4bb436f0ba4d5f2b515134517ad1ae32011d2d6c3929ad204d33baa07f4",
+  "reference_sha256": "66d00dde8c3b66cb4a78b20d86b5192ef8a680a170adf8500916ca9166fb0082",
+  "runner_sha256": "9fd12e951d396c60ade3f5fcc1a60073b8628c1629a5e355669b248fd3e85304",
+  "validator_sha256": "2d8ae68f7dc6efb2633e8ecb368741d7b7914302b3917c881a9dd985b240165b",
+  "environment_sha256": "e50eb2e7934386f84eee058ef252c0e17ae483eb006fc0eaec3e928d46114f73",
+  "AP_audit_sha256": "043bcf389202119858f1bcd666dff7dea624ffd1005dfe96c7ec4a8f0caac8ce",
+  "order": "alternating Bangkok-BR / BR-Bangkok by reference index"
+}

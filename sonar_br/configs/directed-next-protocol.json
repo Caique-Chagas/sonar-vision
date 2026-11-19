@@ -1,0 +1,45 @@
+{
+  "status": "DRAFT_NOT_AUTHORIZED_TO_RUN_UNTIL_DATA_GATES_PASS",
+  "training_now": false,
+  "baseline": "BR V1 + unchanged E3;defaultAPI remains unchanged",
+  "candidate_hypothesis": "One bounded targeted adaptation of panel geometry/small scales after data coverage improves; choose initialization on DEV evidence, not final test",
+  "rejected_architecture": "COCO bus -> V1+E3: no recall gain in both known-photo diagnostics",
+  "rejected_OCR": "quad rectification:10/13same exact,3wrong-candidate cases versus2",
+  "data_gates": {
+    "new_train_positives": 20,
+    "new_train_capture_groups": 10,
+    "new_train_authors": 4,
+    "small_panels_below20px_at640": 8,
+    "windshield_integrated_panels": 8,
+    "DEV_photos": 10,
+    "DEV_groups": 5,
+    "DEV_complete_codes": 6,
+    "future_test_photos": 15,
+    "future_test_groups": 10,
+    "future_test_complete_codes": 10,
+    "future_test_negatives": 5,
+    "all_labels_reviewed_whole_physical_panel": true,
+    "no_source_capture_or_vehicle_overlap": true
+  },
+  "current_new_acquisition": {
+    "files": 3,
+    "groups": 2,
+    "complete_code_photos": 1,
+    "fully_annotated": 0,
+    "gate_passed": false
+  },
+  "future_test_reserved_pageids": [
+    "35046766"
+  ],
+  "future_train_candidate_pageids": [
+    "109839733",
+    "109868570"
+  ],
+  "forbidden": "No tuning on V2known test/historical benchmarks;no forced character fixes;no promotion by validation metrics alone;no paid compute/push",
+  "promotion_requirements": [
+    "new held-out complete-code accuracy and detector comparison",
+    "wrong codes/FPs no increase",
+    "latency acceptable",
+    "real sequence stability before temporal claims"
+  ]
+}

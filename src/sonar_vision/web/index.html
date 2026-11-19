@@ -6,6 +6,8 @@
   <title>SONAR VISION · Identificação de linhas</title>
   <link rel="stylesheet" href="/static/style.css">
   <script src="/static/app.js" defer></script>
+  <script src="/static/video.js" defer></script>
+  <script src="/static/photo.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#analysis">Ir para análise</a>
@@ -22,6 +24,101 @@
       <strong>Protótipo acadêmico.</strong> A identificação da linha não confirma destino, sentido ou condições de embarque.
       <span id="readiness">Verificando disponibilidade do modelo…</span>
     </aside>
+    <nav aria-label="Demonstrações práticas">
+      <a href="#video-demo-title">Analisar vídeo</a> · <a href="#photo-title">Analisar fotografia</a>
+    </nav>
+    <section class="panel video-demo" aria-labelledby="video-demo-title">
+      <h2 id="video-demo-title">Demonstração prática — Analisar vídeo</h2>
+      <p>Processamento local de vídeo gravado com YOLO BR V1 e OCR E3.
+        A análise amostra até 5 frames por segundo; não é inferência em tempo real.</p>
+      <p>Exemplos locais licenciados:
+        <a href="/api/video-demo/examples/curitiba" download>Curitiba (CC BY 3.0)</a> ·
+        <a href="/api/video-demo/examples/saopaulo" download>São Paulo (CC BY 3.0)</a> ·
+        <a href="/api/video-demo/examples/rotas" download>Rotas — Curitiba (CC BY 3.0)</a>.
+        Créditos e limitações constam no guia de gravação; um vídeo real pode resultar sem detecção.</p>
+      <form id="demo-form">
+        <label for="demo-profile">Perfil da demonstração</label>
+        <select id="demo-profile">
+          <option value="baseline" selected>BR V1 padrão — entrada 640</option>
+          <option value="diagnostic1280">BR V1 diagnóstico — entrada 1280 (experimental, mais lento)</option>
+        </select>
+        <p>Exemplo com detecção real: <a href="/api/video-demo/examples/rotas-approach" download>Rotas — aproximação (CC BY 3.0)</a>.
+          Use o perfil diagnóstico 1280: foi observado um painel parcial, sem texto OCR ou confirmação de linha.</p>
+        <button type="button" id="demo-load-example" class="secondary">Usar vídeo de Curitiba — perfil diagnóstico 1280</button>
+        <div id="demo-drop" class="drop-zone" tabindex="0" role="button" aria-label="Selecionar ou arrastar arquivo MP4">
+          <label for="demo-file">Selecione ou arraste um MP4</label>
+          <input id="demo-file" type="file" accept=".mp4,video/mp4" required>
+          <small>Até 64 MiB, 60 segundos, 3840×2160 e 60 FPS. Use um vídeo autorizado.</small>
+        </div>
+        <label class="check"><input id="demo-permission" type="checkbox" required>
+          Tenho autorização para processar este vídeo localmente.</label>
+        <button id="demo-start" type="submit" disabled>Iniciar análise do vídeo</button>
+        <button id="demo-cancel" type="button" class="secondary" disabled>Cancelar vídeo</button>
+      </form>
+      <figure id="demo-detection-evidence" hidden>
+        <figcaption>Primeiro frame real com detecção automática — sem confirmação de linha</figcaption>
+        <img id="demo-detection-image" alt="Frame do vídeo com caixa prevista pelo YOLO; não é uma fotografia de referência">
+        <p id="demo-first-reading"></p>
+      </figure>
+      <p id="demo-error" role="alert" class="error"></p>
+      <p id="demo-state" role="status" aria-live="polite">Aguardando MP4.</p>
+      <progress id="demo-progress" max="1" value="0" aria-label="Progresso da análise"></progress>
+      <div class="demo-videos">
+        <div><h3>Vídeo original</h3><video id="demo-original" controls muted playsinline></video></div>
+        <div><h3>Resultado anotado — frames amostrados</h3>
+          <img id="demo-preview" alt="Prévia da inferência real, com caixas previstas pelo modelo" hidden>
+          <video id="demo-result" controls muted playsinline hidden></video>
+        </div>
+      </div>
+      <pre id="demo-metrics" aria-label="Métricas de processamento">Nenhuma análise executada.</pre>
+      <div id="demo-readings" aria-live="polite"></div>
+      <div id="demo-downloads" hidden>
+        <a id="demo-save-video" download="sonar-anotado.mp4">Salvar MP4 anotado</a> ·
+        <a id="demo-save-report" download>Salvar métricas JSON</a> ·
+        <a id="demo-save-frames" download>Salvar leituras por frame</a>
+      </div>
+      <details id="demo-static"><summary>Evidência estática histórica — resultado registrado anteriormente</summary>
+        <p>Modalidade: fotografia, não vídeo. Exemplo conhecido de desenvolvimento; não é nova validação independente.</p>
+        <button type="button" id="demo-load-static" class="secondary">Exibir evidência estática</button>
+        <img id="demo-static-image" alt="Fotografia estática com caixas e OCR reais do BR V1" hidden>
+        <p id="demo-static-text"></p>
+      </details>
+      <small>Caixas e textos vêm da inferência. Ausência de detecção não valida rejeição de linha.
+        Candidatos não confirmam chegada, destino ou embarque. Sem ground truth, não há porcentagem de acerto.
+        O upload temporário é removido após a análise; resultados ficam locais e as duas análises mais recentes
+        desta execução permanecem disponíveis. Salve os arquivos antes de iniciar outras análises.</small>
+    </section>
+    <section class="panel video-demo" aria-labelledby="photo-title">
+      <h2 id="photo-title">Demonstração prática — Analisar fotografia</h2>
+      <p>Imagem estática · inferência nova com YOLO BR V1 (640) e OCR E3.
+        Fotografia conhecida de desenvolvimento; não é validação independente ou temporal.</p>
+      <p>Exemplo: Campinas, Fasouzafreitas,
+        <a href="https://commons.wikimedia.org/wiki/File:Embarque_pelo_lado_esquerdo_-_Campinas_-_SP.JPG">Wikimedia Commons</a>, CC BY-SA 3.0.
+        Imagem de revisão redimensionada; preservar créditos e licença ao compartilhar.</p>
+      <form id="photo-form">
+        <button type="button" id="photo-example" class="secondary">Usar fotografia de exemplo — Campinas</button>
+        <label for="photo-file">Fotografia JPEG ou PNG</label>
+        <input id="photo-file" type="file" accept=".jpg,.jpeg,.png,image/jpeg,image/png">
+        <small>Até 12 MiB, 4096 pixels por lado e 8,29 megapixels. Sem animação.</small>
+        <label class="check"><input id="photo-permission" type="checkbox" required>Tenho autorização para processar esta fotografia.</label>
+        <button id="photo-start" type="submit" disabled>Analisar fotografia agora</button>
+      </form>
+      <p id="photo-state" role="status" aria-live="polite">Aguardando fotografia.</p>
+      <p id="photo-error" class="error" role="alert"></p>
+      <div class="demo-videos">
+        <figure><figcaption>Fotografia original — imagem estática</figcaption>
+          <img id="photo-original" alt="Fotografia selecionada, sem caixas" hidden></figure>
+        <figure><figcaption>YOLO BR V1 — caixa automaticamente prevista</figcaption>
+          <img id="photo-annotated" alt="Inferência nova sobre fotografia estática" hidden></figure>
+      </div>
+      <div id="photo-rois" aria-label="ROIs previstas e texto OCR"></div>
+      <pre id="photo-metrics">Nenhuma inferência executada nesta fotografia.</pre>
+      <button type="button" id="photo-audio" class="secondary" disabled>Ouvir texto OCR — voz do aplicativo</button>
+      <p id="photo-voice-status">Áudio opcional do navegador, acionado por clique; não é narração acadêmica.</p>
+      <p><a id="photo-report" hidden download>Salvar resultado JSON da fotografia</a></p>
+      <small>O OCR bruto não confirma uma linha. Código candidato somente quando a normalização for válida.
+        Ausência de consenso temporal mantém a leitura incerta. Salve resultados antes de outras análises.</small>
+    </section>
     <div class="workspace">
       <section class="panel controls" aria-labelledby="setup-title">
         <div class="section-title"><span class="step">01</span><h2 id="setup-title">Sua análise</h2></div>

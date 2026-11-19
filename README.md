@@ -1,222 +1,216 @@
 # SONAR VISION
 
+**FIAP Global Solution 2026.2 · Applied Computer Vision**
+
 [![QA](https://github.com/Caique-Chagas/sonar-vision/actions/workflows/qa.yml/badge.svg)](https://github.com/Caique-Chagas/sonar-vision/actions/workflows/qa.yml)
+[Relatório acadêmico PDF](reports/SONAR_VISION_FIAP.pdf) · [Resultados](docs/RESULTS.md) · [Reprodução](docs/REPRODUCIBILITY.md) · [Pesos](https://github.com/Caique-Chagas/sonar-vision/releases/tag/v0.2.0-fiap)
 
-**Visão computacional para apoiar a identificação de linhas de ônibus.**
+## Problema
 
-Projeto acadêmico do SONAR — Global Solution FIAP 2026.2, CitizenTech,
-Engenharia de Software, disciplina **Applied Computer Vision**.
+Pessoas cegas ou com baixa visão enfrentam dificuldade para identificar o ônibus
+que se aproxima do ponto. Letreiros pequenos, reflexos, movimento e alternância
+de mensagens dificultam a leitura e tornam insuficiente uma observação isolada.
 
-[Relatório PDF](reports/SONAR_VISION_FIAP.pdf) ·
-[Vídeo demonstrativo narrado](https://github.com/Caique-Chagas/sonar-vision/raw/refs/heads/main/artifacts/demo/pilot-narrated.mp4) ·
-[Legendas](artifacts/demo/pilot-narrated.srt) ·
-[Modelo do piloto](https://github.com/Caique-Chagas/sonar-vision/releases/tag/v0.1.0-academic)
+## Solução
 
-## Problema e objetivo
+O SONAR VISION é o componente de visão computacional do projeto Sonar. Detecta
+ônibus e letreiros, lê a região prevista com OCR e agrega evidências por veículo.
+Um código textual estável pode gerar anúncio acessível. O protótipo não confirma
+destino, sentido, parada, correspondência operacional ou segurança de embarque.
 
-Uma pessoa cega ou com baixa visão pode conhecer a linha desejada e não conseguir
-identificar o letreiro do ônibus que se aproxima. O SONAR VISION combina detecção
-do letreiro, OCR e consolidação de leituras para emitir informação visual em texto,
-eventos JSON e áudio, preservando incertezas.
+**Estado acadêmico: parcialmente concluído.** A implementação e os resultados
+estão documentados; gravação e submissão da apresentação são realizadas pelo aluno.
+O vídeo narrado da apresentação é entregue separadamente à FIAP, fora deste GitHub.
 
-**Protótipo acadêmico, com piloto treinado e avaliado em imagens de ônibus de Bangkok.**
-Ainda não foi validado para identificação temporal de linhas brasileiras por veículo.
-Identificar o código não confirma destino, sentido, parada ou condições de embarque.
+## Demonstração técnica
 
-## Escopo e tecnologias
+![Detecção real de letreiro e OCR em fotografia estática licenciada](docs/assets/ocr-campinas.jpg)
 
-- **YOLO11n / Ultralytics / PyTorch:** detector customizado da região do código.
-- **PaddleOCR:** leitura de letras latinas e dígitos na região prevista.
-- **OpenCV:** vídeo incremental, recortes, pré-processamento e caixas visuais.
-- **Pydantic e FastAPI:** contratos validados e API de sessões.
-- **HTML, CSS, JavaScript e Web Speech:** interface leve, teclado, texto e áudio.
-- **pytest, Ruff, mypy e GitHub Actions:** verificações automatizadas.
+**Fotografia estática, não vídeo:** BR V1 previu a caixa amarela e o OCR retornou
+`333 TERMINAL`. Confiança YOLO: 0,816; OCR: aproximadamente 0,997. Estado incerto,
+sem consenso temporal ou código completo. Não foi usada uma caixa de gabarito.
+Foto de [Fasouzafreitas](https://commons.wikimedia.org/wiki/File:Embarque_pelo_lado_esquerdo_-_Campinas_-_SP.JPG),
+[CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).
+Alterações: inferência, legendas e redimensionamento; derivado sob a mesma licença.
 
-Não implementa a plataforma completa SONAR, hardware, RPA ou integração oficial
-SPTrans. O catálogo de demonstração é fictício e explicitamente identificado.
+A demonstração desktop usa **inferência real pré-processada** para reproduzir em
+velocidade normal. O playback não é inferência em tempo real. Os vídeos privados
+de São Paulo e Santos não são redistribuídos; as contagens abaixo documentam a
+execução local. Não há MP4 de apresentação na árvore atual deste repositório.
 
 ## Arquitetura
 
 ```mermaid
-flowchart LR
-    S[Vídeo] --> D[YOLO customizado]
-    D --> T[Tracking de letreiros]
-    T --> R[Extração de ROI]
-    R --> O[PaddleOCR]
-    O --> N[Normalização]
-    N --> V[Consenso temporal]
-    V --> M[Comparação de linha]
-    M --> E[VisionEvent JSON]
-    E --> A[API / interface / áudio]
+flowchart TD
+    V[Vídeo autorizado] --> F[Frames reais]
+    F --> B[YOLO V3: ônibus]
+    F --> L[YOLO BR V1: letreiro]
+    L --> R[ROI automaticamente prevista]
+    R --> O[OCR E3 e fallback desktop]
+    B --> T[Associação por veículo e avaliação temporal]
+    O --> T
+    T --> C[CODE_STABLE]
+    C --> A[Anúncio acessível offline]
 ```
 
-A confirmação exige múltiplos frames distintos por track. Códigos abreviados,
-correções ambíguas e leituras instáveis permanecem incertos. Detector e OCR mantêm
-scores separados; não há uma probabilidade global inventada.
-[Arquitetura e contratos](docs/ARCHITECTURE.md).
+Os dois detectores operam sobre o frame. A associação do letreiro ao ônibus é usada
+na etapa temporal. A alternativa hierárquica por recorte foi investigada, mas não
+foi promovida: não melhorou o código no trecho escolhido. O texto bruto permanece
+registrado, sem substituição por transcrição conhecida.
 
-## Instalação e demonstração
+Código estável exige pelo menos três observações, razão de 75%, janela de oito
+amostras a 5 Hz, intervalo mínimo de 0,3 s, confiança YOLO ≥0,35 e OCR ≥0,7.
+Frames/pixels duplicados e caixas de tracking/interpolação não geram novos votos.
+`CODE_STABLE` **não equivale a** `LINE_VERIFIED`; este último não foi emitido.
 
-Python **3.11 ou 3.12**. Execução local verificada em Python 3.12/macOS Apple M1;
-a CI testa Python 3.11 e 3.12 no Ubuntu. Windows ainda não foi validado.
+## Treinamento customizado
+
+| Modelo | Classes e papel | Treinamento comprovado | Uso final |
+|---|---|---|---|
+| BR V1 | `destination_sign` | YOLO11n COCO ajustado por 40 épocas, 640 px, batch 2, AdamW, MPS | Detector de letreiro |
+| V3 | `bus`, `destination_sign` | YOLO11n ajustado em 26 frames anotados; 16/5/5 treino/val/teste; execução encerrou em 9 épocas, melhor checkpoint na época 1 | Somente classe ônibus |
+| Bangkok | `destination_sign` | Piloto histórico com 120 famílias, 84/18/18, 12 épocas | Baseline preservado, release anterior |
+
+BR V1 utiliza 33 fotografias brasileiras licenciadas, divididas em 21/6/6 imagens
+por grupos, com 19/5/5 painéis. Caixas representam o painel frontal completo.
+A base pequena e a concentração de autores limitam a generalização.
+V3 usa vídeos pessoais declarados pelo usuário e autorização de ML registrada no
+desenvolvimento; as gravações não são públicas. O V3 não foi bem-sucedido como
+ detector de letreiros: 0/5 painéis no pequeno teste anterior. Por isso o pipeline
+mantém o BR V1 para essa classe.
+
+Configurações, CSVs e curvas reais: [treinamento](docs/TRAINING.md).
+Fontes, créditos e licenças: [datasets](docs/DATA_SOURCES.md).
+
+## Resultados observados
+
+| Vídeo selecionado | Frames | Frames com ônibus | Frames com letreiro/OCR | Leituras corretas de código completo | CODE_STABLE | Anúncios |
+|---|---:|---:|---:|---:|---:|---:|
+| São Paulo, 14:14–14:26 | 360 | 360 | 271 | 55 de `637P-10` | 21 | 1 |
+| Santos A | 600 | 600 | 418 | 0 | 0 | 0 |
+| Santos B | 600 | 600 | 452 | 0 | 0 | 0 |
+
+São **contagens em vídeos conhecidos e selecionados para demonstração**, não
+acurácia geral, capturas independentes ou precisão científica. O OCR não recebe o
+código de referência. Em Santos há leituras parciais como `155` e `42`; nenhum
+sufixo foi acrescentado e nenhum anúncio de código completo foi emitido.
+
+No playback final, foram observados aproximadamente 59,2/60,0/29,9 FPS exibidos
+em Santos A/B/São Paulo. A análise original de São Paulo tem mediana de cerca de
+347 ms por frame em CPU; a reprodução fluida é obtida depois do processamento.
+Ver [resultados e denominadores](docs/RESULTS.md) e [dados estruturados](reports/final-video-counts.json).
+
+## Tecnologias
+
+Python 3.11/3.12, PyTorch, Ultralytics YOLO11, PaddleOCR, OpenCV, FastAPI,
+Pydantic, pytest, Ruff e mypy. A demonstração desktop foi validada no macOS Apple M1,
+com Cocoa/AVFoundation para reprodução e `say`/Luciana para voz brasileira offline.
+FFmpeg gera os MP4s. O OCR usa modelos oficiais PP-OCRv5 e o adapter E3 do projeto.
+
+## Instalação
 
 ```sh
 git clone https://github.com/Caique-Chagas/sonar-vision.git
 cd sonar-vision
 python3.12 -m venv .venv
-source .venv/bin/activate
-python -m pip install '.[dev,report]'
-uvicorn sonar_vision.api.app:app --host 127.0.0.1 --port 8000
+.venv/bin/python -m pip install '.[dev,video]'
+.venv/bin/python -m pytest
 ```
 
-Abra **http://127.0.0.1:8000**, escolha **Simulação** e informe `971D-10`.
-Esse modo funciona sem pesos e demonstra MATCH, NON_MATCH e UNCERTAIN com cenas
-artificiais. Ele não comprova reconhecimento real desses códigos por YOLO/OCR.
-A voz depende do navegador, das vozes instaladas e de interação do usuário.
-
-No Windows, use `py -3.12 -m venv .venv` e `.venv\Scripts\activate`.
-Após alterar o código, reinstale com `python -m pip install --no-deps .`.
-
-### Inferência real
+Para inferência real, instale os componentes opcionais e os dois pesos finais:
 
 ```sh
-python -m pip install '.[vision,paddle]'
-python scripts/download_model.py
-SONAR_VIDEO_HOSTS=upload.wikimedia.org uvicorn sonar_vision.api.app:app --host 127.0.0.1 --port 8000
+.venv/bin/python -m pip install '.[vision,paddle]'
+.venv/bin/python scripts/download_runtime_models.py
 ```
 
-O script baixa os pesos da release e verifica SHA-256 antes de instalar em
-`models/best.pt`. Os parâmetros numéricos são idênticos aos do piloto; somente
-caminhos locais dos metadados foram normalizados para distribuição.
-[Procedência, hashes e limitações do modelo](docs/MODEL_CARD.md).
-O PaddleOCR obtém seus modelos oficiais no primeiro uso.
+Os modelos oficiais do PaddleOCR são obtidos na primeira inicialização; depois
+podem ser usados em cache. Nenhuma chave Roboflow é necessária para o runtime.
+Pesos BR V1/V3, checksums e licença estão na
+[release v0.2.0-fiap](https://github.com/Caique-Chagas/sonar-vision/releases/tag/v0.2.0-fiap).
+A exportação remove metadados locais e mantém todos os tensores idênticos.
 
-A API aceita URL **HTTPS direta** MP4/WebM/AVI/MJPEG, porta 443, em host autorizado.
-Páginas YouTube, HLS, RTSP e webcam não são suportados neste MVP. A CLI aceita arquivo local:
+## Execução
+
+**O clone não contém os três vídeos privados nem os caches de inferência.** Os
+comandos desktop abaixo precisam de preparação adicional; não funcionam
+imediatamente apenas com `git clone`. No Mac do desenvolvimento, os três perfis
+já estão preparados. Para outro ambiente, use vídeos próprios/autorizados e siga
+[REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md), sem refazer treinamento.
 
 ```sh
-sonar-vision infer --local --source amostra-autorizada.mp4 --route 971D-10 --max-frames 100
+./scripts/demo_final.sh
+./scripts/demo_final.sh sao-paulo
+./scripts/demo_final.sh santos-a
+./scripts/demo_final.sh santos-b
+./scripts/demo_final.sh all
+./scripts/demo_final.sh --mute
 ```
 
-Uma fonte pública utilizada somente para testar transporte foi
-[Road traffic in Ljubljana, Sounds of Changes, CC BY 3.0](https://commons.wikimedia.org/wiki/File:Road_traffic_in_Ljubljana.webm).
-Nela não houve código confirmado. URLs e formatos têm limites documentados em
-[arquitetura](docs/ARCHITECTURE.md); uma página web não é necessariamente um stream.
+M alterna áudio; ESPAÇO pausa; R reinicia; N troca; 1/2/3 selecionam perfis;
+S salva o frame; Q/ESC fecha. `--audio` habilita voz. O modo padrão é `presentation`;
+`--mode live` preserva a execução ao vivo para perfis locais configurados.
+Um novo vídeo pode produzir resultados diferentes ou nenhum código estável.
 
-## Treinamento customizado e dados
-
-O treinamento foi **realmente executado**, e não substituído por inferência COCO.
-YOLO11n foi inicializado com pesos oficiais e ajustado à classe `destination_sign`,
-remapeada de **Bus Line Number**, no
-[Bangkok-Bus-Dataset, SAINT70239, CC BY 4.0](https://universe.roboflow.com/saint70239/bangkok-bus-dataset).
-
-| Configuração | Experimento |
-| --- | --- |
-| Dados | 120 famílias de fotografias, uma versão publicada por família |
-| Divisão | 84 treino / 18 validação / 18 teste |
-| Modelo | YOLO11n, 12 épocas, 416 px, batch 4, seed 42 |
-| Hardware | Apple M1, MPS, 8 GiB RAM |
-| Seleção | Melhor modelo pela validação; avaliação reservada separada |
-| Evidências | [Configuração](configs/pilot.yaml), [CSV](reports/training/results.csv), [gráficos](reports/training/results.png), [execução](reports/training/evidence.json) |
-
-O YAML original usava as mesmas imagens em treino/validação/teste e foi substituído.
-O preparador verifica labels, hashes e duplicatas entre divisões. Não existem IDs
-confiáveis de veículo/sequência: separar famílias não comprova independência por
-ônibus. Aumentações anteriores do publicador continuam presentes.
+A API/interface pode ser executada sem mídia privada, em modo de simulação
+explicitamente identificado:
 
 ```sh
-python scripts/download_bangkok_sample.py --count 120
-sonar-vision prepare --manifest data/bangkok-pilot-raw/manifest.csv --output data/bangkok-pilot
-sonar-vision train --data data/bangkok-pilot/data.yaml --config configs/pilot.yaml --output artifacts/training/smoke --smoke --device mps
-sonar-vision train --data data/bangkok-pilot/data.yaml --config configs/pilot.yaml --output artifacts/training/pilot --device mps
-sonar-vision evaluate --data data/bangkok-pilot/data.yaml --weights artifacts/training/pilot/run/weights/best.pt --output reports/new-evaluation --device mps
+.venv/bin/uvicorn sonar_vision.api.app:app --host 127.0.0.1 --port 8000
 ```
 
-Em GPU CUDA, troque `--device mps` por `--device 0`. Treino completo em CPU é
-recusado. Não é necessário baixar vídeos manualmente. Diretórios existentes são
-preservados; use outros nomes para novos experimentos.
-[Metodologia e Colab](docs/TRAINING.md) · [Fontes e licenças](docs/DATA_SOURCES.md).
+Abra `http://127.0.0.1:8000`. Upload real de fotografia/MP4 exige pesos e dependências
+opcionais. Simulação e fixtures não são evidência de reconhecimento real.
 
-## Resultados verificáveis e limites
+## Testes
 
-| Avaliação | Resultado | Limite |
-| --- | --- | --- |
-| Detector — 18 imagens / 17 caixas de teste | Precision **0,9358**; recall **0,4706**; mAP50 **0,6439**; mAP50–95 **0,2884** | Dados estrangeiros; IDs de sequência desconhecidos |
-| OCR — 9 recortes legíveis | **8/9 exatos (88,9%)** | Outros 8/17 recortes excluídos; transcrição preliminar com assistência de IA |
-| Integração — 18 imagens completas | 6 regiões detectadas e 6 chamadas OCR | Frames isolados; nenhum consenso temporal foi fabricado |
-| Vídeo estrangeiro completo | 193 frames processados; nenhum letreiro detectado | Não comprova OCR/identificação de linha em vídeo |
-| Identificação brasileira por encontro / falso positivo / rejeição | **NÃO MEDIDA** | Falta conjunto temporal brasileiro independente com ground truth |
-
-[Detector](reports/evaluation/detector_metrics.json) ·
-[OCR e denominadores](reports/evaluation/ocr_metrics.json) ·
-[Integração](reports/evaluation/pipeline_stills.json) ·
-[Limitações e validação](docs/VALIDATION.md).
-
-O recall é limitado; limiares temporais não foram calibrados para operação.
-Scores não são probabilidades calibradas. Avisos de operações MPS não determinísticas
-impedem prometer reprodução bit a bit, apesar das sementes e versões registradas.
-A documentação registra desenvolvimento e transcrições preliminares com assistência
-de IA, sem atribuir contribuições individuais que não foram documentadas.
-
-## Testes e API
+Baseline local validado: **472 testes em Python 3.11 e 3.12**. A seleção pública
+preserva 464 testes de aplicação; oito testes de diário/auditoria interna não são
+publicados. Cinco regressões adicionais verificam o download dos pesos finais:
+**469 testes públicos**. Não houve desativação de testes para ocultar falhas.
 
 ```sh
-python -m pytest
-ruff check .
-ruff format --check src scripts tests notebooks
-mypy src
-python scripts/verify.py
+.venv/bin/python -m pytest
+.venv/bin/ruff check .
+.venv/bin/ruff format --check src scripts tests notebooks sonar_br
+.venv/bin/mypy src
+.venv/bin/python -m pip check
 ```
 
-A suíte de publicação contém **108 testes** (104 do piloto e quatro de integridade do download). Ela verifica software e casos de falha com backends
-substituídos quando apropriado; não representa precisão de visão.
-[Relatório de QA](docs/QA_REPORT.md) · [Resultados automatizados](reports/qa-results.json).
+A CI testa software com fixtures pequenas, sem vídeos privados, pesos, tokens ou
+modelos ML. Os testes não estimam a acurácia da visão. Ver [QA](docs/QA_REPORT.md).
 
-| Endpoint | Finalidade |
-| --- | --- |
-| `GET /health` | Disponibilidade e presença do modelo |
-| `POST /api/sessions` | Iniciar análise real ou simulada com limites |
-| `GET /api/sessions/{id}` | Estado, eventos e desempenho |
-| `DELETE /api/sessions/{id}` | Cancelar |
-| `GET /api/sessions/{id}/frame` | Último frame da demonstração |
-| `GET /api/sessions/{id}/events` | Eventos JSON sem imagens |
-| `GET /api/sessions/{id}/legacy` | Adaptação ao contrato SONAR |
+## Documentação acadêmica
 
-Documentação local em `http://127.0.0.1:8000/docs`.
-O serviço usa localhost, valida fontes para reduzir SSRF e limita bytes, FPS,
-frames, duração, sessões e fila. Não oferece autenticação para exposição pública.
+[PDF oficial](reports/SONAR_VISION_FIAP.pdf): 14 páginas, versão revisada de 19/11/2026 fornecida pelo grupo,
+com integrantes/RMs conferidos. A expressão solicitada foi removida no documento
+revisado; o PDF não foi reescrito nesta publicação. A apresentação narrada é enviada separadamente pelo aluno à FIAP.
+[Arquitetura](docs/ARCHITECTURE.md) · [Treinamento](docs/TRAINING.md) ·
+[Resultados](docs/RESULTS.md) · [Modelos](docs/MODEL_CARD.md) ·
+[Mapa de publicação](docs/PUBLICATION_MAP.md).
 
-## Materiais acadêmicos e integrantes
+## Limitações
 
-- [Relatório em PDF](reports/SONAR_VISION_FIAP.pdf) e [fonte Markdown](docs/REPORT.md).
-- [Vídeo narrado — 2min29s](https://github.com/Caique-Chagas/sonar-vision/raw/refs/heads/main/artifacts/demo/pilot-narrated.mp4), [legendas](artifacts/demo/pilot-narrated.srt), [transcrição](docs/VIDEO_NARRATION.md) e [créditos](artifacts/demo/pilot-narrated.credits.txt).
-- [Gravação da interface simulada](artifacts/demo/simulation-browser.webm).
-- [Roteiro e reprodução dos materiais](docs/DEMO_VIDEO.md).
+- Validação geral em novos veículos e encontros ainda limitada; amostras pequenas.
+- `CODE_STABLE` é consenso textual, não verificação operacional de linha.
+- Playback pré-processado não comprova inferência em tempo real.
+- Integração operacional completa com SPTrans e condições de embarque não demonstradas.
+- Iluminação, ângulo, distância, reflexos, LED e resolução afetam o resultado.
+- Persistem perdas momentâneas de detecção; não são preenchidas com caixas fictícias.
+- O relatório registra escuta informal pelo usuário; falta estudo assistivo com usuários.
+- Reproduzir exatamente as contagens dos vídeos privados requer os mesmos dados,
+  indisponíveis neste clone. Código, configurações, pesos e testes estão disponíveis.
 
-O vídeo mostra treino, inferência real em imagem estrangeira e interface identificada
-como simulação. Não demonstra confirmação de linha brasileira em movimento.
-A voz sintetizada do vídeo não comprova a voz do navegador; revisão acústica,
-legendas e tecnologias assistivas ainda precisam de avaliação humana.
+## Integrantes
 
-| Integrante | RM |
-| --- | --- |
+| Nome | RM |
+|---|---|
 | Caique Chagas Nitta | 551943 |
 | Rodrigo Resende Viana | 551057 |
 | Gabriel Torres Luiz | 98600 |
 | Otavio Vitoriano Da Silva | 552012 |
 | Eduardo Fedeli | 550132 |
 
-Professores: **Arnaldo Viana e Paulo Rodrigues**. Prazo informado no briefing:
-**19/11/2026, 23h55, horário de São Paulo**.
-
-## Licença e integridade
-
-Código sob [AGPL-3.0-only](LICENSE). O dataset Bangkok mantém CC BY 4.0; mídias
-Wikimedia mantêm suas licenças e créditos. O código de terceiros do espelho do
-dataset não foi incorporado. [Referências e licenças](docs/REFERENCES.md).
-
-Dados completos e pesos não são versionados no Git. Os pesos distribuídos estão
-na release; seu hash e a identidade dos tensores estão documentados no model card.
-As evidências públicas têm somente caminhos locais normalizados e metadados de
-máquina removidos, sem alterar resultados. `reports/SHA256SUMS` permite conferir
-os materiais com `python scripts/verify_artifacts.py`.
+Código e pesos distribuídos sob [AGPL-3.0-only](LICENSE). Fotografias/figuras têm
+licenças próprias indicadas nos [créditos](docs/ASSET_CREDITS.md); não são relicenciadas
+como código. Nenhum material implica endosso dos autores ao protótipo.
