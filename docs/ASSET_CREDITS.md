@@ -1,6 +1,6 @@
 # Créditos das evidências visuais
 
-`assets/ocr-campinas.jpg`: Fasouzafreitas,
+`assets/ocr-campinas.jpg`(saída anotada) e `../examples/campinas.jpg`(entrada semcaixas): Fasouzafreitas,
 [Embarque pelo lado esquerdo–Campinas](https://commons.wikimedia.org/wiki/File:Embarque_pelo_lado_esquerdo_-_Campinas_-_SP.JPG),
 [CC BY-SA3.0](https://creativecommons.org/licenses/by-sa/3.0/).
 Alterações: redimensionamento, caixa efetivamente prevista peloBRV1 e legendas do

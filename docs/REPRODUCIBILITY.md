@@ -53,6 +53,20 @@ numéricas podem ocorrer. Para repetir o ambiente ML específico, instale essas
 versões. PaddleOCR pode baixar seus modelos oficiais na primeira execução;
 execução offline exige cache já instalado. Não é necessário refazer treino.
 
+## Inferência real em exemplo permitido
+
+O clone inclui `examples/campinas.jpg`,fotoCC BY-SA3.0sem anotações. Depois dos
+pesos/dependênciasML, execute sem fornecer texto esperado ou caixa manual:
+
+```sh
+.venv/bin/python scripts/analyze_photo.py --image examples/campinas.jpg --output artifacts/photo-example
+```
+
+O resultado contém caixa prevista,ROI,OCRbruto eJSON. É fotografia estática conhecida,
+não consenso emvídeo nem evidência independente de generalização. Fonte/créditos em
+[examples/README.md](../examples/README.md). O output deve ser novo para preservar
+experimentos anteriores. A figura anotada doREADME não é entrada do OCR.
+
 ## Preparar vídeos próprios ou autorizados
 
 A apresentação desktop com voz foi validada emmacOS AppleM1, com OpenCV Cocoa,

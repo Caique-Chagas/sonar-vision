@@ -130,6 +130,13 @@ Pesos BR V1/V3, checksums e licença estão na
 [release v0.2.0-fiap](https://github.com/Caique-Chagas/sonar-vision/releases/tag/v0.2.0-fiap).
 A exportação remove metadados locais e mantém todos os tensores idênticos.
 
+Para executar uma inferência estática real no exemplo licenciado, após instalar
+os pesos e componentes ML:
+
+```sh
+.venv/bin/python scripts/analyze_photo.py --output artifacts/photo-example
+```
+
 ## Execução
 
 **O clone não contém os três vídeos privados nem os caches de inferência.** Os
