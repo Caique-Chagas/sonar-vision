@@ -3,11 +3,11 @@
 Baseline do desenvolvimento:472testes emPython3.11/3.12,com execução nativa dos
 três vídeos e do áudio no macOS. A seleção acadêmica preserva464testes de aplicação;
 7testes de diário e1de inventário local foram mantidos somente no desenvolvimento.
-Cinco regressões novas verificam download verificado e recontagem das evidências:
-**469testes públicos**, sem pesos ou vídeos privados na CI.
+Sete regressões novas verificam download verificado e recontagem das evidências:
+**471testes públicos**, sem pesos ou vídeos privados na CI.
 
 Ambiente limpoPython3.12 criado para a publicação,instalação normal de`.[dev,video]`.
-Pytest469aprovados;Ruff/formato,mypy76fontes e pipcheck exigidos. Python3.11também
+Pytest471aprovados;Ruff/formato,mypy76fontes e pipcheck exigidos. Python3.11também
 é verificado na matriz da CI e localmente. Os resultados efetivos desta publicação
 são registrados em [release-validation.json](../reports/release-validation.json).
 Uma advertênciaStarlette/httpx não impediu os testes; não se alega erro zero de dependências

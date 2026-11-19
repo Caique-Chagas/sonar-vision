@@ -2,6 +2,7 @@
 
 import argparse
 import json
+import shutil
 from pathlib import Path
 
 from sonar_vision.desktop.presentation import BR
@@ -22,6 +23,7 @@ def main():
     image = decode_photograph(args.image)
     analyzer = create_demo_analyzer(args.weights, 640, static=True)
     args.output.mkdir(parents=True)
+    shutil.copyfile(args.image, args.output / "source-image")
     report = analyze_photograph(image, args.output, analyzer)
     (args.output / "report.json").write_text(
         json.dumps(report, indent=2, ensure_ascii=False) + "\n"

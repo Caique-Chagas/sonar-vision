@@ -5,8 +5,7 @@
 Versão fornecida pelo grupo, datada de19/11/2026,14páginas. Inclui problema,
 objetivo, ferramentas, dados, anotações/splits, treinamentoBangkok/BRV1/BRV2/V3,
 OCR, composição final, avaliação temporal, saída de voz, resultados e limitações.
-Cinco integrantes/RMs conferidos. O documento revisado não contém a expressão
-removida a pedido do usuário. PDF copiado byte a byte, sem regenerar diagramas.
+Cinco integrantes/RMs conferidos. PDF copiado byte a byte, sem regenerar diagramas.
 
 [Identidade e checksum](../reports/official-document.json). A fonte editorialWord
 não integra esta publicação. O Markdown histórico anterior não é apresentado

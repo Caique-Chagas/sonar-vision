@@ -173,8 +173,8 @@ opcionais. Simulação e fixtures não são evidência de reconhecimento real.
 
 Baseline local validado: **472 testes em Python 3.11 e 3.12**. A seleção pública
 preserva 464 testes de aplicação; oito testes de diário/auditoria interna não são
-publicados. Cinco regressões adicionais verificam o download dos pesos finais:
-**469 testes públicos**. Não houve desativação de testes para ocultar falhas.
+publicados. Sete regressões adicionais verificam o download dos pesos finais:
+**471 testes públicos**. Não houve desativação de testes para ocultar falhas.
 
 ```sh
 .venv/bin/python -m pytest
@@ -189,9 +189,8 @@ modelos ML. Os testes não estimam a acurácia da visão. Ver [QA](docs/QA_REPOR
 
 ## Documentação acadêmica
 
-[PDF oficial](reports/SONAR_VISION_FIAP.pdf): 14 páginas, versão revisada de 19/11/2026 fornecida pelo grupo,
-com integrantes/RMs conferidos. A expressão solicitada foi removida no documento
-revisado; o PDF não foi reescrito nesta publicação. A apresentação narrada é enviada separadamente pelo aluno à FIAP.
+[PDF oficial](reports/SONAR_VISION_FIAP.pdf): 14 páginas, versão revisada de 19/11/2026 fornecida pelo grupo.
+Integrantes/RMs conferidos e arquivo publicado sem alterações. A apresentação narrada é enviada separadamente pelo aluno à FIAP.
 [Arquitetura](docs/ARCHITECTURE.md) · [Treinamento](docs/TRAINING.md) ·
 [Resultados](docs/RESULTS.md) · [Modelos](docs/MODEL_CARD.md) ·
 [Mapa de publicação](docs/PUBLICATION_MAP.md).

@@ -67,3 +67,47 @@ def test_published_counts_are_recomputed_from_actual_evidence():
             sum(r["audio_event"] is not None for r in rows),
         ) == wanted
         assert all(not r["line_verified"] for r in rows)
+
+
+def test_desktop_launcher_is_part_of_the_delivery():
+    launcher = Path("scripts/demo_final.sh")
+    assert launcher.is_file() and launcher.stat().st_mode & 0o100
+
+
+def test_photo_command_preserves_source_and_produces_a_report(tmp_path, monkeypatch):
+    import json
+    import sys
+    from types import SimpleNamespace
+
+    import cv2
+    import numpy as np
+
+    spec = importlib.util.spec_from_file_location("photo_command", Path("scripts/analyze_photo.py"))
+    command = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(command)
+    source = tmp_path / "source.png"
+    cv2.imwrite(str(source), np.zeros((64, 96, 3), dtype=np.uint8))
+    weights = tmp_path / "fixture.pt"
+    weights.write_bytes(b"SOFTWARE FIXTURE ONLY")
+    target = tmp_path / "output"
+    original = source.read_bytes()
+
+    class Analyzer:
+        static = True
+        detector = SimpleNamespace(model_version="software-fixture")
+
+        def analyze(self, image):
+            return image.copy(), dict(findings=[], state="UNCERTAIN")
+
+    monkeypatch.setattr(command, "create_demo_analyzer", lambda *a, **kw: Analyzer())
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        ["photo", "--image", str(source), "--weights", str(weights), "--output", str(target)],
+    )
+    command.main()
+    report = json.loads((target / "report.json").read_text())
+    assert report["source_sha256"] == hashlib.sha256(original).hexdigest()
+    assert (target / "source-image").read_bytes() == original == source.read_bytes()
+    with pytest.raises(SystemExit):
+        command.main()

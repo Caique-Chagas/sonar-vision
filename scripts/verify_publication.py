@@ -24,6 +24,13 @@ def main():
         ["git", "ls-files", "--cached"], cwd=ROOT, text=True
     ).splitlines()
     errors = []
+    required = {
+        "scripts/demo_final.sh",
+        "reports/SONAR_VISION_FIAP.pdf",
+        "reports/runtime-models.json",
+        "README.md",
+    }
+    errors.extend("Required file not tracked: " + p for p in sorted(required - set(paths)))
     total = 0
     for name in paths:
         path = ROOT / name
